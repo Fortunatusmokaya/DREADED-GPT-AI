@@ -55,7 +55,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
     let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
 
     if (isCmd2 && !m.isGroup) {
-      console.log(chalk.black(chalk.bgWhite("[ LOGS ]")), color(argsLog, "turquoise"), chalk.magenta("From"), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`));
+      console.log(chalk.black(chalk.bgWhite("[ DREADED-AI ]")), color(argsLog, "turquoise"), chalk.magenta("From"), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`));
     } else if (isCmd2 && m.isGroup) {
       console.log(
         chalk.black(chalk.bgWhite("[ LOGS ]")),
@@ -72,20 +72,20 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
       switch (command) {
         case "help":
         case "menu":
-          m.reply(`*Whatsapp Bot OpenAI*
+          m.reply(`Whatsapp Bot AI
             
-*(ChatGPT)*
+CHATGPT CHATBOT
 Cmd: ${prefix}ai 
-Tanyakan apa saja kepada AI. 
+This is for machine based AI responses in form of text. 
 
-*(DALL-E)*
+AI-GENERATED IMAGE
 Cmd: ${prefix}img
-Membuat gambar dari teks`)
+This will produce ai-based image according to your query`)
           break;
         case "ai": case "openai": 
           try {
-            if (setting.keyopenai === "ISI_APIKEY_OPENAI_DISINI") return reply("Apikey belum diisi\n\nSilahkan isi terlebih dahulu apikeynya di file key.json\n\nApikeynya bisa dibuat di website: https://beta.openai.com/account/api-keys");
-            if (!text) return reply(`Chat dengan AI.\n\nContoh:\n${prefix}${command} Apa itu resesi`);
+            if (setting.keyopenai === "ISI_APIKEY_OPENAI_DISINI") return reply("I need an openAi API key");
+            if (!text) return reply(`This is Dreaded AI chatbot using Chatgpt API to create almost natural language response to your queries\n\nExample:\n${prefix}${command} Write for me a poem about money`);
             const configuration = new Configuration({
               apiKey: setting.keyopenai,
             });
@@ -108,14 +108,14 @@ Membuat gambar dari teks`)
             console.log(`${error.response.status}\n\n${error.response.data}`);
           } else {
             console.log(error);
-            m.reply("Maaf, sepertinya ada yang error :"+ error.message);
+            m.reply("An error has occurred  :"+ error.message);
           }
         }
           break;
         case "img": case "ai-img": case "image": case "images":
           try {
-            if (setting.keyopenai === "ISI_APIKEY_OPENAI_DISINI") return reply("Apikey belum diisi\n\nSilahkan isi terlebih dahulu apikeynya di file key.json\n\nApikeynya bisa dibuat di website: https://beta.openai.com/account/api-keys");
-            if (!text) return reply(`Membuat gambar dari AI.\n\nContoh:\n${prefix}${command} Wooden house on snow mountain`);
+            if (setting.keyopenai === "ISI_APIKEY_OPENAI_DISINI") return reply("I need an openAi API key");
+            if (!text) return reply(`This will generate an AI-BASED IMAGE according to your query AI.\n\nExample:\n${prefix}${command} black mercedez car`);
             const configuration = new Configuration({
               apiKey: setting.keyopenai,
             });
@@ -134,7 +134,7 @@ Membuat gambar dari teks`)
             console.log(`${error.response.status}\n\n${error.response.data}`);
           } else {
             console.log(error);
-            m.reply("Maaf, sepertinya ada yang error :"+ error.message);
+            m.reply("An error has occurred:"+ error.message);
           }
         }
           break;

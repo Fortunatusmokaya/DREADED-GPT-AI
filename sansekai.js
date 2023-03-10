@@ -72,7 +72,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
       switch (command) {
         case "help":
         case "menu":
-          m.reply(`Whatsapp Bot AI
+          m.reply(`DREADED CHATBOT AI
             
 CHATGPT CHATBOT
 Cmd: ${prefix}ai 

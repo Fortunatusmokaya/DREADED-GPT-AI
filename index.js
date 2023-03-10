@@ -1,6 +1,6 @@
 const sessionName = "yusril";
-const donet = "https://saweria.co/sansekai";
-const owner = ["6287878817169"]; // Put your number here ex: ["62xxxxxxxxx"]
+const donet = "https://github.com/Fortunatusmokaya";
+const owner = ["254114018035"]; // Put your number here ex: ["62xxxxxxxxx"]
 const {
   default: sansekaiConnect,
   useMultiFileAuthState,
@@ -152,7 +152,7 @@ async function startHisoka() {
   const client = sansekaiConnect({
     logger: pino({ level: "silent" }),
     printQRInTerminal: true,
-    browser: ["Wa-OpenAI - Sansekai", "Safari", "5.1.7"],
+    browser: ["CHATGPT - DREADED", "Safari", "5.1.7"],
     auth: state,
   });
 
@@ -278,10 +278,10 @@ async function startHisoka() {
         startHisoka();
       }
     } else if (connection === "open") {
-      console.log(color("Bot success conneted to server", "green"));
-      console.log(color("Donate for creator https://saweria.co/sansekai", "yellow"));
+      console.log(color("Bot successfully connected to server", "green"));
+      console.log(color("Follow me on GitHub as Fortunatusmokaya", "yellow"));
       console.log(color("Type /menu to see menu"));
-      client.sendMessage(owner + "@s.whatsapp.net", { text: `Bot started!\n\njangan lupa support ya bang :)\n${donet}` });
+      client.sendMessage(owner + "@s.whatsapp.net", { text: `Bot started!\n\nDreaded :)\n${donet}` });
     }
     // console.log('Connected...', update)
   });

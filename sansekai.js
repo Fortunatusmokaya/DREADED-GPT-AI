@@ -75,14 +75,14 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
           m.reply(`DREADED CHATBOT AI
             
 CHATGPT CHATBOT
-Cmd: ${prefix}ai 
+Cmd: ${prefix}g
 This is for machine based AI responses in form of text. 
 
 AI-GENERATED IMAGE
 Cmd: ${prefix}img
 This will produce ai-based image according to your query`)
           break;
-        case "ai": case "openai": 
+        case "g": case "openai": 
           try {
             if (setting.keyopenai === "ISI_APIKEY_OPENAI_DISINI") return reply("I need an openAi API key");
             if (!text) return reply(`This is Dreaded AI chatbot using Chatgpt API to create almost natural language response to your queries\n\nExample:\n${prefix}${command} Write for me a poem about money`);

@@ -278,9 +278,9 @@ async function startHisoka() {
         startHisoka();
       }
     } else if (connection === "open") {
-      console.log(color("Bot successfully connected to server", "green"));
-      console.log(color("Follow me on GitHub as Fortunatusmokaya", "yellow"));
-      console.log(color("Type /menu to see menu"));
+      console.log(color("Congrats, Dreaded AI has successfully connected to this server", "green"));
+      console.log(color("Follow me on GitHub as Fortunatusmokaya", "red"));
+      console.log(color("Text the bot number with !menu to check my command list"));
       client.sendMessage(owner + "@s.whatsapp.net", { text: `Bot started!\n\nDreaded OpenAi :)\n${donet}` });
     }
     // console.log('Connected...', update)

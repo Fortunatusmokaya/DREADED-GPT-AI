@@ -1,8 +1,8 @@
-const sessionName = "yusril";
+const sessionName = "dreaded1";
 const donet = "https://github.com/Fortunatusmokaya";
 const owner = ["254114018035"]; // Put your number here ex: ["62xxxxxxxxx"]
 const {
-  default: sansekaiConnect,
+  default: dreadedConnect,
   useMultiFileAuthState,
   DisconnectReason,
   fetchLatestBaileysVersion,
@@ -281,7 +281,7 @@ async function startHisoka() {
       console.log(color("Bot successfully connected to server", "green"));
       console.log(color("Follow me on GitHub as Fortunatusmokaya", "yellow"));
       console.log(color("Type /menu to see menu"));
-      client.sendMessage(owner + "@s.whatsapp.net", { text: `Bot started!\n\nDreaded :)\n${donet}` });
+      client.sendMessage(owner + "@s.whatsapp.net", { text: `Bot started!\n\nDreaded OpenAi :)\n${donet}` });
     }
     // console.log('Connected...', update)
   });

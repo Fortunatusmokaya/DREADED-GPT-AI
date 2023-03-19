@@ -1,46 +1,35 @@
-# Wa-OpenAI
+# DREADED-AI USING OPENAI
 
-***WhatsApp OpenAI Create with NodeJS Using Library [Baileys](https://github.com/adiwajshing/Baileys)***
+***This bot is created with the help of NodeJS and uses [Baileys](https://github.com/adiwajshing/Baileys)***
 
-## BACA DULU
-Terdapat 2 fitur yaitu ```ChatGPT(text)``` dan ```DALL-E(Text To Image).```<br>Untuk commandnya menggunakan ```/ai``` dan ```/img```
+## FEATURES
+There are 2 features, getting an AI response to your query by using the command ```!g``` and getting an AI generated image by using the command ```!img```
 
-## Get & Change OpenAI ApiKey
-- Silakan buat apikeynya terlebih dahulu [Disini](https://beta.openai.com/account/api-keys)
-- Ganti ApiKey OpenAI pada file [key.json](https://github.com/Sansekai/Wa-OpenAI/blob/844f41c362250bed10857443c013cbb454807e87/key.json#L2)
+## Find  OpenAI ApiKey and Change it in Key.json
+- Get openAi key [Here](https://beta.openai.com/account/api-keys) and paste it where relevant!
 
-## Install
-**Install on RDP/Windows ✅**
 
-Install [NodeJS](https://nodejs.org/en/download/)
- dan [Git Bash](https://git-scm.com/downloads) terlebih dahulu
-```bash
-$ git clone https://github.com/Sansekai/Wa-OpenAI
-$ cd Wa-OpenAI
-$ npm install
-$ node index.js
-```
-**Install on Termux ✅**
+**Install Via Termux ✅**
 
-Silakan install manual ```node_modules``` terlebih dahulu, karena di termux saat install otomatis melalui ```npm install``` terjadi error.
-<br>Link ```node_modules```: [Klik Disini](https://drive.google.com/file/d/1xgRIwDVuTklxwdtsx933WfmzqtRxEsGV/view?usp=share_link)
+Manually install ```node_modules``` or use the command ```npm install``` to install them although you may get error if your terminal is not well configured.
+<br>Link ```node_modules```: [Click Here to get node_modules](https://drive.google.com/file/d/1xgRIwDVuTklxwdtsx933WfmzqtRxEsGV/view?usp=share_link)
 ```bash
 $ pkg install git nodejs -y
-$ git clone https://github.com/Sansekai/Wa-OpenAI
+$ git clone https://github.com/Fortunatusmokaya/DREADED-AI
 $ cd Wa-OpenAI
+If you did not install the node modules manually then proceed with the command below.
+$ npm install
 ```
-Sesudah menginstall file node_modules, silahkan extract file ```node_modules.zip``` dan taruh di folder Wa-OpenAI.
+Extract contents of node_modules, from ```node_modules.zip``` to the folder DREADED-AI.
 
 **Run**
 ```bash
 $ node index.js
 ```
 
-## Donate
-<a href="https://saweria.co/Sansekai" target="_blank"><img src="https://user-images.githubusercontent.com/26188697/180601310-e82c63e4-412b-4c36-b7b5-7ba713c80380.png" alt="Donate For Yusril" height="41" width="174"></a>
 
 ## License
 [MIT License](https://github.com/Sansekai/Wa-OpenAI/blob/main/LICENSE)
 
-Copyright (c) 2022 M Yusril
+Copyright (c) 2023 Dreaded Ai-ChatGpt
 

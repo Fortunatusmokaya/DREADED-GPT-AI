@@ -149,7 +149,7 @@ async function startHisoka() {
     )
   );
 
-  const client = sansekaiConnect({
+  const client = dreadedConnect({
     logger: pino({ level: "silent" }),
     printQRInTerminal: true,
     browser: ["CHATGPT - DREADED", "Safari", "5.1.7"],
@@ -168,7 +168,7 @@ async function startHisoka() {
       if (!client.public && !mek.key.fromMe && chatUpdate.type === "notify") return;
       if (mek.key.id.startsWith("BAE5") && mek.key.id.length === 16) return;
       m = smsg(client, mek, store);
-      require("./sansekai")(client, m, chatUpdate, store);
+      require("./dreaded")(client, m, chatUpdate, store);
     } catch (err) {
       console.log(err);
     }
@@ -265,7 +265,7 @@ async function startHisoka() {
         console.log("Connection Replaced, Another New Session Opened, Please Restart Bot");
         process.exit();
       } else if (reason === DisconnectReason.loggedOut) {
-        console.log(`Device Logged Out, Please Delete Folder Session yusril and Scan Again.`);
+        console.log(`Device Logged Out, Please Delete File creds.json and Scan Again.`);
         process.exit();
       } else if (reason === DisconnectReason.restartRequired) {
         console.log("Restart Required, Restarting...");

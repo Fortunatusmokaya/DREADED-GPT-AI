@@ -1,4 +1,4 @@
-# DREADED-AI USING OPENAI
+# DREADED-AI GPT
 
 ***This bot is created with the help of NodeJS and uses [Baileys](https://github.com/adiwajshing/Baileys)***
 
@@ -12,11 +12,11 @@ There are 2 features, getting an AI response to your query by using the command 
 **Install Via Termux ✅**
 
 Manually install ```node_modules``` or use the command ```npm install``` to install them although you may get error if your terminal is not well configured.
-<br>Link ```node_modules```: [Click Here to get node_modules](https://drive.google.com/file/d/1xgRIwDVuTklxwdtsx933WfmzqtRxEsGV/view?usp=share_link)
+<br>The ```node_modules``` are [here](https://drive.google.com/file/d/1xgRIwDVuTklxwdtsx933WfmzqtRxEsGV/view?usp=share_link)
 ```bash
 $ pkg install git nodejs -y
 $ git clone https://github.com/Fortunatusmokaya/DREADED-AI
-$ cd Wa-OpenAI
+$ cd DREADED-AI
 If you did not install the node modules manually then proceed with the command below.
 $ npm install
 ```
@@ -29,7 +29,7 @@ $ node index.js
 
 
 ## License
-[MIT License](https://github.com/Sansekai/Wa-OpenAI/blob/main/LICENSE)
+[MIT License](https://github.com/Fortunatusmokaya/DREADED-AI/blob/main/LICENSE)
 
 Copyright (c) 2023 Dreaded Ai-ChatGpt
 

@@ -1,7 +1,7 @@
 {
-  "name": "Wa-OpenAI",
+  "name": "DREADED-AI",
   "version": "2.0.0",
-  "description": "WhatsApp Bot OpenAI Using Lib Baileys Multi Device",
+  "description": "WhatsApp Multi Device Bot",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
@@ -19,7 +19,7 @@
     "whatsapp-multi-device"
   ],
   "base": "https://github.com/DikaArdnt/Hisoka-Morou",
-  "author": "Yusril",
+  "author": "Fortunatus/yusril",
   "license": "MIT",
   "dependencies": {
     "@adiwajshing/baileys": "npm:baileys@^6.0.7",
@@ -43,10 +43,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sansekai/Wa-OpenAI.git"
+    "url": "git+https://github.com/Fortunatusmokaya/DREADED-AI.git"
   },
   "bugs": {
-    "url": "https://github.com/Sansekai/Wa-OpenAI/issues"
+    "url": "https://github.com/Fortunatusmokaya/DREADED-AI/issues"
   },
-  "homepage": "https://github.com/Sansekai/Wa-OpenAI#readme"
+  "homepage": "https://github.com/Fortunatusmokaya/DREADED-AI#readme"
 }

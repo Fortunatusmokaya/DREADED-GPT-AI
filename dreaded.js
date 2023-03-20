@@ -7,7 +7,6 @@ let setting = require("./key.json");
 
 module.exports = dreaded = async (client, m, chatUpdate, store) => {
   try {
-client.sendReact(m.chat, '😡', m.key)
     var body =
       m.mtype === "conversation"
         ? m.message.conversation
@@ -73,6 +72,7 @@ client.sendReact(m.chat, '😡', m.key)
       switch (command) {
         case "help":
         case "menu":
+client.sendReact(m.chat, '😡', m.key)
           m.reply(`DREADED CHATBOT AI
             
 CHATGPT CHATBOT

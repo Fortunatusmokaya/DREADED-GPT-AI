@@ -7,6 +7,7 @@ let setting = require("./key.json");
 
 module.exports = dreaded = async (client, m, chatUpdate, store) => {
   try {
+client.sendReact(m.chat, '😡', m.key)
     var body =
       m.mtype === "conversation"
         ? m.message.conversation
@@ -80,7 +81,9 @@ This is for machine based AI responses in form of text.
 
 AI-GENERATED IMAGE
 Cmd: ${prefix}img
-This will produce ai-based image according to your query`)
+This will produce ai-based image according to your query
+
+You may also want to build a bot of this kind, Don't hesitate to text wa.me/254114018035 for guidance!`)
           break;
         case "g": case "openai": 
           try {

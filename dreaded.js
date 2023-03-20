@@ -140,9 +140,10 @@ You may also want to build a bot of this kind, Don't hesitate to text wa.me/2541
             m.reply("An error has occurred:"+ error.message);
           }
         }
+break;
   case 'attp': case 'ttp': {
            if (!text) throw `Example : ${prefix + command} text`
-           await dreaded.sendMedia(m.chat, `https://xteam.xyz/${command}?file&text=${text}`, 'dreaded', 'mokaya', m, {asSticker: true})
+           await hisoka.sendMedia(m.chat, `https://xteam.xyz/${command}?file&text=${text}`, 'dreaded', 'mokaya', m, {asSticker: true})
 
           break;
         default: {

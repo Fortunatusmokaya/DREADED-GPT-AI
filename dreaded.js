@@ -72,7 +72,7 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
       switch (command) {
         case "help":
         case "menu":
-client.sendReact(m.chat, '😡', m.key)
+
           m.reply(`DREADED CHATBOT AI
             
 CHATGPT CHATBOT

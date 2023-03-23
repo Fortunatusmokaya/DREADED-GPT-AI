@@ -73,17 +73,18 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
         case "help":
         case "menu":
 
-          m.reply(`DREADED CHATBOT AI
+          m.reply(`𝘿𝙍𝙀𝘼𝘿𝙀𝘿 𝘾𝙃𝘼𝙏𝘽𝙊𝙏 𝘼𝙄\n\nHello ${m.pushName}, This is 𝐷𝑟𝑒𝑎𝑑𝑒𝑑 𝐴𝑖 𝐶ℎ𝑎𝑡𝑏𝑜𝑡, A WhatsApp bot that uses OpenAi API to process natural language queries and present information through a WhatsApp chat\n\nNote that information presented is not 100% accurate!\n\nIt uses 2 commands as listed below!
             
-CHATGPT CHATBOT
-Cmd: ${prefix}g
+CHATBOT COMMANDS
+1) ${prefix}g
 This is for machine based AI responses in form of text. 
 
 AI-GENERATED IMAGE
-Cmd: ${prefix}img
+2) ${prefix}img
 This will produce ai-based image according to your query
 
-You may also want to build a bot of this kind, Don't hesitate to text wa.me/254114018035 for guidance!`)
+
+To deploy this kind of bot, Use the GitHub Repository below\n\nhttps://github.com/Fortunatusmokaya/DREADED-GPT-AI\n\nWant your own bot of this kind? Contact and message the numbers below:\n\nwa.me/+254114018035\n\nwa.me/+97693127111\n\nThank You 🤖`)
           break;
         case "g": case "openai": 
           try {

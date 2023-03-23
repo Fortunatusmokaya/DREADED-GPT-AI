@@ -5,7 +5,7 @@
 ## FEATURES
 There are 2 features, getting an AI response to your query by using the command ```!g``` and getting an AI generated image by using the command ```!img```
 
-## Find  OpenAI ApiKey and Change it in Key.json
+## Find  OpenAI ApiKey and Change it in dreaded.env
 - Get openAi key [Here](https://beta.openai.com/account/api-keys) and paste it where relevant!
 
 
@@ -31,5 +31,5 @@ $ node index.js
 ## License
 [MIT License](https://github.com/Fortunatusmokaya/DREADED-AI/blob/main/LICENSE)
 
-Copyright (c) 2023 Dreaded Ai-ChatGpt
+Copyright (c) 2023 Dreaded AI-ChatGpt
 

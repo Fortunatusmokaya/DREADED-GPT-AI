@@ -3,7 +3,7 @@ const fs = require("fs");
 const util = require("util");
 const chalk = require("chalk");
 const { Configuration, OpenAIApi } = require("openai");
-let setting = require("./key.json");
+let setting = require("./dreaded.env");
 
 module.exports = dreaded = async (client, m, chatUpdate, store) => {
   try {

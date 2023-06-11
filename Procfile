@@ -1,1 +1,1 @@
-worker: node index.js
+worker: node lib/runner/index.js

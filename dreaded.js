@@ -135,37 +135,53 @@ const response = await openai.createChatCompletion({
         case "help":
         case "menu":
 
-          m.reply(`Public bot under development.`)
+          m.reply(`This Public bot is under development.`)
           break;
         case "g": case "openai": 
           try {
-            if (setting.keyopenai === "ADD OPENAI API KEY") return reply("I need an openAi API key");
-            if (!text) return reply(`This is an AI chatbot using openai API to create almost natural language response.`);
-            const configuration = new Configuration({
+
+            if (!text) return reply("I need more text please. Make your query a bit longer.");
+
+           const configuration = new Configuration({
+
               apiKey: setting,
+
             });
+
             const openai = new OpenAIApi(configuration);
 
-            const response = await openai.createCompletion({
-              model: "text-davinci-003",
-              prompt: text,
-              temperature: 0, // Higher values means the model will take more risks.
-              max_tokens: 2048, // The maximum number of tokens to generate in the completion. Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
-              top_p: 1, // alternative to sampling with temperature, called nucleus sampling
-              frequency_penalty: 0.3, // Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
-              presence_penalty: 0 // Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
+            try {
+
+const response = await openai.createChatCompletion({
+
+          model: "gpt-3.5-turbo",
+
+          messages: [{role: "user", content: text}],
+
           });
-            m.reply(`${response.data.choices[0].text}`);
+
+          m.reply(`${response.data.choices[0].message.content}`);
+
           } catch (error) {
+
           if (error.response) {
+
             console.log(error.response.status);
+
             console.log(error.response.data);
+
             console.log(`${error.response.status}\n\n${error.response.data}`);
+
           } else {
+
             console.log(error);
-            m.reply("An error has occurred  :"+ error.message);
+
+            m.reply("I\'m Facing An Error:"+ error.message);
+
           }
-        }
+
+            }
+          
           break;
         case "img": case "ai-img": case "image": case "images":
           try {

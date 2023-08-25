@@ -138,7 +138,7 @@ const response = await openai.createChatCompletion({
           m.reply(`This Public bot is under development.`)
           break;
         case "g": case "openai": 
-          try {
+          
 
             if (!text) return reply("I need more text please. Make your query a bit longer.");
 

@@ -49,6 +49,9 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
        } 
        return admins || []; 
      };
+    const fortu = (m.quoted || m); 
+         const quoted = (fortu.mtype == 'buttonsMessage') ? fortu[Object.keys(fortu)[1]] : (fortu.mtype == 'templateMessage') ? fortu.hydratedTemplate[Object.keys(fortu.hydratedTemplate)[1]] : (fortu.mtype == 'product') ? fortu[Object.keys(fortu)[0]] : m.quoted ? m.quoted : m; 
+ 
 
     const color = (text, color) => {
       return !color ? chalk.green(text) : chalk.keyword(color)(text);
@@ -136,7 +139,67 @@ const response = await openai.createChatCompletion({
         case "menu":
 
           m.reply(`This Public bot is under development.`)
+          // Group Commands
           break;
+          case "disp1": { 
+                 if (!m.isGroup) throw mess.group; 
+                 if (!isBotAdmin) throw mess.botAdmin; 
+                 if (!isAdmin) throw mess.admin; 
+  
+                     await client.groupToggleEphemeral(m.chat, 1*24*3600); 
+ m.reply('Dissapearing messages successfully turned on for 24hrs!'); 
+ } 
+ break; 
+
+          case "promote" : { 
+                 if (!m.isGroup) throw mess.group; 
+         if (!isBotAdmin) throw mess.botAdmin; 
+         if (!isAdmin) throw mess.admin; 
+ if (!m.quoted) throw `Tag someone with the command!`; 
+                 let users = m.mentionedJid[0] ? m.mentionedJid : m.quoted ? [m.quoted.sender] : [text.replace(/[^0-9]/g, '')+'@s.whatsapp.net']; 
+  
+                 await client.groupParticipantsUpdate(m.chat, users, 'promote'); 
+ m.reply('Successfully promoted! 👑'); 
+         } 
+ break; 
+ case "demote": { 
+                 if (!m.isGroup) throw mess.group; 
+         if (!isBotAdmin) throw mess.botAdmin; 
+         if (!isAdmin) throw mess.admin; 
+ if (!m.quoted) throw `Tag someone with the command!`; 
+                 let users = m.mentionedJid[0] ? m.mentionedJid : m.quoted ? [m.quoted.sender] : [text.replace(/[^0-9]/g, '')+'@s.whatsapp.net']; 
+  
+                 await client.groupParticipantsUpdate(m.chat, users, 'demote'); 
+ m.reply('Successfully demoted! 🎗️'); 
+         } 
+ break;
+ case "disp7": { 
+                 if (!m.isGroup) throw mess.group; 
+                 if (!isBotAdmin) throw mess.botAdmin; 
+                 if (!isAdmin) throw mess.admin; 
+  
+                     await client.groupToggleEphemeral(m.chat, 7*24*3600); 
+ m.reply('Dissapearing messages successfully turned on for 7 days!'); 
+  
+ } 
+ break; 
+ case "disp90": { 
+                 if (!m.isGroup) throw mess.group; 
+                 if (!isBotAdmin) throw mess.botAdmin; 
+                 if (!isAdmin) throw mess.admin; 
+  
+                     await client.groupToggleEphemeral(m.chat, 90*24*3600); 
+ m.reply('Dissapearing messages successfully turned on for 90 days!'); 
+ } 
+ break; 
+ case "disp-off": { 
+                 if (!m.isGroup) throw mess.group; 
+                 if (!isBotAdmin) throw mess.botAdmin; 
+                 if (!isAdmin) throw mess.admin; 
+  
+                     await client.groupToggleEphemeral(m.chat, 0); 
+ m.reply('Dissapearing messages successfully turned off!'); 
+ }
         case "g": case "openai": 
           
 

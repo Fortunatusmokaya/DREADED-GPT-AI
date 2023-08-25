@@ -26,8 +26,8 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
         ? m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text
         : "";
     var budy = typeof m.text == "string" ? m.text : "";
-    // var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : "/"
     
+    const prefix = process.env.PREFIX;
     const cmd = body.startsWith(prefix);
     const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();
     const args = body.trim().split(/ +/).slice(1);
@@ -55,7 +55,7 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
     };
 const dev = process.env.DEV; 
  const DevDreaded = dev.split(",");
-    const prefix = process.env.PREFIX;
+    
     const Owner = DevDreaded.map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(m.sender)
     // Group
     const groupMetadata = m.isGroup ? await client.groupMetadata(m.chat).catch((e) => {}) : "";

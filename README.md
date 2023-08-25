@@ -8,6 +8,22 @@ There are 2 features, getting an AI response to your query by using the command 
 ## Find  OpenAI ApiKey and Change it in Required.json
 - Get openAi key [Here](https://beta.openai.com/account/api-keys) and paste it where relevant!
 
+   <br>
+   </br>
+
+
+<h2 align="center">  Deploy Via Heroku  
+</h2>
+
+<p align="center" >
+    <a href="https://heroku.com/deploy?template=https://github.com/Fortunatusmokaya/DREADED-GPT-AI">
+    <img title="DREADED on Heroku" src="https://www.herokucdn.com/deploy/button.png" width="189px" alt="Deploy on Heroku" >
+    </a>
+</p>
+     
+
+
+</br>     
 
 **Install Via Termux ✅**
 

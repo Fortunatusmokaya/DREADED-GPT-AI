@@ -3,7 +3,7 @@ const fs = require("fs");
 const util = require("util");
 const chalk = require("chalk");
 const { Configuration, OpenAIApi } = require("openai");
-let setting = require("./Required.json");
+let setting = process.env.AI; 
 
 module.exports = dreaded = async (client, m, chatUpdate, store) => {
   try {
@@ -27,8 +27,8 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
         : "";
     var budy = typeof m.text == "string" ? m.text : "";
     // var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : "/"
-    var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : "/";
-    const isCmd2 = body.startsWith(prefix);
+    
+    const cmd = body.startsWith(prefix);
     const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();
     const args = body.trim().split(/ +/).slice(1);
     const pushname = m.pushName || "No Name";
@@ -42,17 +42,79 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
     const reply = m.reply;
     const sender = m.sender;
     const mek = chatUpdate.messages[0];
+    const getGroupAdmins = (participants) => { 
+       let admins = []; 
+       for (let i of participants) { 
+         i.admin === "superadmin" ? admins.push(i.id) : i.admin === "admin" ? admins.push(i.id) : ""; 
+       } 
+       return admins || []; 
+     };
 
     const color = (text, color) => {
       return !color ? chalk.green(text) : chalk.keyword(color)(text);
     };
-
+const dev = process.env.DEV; 
+ const DevDreaded = dev.split(",");
+    const prefix = process.env.PREFIX;
+    const Owner = DevDreaded.map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(m.sender)
     // Group
     const groupMetadata = m.isGroup ? await client.groupMetadata(m.chat).catch((e) => {}) : "";
     const groupName = m.isGroup ? groupMetadata.subject : "";
+    const participants = m.isGroup ? await groupMetadata.participants : ""; 
+     const groupAdmin = m.isGroup ? await getGroupAdmins(participants) : ""; 
+     const isBotAdmin = m.isGroup ? groupAdmin.includes(botNumber) : false; 
+     const isAdmin = m.isGroup ? groupAdmin.includes(m.sender) : false;
 
     // Push Message To Console
     let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
+
+    if (m.chat.endsWith("@s.whatsapp.net")) {
+
+  	
+
+  if (!text) return reply("I need more text please. Make your query a bit longer.");
+
+           const configuration = new Configuration({
+
+              apiKey: setting,
+
+            });
+
+            const openai = new OpenAIApi(configuration);
+
+            try {
+
+const response = await openai.createChatCompletion({
+
+          model: "gpt-3.5-turbo",
+
+          messages: [{role: "user", content: text}],
+
+          });
+
+          m.reply(`${response.data.choices[0].message.content}`);
+
+          } catch (error) {
+
+          if (error.response) {
+
+            console.log(error.response.status);
+
+            console.log(error.response.data);
+
+            console.log(`${error.response.status}\n\n${error.response.data}`);
+
+          } else {
+
+            console.log(error);
+
+            m.reply("I\'m Facing An Error:"+ error.message);
+
+          }
+
+          }
+
+    }
 
     if (isCmd2 && !m.isGroup) {
       console.log(chalk.black(chalk.bgWhite("[ DREADED-AI ]")), color(argsLog, "turquoise"), chalk.magenta("From"), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`));
@@ -68,30 +130,19 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
       );
     }
 
-    if (isCmd2) {
+    if (cmd) {
       switch (command) {
         case "help":
         case "menu":
 
-          m.reply(`𝘿𝙍𝙀𝘼𝘿𝙀𝘿 𝘾𝙃𝘼𝙏𝘽𝙊𝙏 𝘼𝙄\n\nHello ${m.pushName}, This is 𝐷𝑟𝑒𝑎𝑑𝑒𝑑 𝐴𝑖 𝐶ℎ𝑎𝑡𝑏𝑜𝑡, A WhatsApp bot that uses OpenAi API to process natural language queries and present information through a WhatsApp chat\n\nNote that information presented is not 100% accurate!\n\nIt uses 2 commands as listed below!
-            
-CHATBOT COMMANDS
-1) ${prefix}g
-This is for machine based AI responses in form of text. 
-
-AI-GENERATED IMAGE
-2) ${prefix}img
-This will produce ai-based image according to your query
-
-
-To deploy this kind of bot, Use the GitHub Repository below\n\nhttps://github.com/Fortunatusmokaya/DREADED-GPT-AI\n\nWant your own bot of this kind? Contact and message the numbers below:\n\nwa.me/+254114018035\n\nwa.me/+97693127111\n\nThank You 🤖`)
+          m.reply(`Public bot under development.`)
           break;
         case "g": case "openai": 
           try {
-            if (setting.keyopenai === "ISI_APIKEY_OPENAI_DISINI") return reply("I need an openAi API key");
-            if (!text) return reply(`This is Dreaded AI chatbot using Chatgpt API to create almost natural language response to your queries\n\nExample:\n${prefix}${command} Write for me a poem about money`);
+            if (setting.keyopenai === "ADD OPENAI API KEY") return reply("I need an openAi API key");
+            if (!text) return reply(`This is an AI chatbot using openai API to create almost natural language response.`);
             const configuration = new Configuration({
-              apiKey: setting.keyopenai,
+              apiKey: setting,
             });
             const openai = new OpenAIApi(configuration);
 
@@ -118,10 +169,10 @@ To deploy this kind of bot, Use the GitHub Repository below\n\nhttps://github.co
           break;
         case "img": case "ai-img": case "image": case "images":
           try {
-            if (setting.keyopenai === "ISI_APIKEY_OPENAI_DISINI") return reply("I need an openAi API key");
-            if (!text) return reply(`This will generate an AI-BASED IMAGE according to your query AI.\n\nExample:\n${prefix}${command} black mercedez car`);
+            if (setting === "ADD OPENAI API KEY") return reply("I need an openAi API key in my .env file.");
+            if (!text) return reply(`This will generate an AI-BASED image. Note that image generated might not be realistic.`);
             const configuration = new Configuration({
-              apiKey: setting.keyopenai,
+              apiKey: setting,
             });
             const openai = new OpenAIApi(configuration);
             const response = await openai.createImage({

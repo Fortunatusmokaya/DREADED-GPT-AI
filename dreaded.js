@@ -67,7 +67,10 @@ const dev = process.env.DEV;
      const groupAdmin = m.isGroup ? await getGroupAdmins(participants) : ""; 
      const isBotAdmin = m.isGroup ? groupAdmin.includes(botNumber) : false; 
      const isAdmin = m.isGroup ? groupAdmin.includes(m.sender) : false;
-
+const admin = process.env.ADMIN_MSG;
+    const group = process.env.GROUP_ONLY_MSG;
+    const botAdmin = process.env.BOT_ADMIN_MSG;
+    
     // Push Message To Console
     let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
 
@@ -142,9 +145,9 @@ const response = await openai.createChatCompletion({
           // Group Commands
           break;
           case "disp1": { 
-                 if (!m.isGroup) throw mess.group; 
-                 if (!isBotAdmin) throw mess.botAdmin; 
-                 if (!isAdmin) throw mess.admin; 
+                 if (!m.isGroup) throw group; 
+                 if (!isBotAdmin) throw botAdmin; 
+                 if (!isAdmin) throw admin; 
   
                      await client.groupToggleEphemeral(m.chat, 1*24*3600); 
  m.reply('Dissapearing messages successfully turned on for 24hrs!'); 
@@ -152,9 +155,9 @@ const response = await openai.createChatCompletion({
  break; 
 
           case "promote" : { 
-                 if (!m.isGroup) throw mess.group; 
-         if (!isBotAdmin) throw mess.botAdmin; 
-         if (!isAdmin) throw mess.admin; 
+                 if (!m.isGroup) throw group; 
+         if (!isBotAdmin) throw botAdmin; 
+         if (!isAdmin) throw admin; 
  if (!m.quoted) throw `Tag someone with the command!`; 
                  let users = m.mentionedJid[0] ? m.mentionedJid : m.quoted ? [m.quoted.sender] : [text.replace(/[^0-9]/g, '')+'@s.whatsapp.net']; 
   
@@ -163,9 +166,9 @@ const response = await openai.createChatCompletion({
          } 
  break; 
  case "demote": { 
-                 if (!m.isGroup) throw mess.group; 
-         if (!isBotAdmin) throw mess.botAdmin; 
-         if (!isAdmin) throw mess.admin; 
+                 if (!m.isGroup) throw group; 
+         if (!isBotAdmin) throw botAdmin; 
+         if (!isAdmin) throw admin; 
  if (!m.quoted) throw `Tag someone with the command!`; 
                  let users = m.mentionedJid[0] ? m.mentionedJid : m.quoted ? [m.quoted.sender] : [text.replace(/[^0-9]/g, '')+'@s.whatsapp.net']; 
   
@@ -174,9 +177,9 @@ const response = await openai.createChatCompletion({
          } 
  break;
  case "disp7": { 
-                 if (!m.isGroup) throw mess.group; 
-                 if (!isBotAdmin) throw mess.botAdmin; 
-                 if (!isAdmin) throw mess.admin; 
+                 if (!m.isGroup) throw group; 
+                 if (!isBotAdmin) throw botAdmin; 
+                 if (!isAdmin) throw admin; 
   
                      await client.groupToggleEphemeral(m.chat, 7*24*3600); 
  m.reply('Dissapearing messages successfully turned on for 7 days!'); 
@@ -184,18 +187,18 @@ const response = await openai.createChatCompletion({
  } 
  break; 
  case "disp90": { 
-                 if (!m.isGroup) throw mess.group; 
-                 if (!isBotAdmin) throw mess.botAdmin; 
-                 if (!isAdmin) throw mess.admin; 
+                 if (!m.isGroup) throw group; 
+                 if (!isBotAdmin) throw botAdmin; 
+                 if (!isAdmin) throw admin; 
   
                      await client.groupToggleEphemeral(m.chat, 90*24*3600); 
  m.reply('Dissapearing messages successfully turned on for 90 days!'); 
  } 
  break; 
  case "disp-off": { 
-                 if (!m.isGroup) throw mess.group; 
-                 if (!isBotAdmin) throw mess.botAdmin; 
-                 if (!isAdmin) throw mess.admin; 
+                 if (!m.isGroup) throw group; 
+                 if (!isBotAdmin) throw botAdmin; 
+                 if (!isAdmin) throw admin; 
   
                      await client.groupToggleEphemeral(m.chat, 0); 
  m.reply('Dissapearing messages successfully turned off!'); 

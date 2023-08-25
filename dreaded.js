@@ -70,7 +70,7 @@ const dev = process.env.DEV;
 const admin = process.env.ADMIN_MSG;
     const group = process.env.GROUP_ONLY_MSG;
     const botAdmin = process.env.BOT_ADMIN_MSG;
-    
+    const NotOwner = process.env.NOT_OWNER_MSG;
     // Push Message To Console
     let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
 
@@ -141,9 +141,55 @@ const response = await openai.createChatCompletion({
         case "help":
         case "menu":
 
+                       client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: `𝖣𝖱𝖤𝖠𝖣𝖤𝖣 𝖡𝖮𝖳\n\nHello ${m.pushName}.\nThis is Dreaded Bot, a simple whatsApp Bot! 
+  
+  THIS IS A PUBLIC BOT AND DEVELOPMENT IS ON PROGRESS
+ 
+  
+  
+       ------- 𝐸𝑛𝑑 ------- 
+  
+               𝗡𝗼𝘁𝗲: 
+  
+ - Dreaded uses baileys and nodejs technology with no database
+ - Do not call or spam the bot! 🦄 
+ - Bot must be admin! ⚠️ 
+ - Bot is still under development so expect random bugs and errors! 🔧 
+ 
+   
+    
+ `, fileLength: "9999999999999999999999"}, { quoted: m }); 
+           break;
           m.reply(`This Public bot is under development.`)
           // Group Commands
           break;
+          case "admin" : { 
+                 if (!m.isGroup) throw group; 
+         if (!isBotAdmin) throw botAdmin; 
+          if (!Owner) throw NotOwner; 
+                 await client.groupParticipantsUpdate(m.chat,  [m.sender], 'promote'); 
+ m.reply('Promoted To Admin<🥇'); 
+          }
+          break;
+ case "close": case "mute": { 
+  
+                 if (!m.isGroup) throw group; 
+                 if (!isBotAdmin) throw botAdmin; 
+                 if (!isAdmin) throw admin; 
+  
+                     await client.groupSettingUpdate(m.chat, 'announcement'); 
+ m.reply('Group successfully locked!'); 
+ } 
+ break; 
+ case "open": case "unmute": { 
+                 if (!m.isGroup) throw group; 
+                 if (!isBotAdmin) throw botAdmin; 
+                 if (!isAdmin) throw admin; 
+  
+                     await client.groupSettingUpdate(m.chat, 'not_announcement'); 
+ m.reply('Group successfully unlocked!'); 
+  
+ }
           case "disp1": { 
                  if (!m.isGroup) throw group; 
                  if (!isBotAdmin) throw botAdmin; 

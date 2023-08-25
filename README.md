@@ -7,7 +7,19 @@ There are 2 features, getting an AI response to your query by using the command 
 
 ## Find  OpenAI ApiKey and Change it in Required.json
 - Get openAi key [Here](https://beta.openai.com/account/api-keys) and paste it where relevant!
+</h2>
+ 
+     
+<br>
+     <br>
+     
 
+     
+<h2 align="center">   Run Repl and scan QR Code
+</h2>
+<h2 align="center">  <a href="https://replit.com/@fortunedreaded/DREADED-QR-SCANNER#"><img src="https://repl.it/badge/github/quiec/whatsasena" />
+</a>
+</h2>
    <br>
    </br>
 

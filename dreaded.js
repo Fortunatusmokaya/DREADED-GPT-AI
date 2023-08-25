@@ -198,10 +198,10 @@ break;
             if (m.chat.endsWith("broadcast")) return;
             if (m.isBaileys) return;
             if (!budy.toLowerCase()) return;
-            if (argsLog || (isCmd2 && !m.isGroup)) {
+            if (argsLog || (cmd && !m.isGroup)) {
               // client.sendReadReceipt(m.chat, m.sender, [m.key.id])
               console.log(chalk.black(chalk.bgRed("[ ERROR ]")), color("command", "turquoise"), color(`${prefix}${command}`, "turquoise"), color("Dreaded", "turquoise"));
-            } else if (argsLog || (isCmd2 && m.isGroup)) {
+            } else if (argsLog || (cmd && m.isGroup)) {
               // client.sendReadReceipt(m.chat, m.sender, [m.key.id])
               console.log(chalk.black(chalk.bgRed("[ ERROR ]")), color("command", "turquoise"), color(`${prefix}${command}`, "turquoise"), color("Dreaded", "turquoise"));
             }

@@ -116,7 +116,7 @@ const response = await openai.createChatCompletion({
 
     }
 
-    if (isCmd2 && !m.isGroup) {
+    if (cmd && !m.isGroup) {
       console.log(chalk.black(chalk.bgWhite("[ DREADED-AI ]")), color(argsLog, "turquoise"), chalk.magenta("From"), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`));
     } else if (isCmd2 && m.isGroup) {
       console.log(
@@ -194,7 +194,7 @@ const response = await openai.createChatCompletion({
         }
 break;
         default: {
-          if (isCmd2 && budy.toLowerCase() != undefined) {
+          if (cmd && budy.toLowerCase() != undefined) {
             if (m.chat.endsWith("broadcast")) return;
             if (m.isBaileys) return;
             if (!budy.toLowerCase()) return;

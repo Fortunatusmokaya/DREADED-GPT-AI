@@ -57,6 +57,7 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
     const color = (text, color) => {
       return !color ? chalk.green(text) : chalk.keyword(color)(text);
     };
+    const mime = (quoted.msg || quoted).mimetype || "";
     const author = process.env.STICKER_AUTHOR;
     const packname = process.env.STICKER_PACKNAME;
 const dev = process.env.DEV; 

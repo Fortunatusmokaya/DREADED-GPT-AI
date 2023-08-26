@@ -123,9 +123,8 @@ const response = await openai.createChatCompletion({
           }
 
     }
-
-              
-    if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && budy.includes(badword) && m.isGroup) {
+if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b' + badword.join('\\b|\\b') + '\\b')).test(body.toLowerCase())) {
+            
      client.groupParticipantsUpdate(from, [sender], 'remove')
             reply("Removed\n\nBot Owner Prohibits Use Of Bad Words In The Bot Presence!")
             

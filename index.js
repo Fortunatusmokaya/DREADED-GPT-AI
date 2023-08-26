@@ -7,6 +7,7 @@ const {
   DisconnectReason,
   fetchLatestBaileysVersion,
   makeInMemoryStore,
+     downloadContentFromMessage,
   jidDecode,
   proto,
   getContentType,

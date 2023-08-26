@@ -42,9 +42,22 @@
       "description": "Put a message that the bot will send if a parameter that requires only owner user is violated. Example: Only admins are allowed to use this command",
       "required": true
     },
+    "BAD_WORD": {
+      "description": "List words separated witj commas that will be considered as bad and will trigger bot to kick. Example: fuck, pussy, hoe",
+      "required": false
+    },
+    "BAD_WORD_KICK": {
+      "description": "Put here TRUE if you want the bot to automatically kick group members using words that you have listed as bad",
+      "required": false
+    },
     "GROUP_ONLY_MSG": {
       "description": "Put a message that the bot will send if a parameter that works in group chats only is violated. Example: This command will work in groups only",
       "required": true
+    },
+      "AUTOREAD_AND_TYPE": {
+      "description": "Put here TRUE if you want bot to automatically bluetick messages in private and simulate false typing",
+      "required": true
+    
     
     },
     "AI": {

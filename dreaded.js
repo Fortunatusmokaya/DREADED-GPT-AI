@@ -80,6 +80,7 @@ const admin = process.env.ADMIN_MSG;
     if (autoreadrecord === 'TRUE' && !m.isGroup) { 
              client.readMessages([m.key]); 
   client.sendPresenceUpdate('composing', m.chat);
+    }
     if (m.chat.endsWith("@s.whatsapp.net")) {
 
   	

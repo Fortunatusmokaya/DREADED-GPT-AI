@@ -2,6 +2,7 @@ const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, g
 const fs = require("fs");
 const util = require("util");
 const chalk = require("chalk");
+const { fetchUrl, isUrl, processTime } = require("./lib/dreadfunc");
 const { Configuration, OpenAIApi } = require("openai");
 let setting = process.env.AI; 
 
@@ -60,6 +61,7 @@ const dev = process.env.DEV;
  const DevDreaded = dev.split(",");
     const badwordkick = process.env.BAD_WORD_KICK;
    const bad = process.env.BAD_WORD;
+    const autoreadrecord = process.env.AUTOREAD_AND_TYPE;
     const badword = bad.split(",");
     const Owner = DevDreaded.map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(m.sender)
     // Group
@@ -75,7 +77,9 @@ const admin = process.env.ADMIN_MSG;
     const NotOwner = process.env.NOT_OWNER_MSG;
     // Push Message To Console
     let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
-
+    if (autoreadrecord === 'TRUE' && !m.isGroup) { 
+             client.readMessages([m.key]); 
+  client.sendPresenceUpdate('composing', m.chat);
     if (m.chat.endsWith("@s.whatsapp.net")) {
 
   	
@@ -130,6 +134,25 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
             
         
                                                    }
+    if (!Owner && isBotAdmins && !isAdmins && m.isGroup && (isUrl(m.text))) { 
+  
+ kid = m.sender; 
+  
+ client.sendMessage(m.chat, { 
+  
+                delete: { 
+                   remoteJid: m.chat, 
+                   fromMe: false, 
+                   id: m.key.id, 
+                   participant: kid 
+                } 
+             }).then(() => client.groupParticipantsUpdate(m.chat, [kid], 'remove')); 
+ client.sendMessage(m.chat, {text:`Removed\n\n@${kid.split("@")[0]} sending links is prohibited by Bot Owner!`, contextInfo:{mentionedJid:[kid]}}, {quoted:m}); 
+       }   
+  
+  
+  
+ 
 
     if (cmd && !m.isGroup) {
       console.log(chalk.black(chalk.bgWhite("[ DREADED-AI ]")), color(argsLog, "turquoise"), chalk.magenta("From"), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`));

@@ -135,7 +135,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
             
         
                                                    }
-    if (!Owner && isBotAdmins && !isAdmins && m.isGroup && (isUrl(m.text))) { 
+    if (!Owner && isBotAdmin && !isAdmin && m.isGroup && (isUrl(m.text))) { 
   
  kid = m.sender; 
   

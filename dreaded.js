@@ -293,10 +293,10 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
             if (/image/.test(mime)) { 
   
                  let media = await client.downloadMediaMessage(qmsg); 
-                 let encmedia = await client.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author }); 
+                 let encmedia = await client.sendImageAsSticker(m.chat, media, m, { packname: packname, author: author }); 
                  await fs.unlinkSync(encmedia); 
              } else if (/video/.test(mime)) { 
-             m.reply(mess.wait); 
+             m.reply("wait a moment"); 
                  if (qmsg.seconds > 11) return m.reply('Video is too long for conversion!'); 
                  let media = await client.downloadMediaMessage(qmsg); 
                  let encmedia = await client.sendVideoAsSticker(m.chat, media, m, { packname: packname, author: author }); 

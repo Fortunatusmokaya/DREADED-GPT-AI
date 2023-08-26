@@ -20,7 +20,8 @@ const chalk = require("chalk");
 const figlet = require("figlet");
 const _ = require("lodash");
 const PhoneNumber = require("awesome-phonenumber");
-
+const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/dreadexif'); 
+ const { isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/dreadfunc');
 const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" }) });
 
 const color = (text, color) => {
@@ -320,6 +321,58 @@ async function startHisoka() {
       : Buffer.alloc(0);
     return await client.sendMessage(jid, { image: buffer, caption: caption, ...options }, { quoted });
   };
+
+        client.sendImageAsSticker = async (jid, path, quoted, options = {}) => { 
+         let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0); 
+         // let buffer 
+         if (options && (options.packname || options.author)) { 
+             buffer = await writeExifImg(buff, options) 
+         } else { 
+             buffer = await imageToWebp(buff); 
+         } 
+  
+         await client.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted }); 
+         return buffer 
+     }; 
+ client.sendVideoAsSticker = async (jid, path, quoted, options = {}) => { 
+         let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0); 
+         //let buffer 
+         if (options && (options.packname || options.author)) { 
+             buffer = await writeExifVid(buff, options) 
+         } else { 
+             buffer = await videoToWebp(buff); 
+         } 
+  
+         await client.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted }); 
+         return buffer 
+     }; 
+ client.downloadMediaMessage = async (message) => { 
+         let mime = (message.msg || message).mimetype || ''; 
+         let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0]; 
+         const stream = await downloadContentFromMessage(message, messageType); 
+         let buffer = Buffer.from([]); 
+         for await(const chunk of stream) { 
+             buffer = Buffer.concat([buffer, chunk]) 
+         } 
+  
+         return buffer 
+      }; 
+  
+ client.downloadAndSaveMediaMessage = async (message, filename, attachExtension = true) => { 
+         let quoted = message.msg ? message.msg : message; 
+         let mime = (message.msg || message).mimetype || ''; 
+         let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0]; 
+         const stream = await downloadContentFromMessage(quoted, messageType); 
+         let buffer = Buffer.from([]); 
+         for await(const chunk of stream) { 
+             buffer = Buffer.concat([buffer, chunk]); 
+         } 
+         let type = await FileType.fromBuffer(buffer); 
+         trueFileName = attachExtension ? (filename + '.' + type.ext) : filename; 
+         // save to file 
+         await fs.writeFileSync(trueFileName, buffer); 
+         return trueFileName; 
+     };
 
   client.sendText = (jid, text, quoted = "", options) => client.sendMessage(jid, { text: text, ...options }, { quoted });
 

@@ -57,6 +57,8 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
     const color = (text, color) => {
       return !color ? chalk.green(text) : chalk.keyword(color)(text);
     };
+    const author = process.env.STICKER_AUTHOR;
+    const packname = process.env.STICKER_PACKNAME;
 const dev = process.env.DEV; 
  const DevDreaded = dev.split(",");
     const badwordkick = process.env.BAD_WORD_KICK;
@@ -282,6 +284,26 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
                      await client.groupToggleEphemeral(m.chat, 0); 
  m.reply('Dissapearing messages successfully turned off!'); 
  }
+          break;
+          // Other commands
+
+          case "sticker": case "s": { 
+            if (/image/.test(mime)) { 
+  
+                 let media = await client.downloadMediaMessage(qmsg); 
+                 let encmedia = await client.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author }); 
+                 await fs.unlinkSync(encmedia); 
+             } else if (/video/.test(mime)) { 
+             m.reply(mess.wait); 
+                 if (qmsg.seconds > 11) return m.reply('Video is too long for conversion!'); 
+                 let media = await client.downloadMediaMessage(qmsg); 
+                 let encmedia = await client.sendVideoAsSticker(m.chat, media, m, { packname: packname, author: author }); 
+                 await fs.unlinkSync(encmedia); 
+             } else { 
+                 m.reply(`Send an image or short video with the caption ${prefix + command}`); 
+                 } 
+          }
+          break;
         case "g": case "openai": 
           
 

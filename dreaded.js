@@ -58,7 +58,9 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
     };
 const dev = process.env.DEV; 
  const DevDreaded = dev.split(",");
-    
+    const badwordkick = process.env.BAD_WORD_KICK
+   const bad = process.env.BAD_WORD
+    const badword = bad.split(",");
     const Owner = DevDreaded.map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(m.sender)
     // Group
     const groupMetadata = m.isGroup ? await client.groupMetadata(m.chat).catch((e) => {}) : "";
@@ -121,6 +123,14 @@ const response = await openai.createChatCompletion({
           }
 
     }
+
+              
+    if (badwordkick === 'TRUE') && !isBotAdmin && !isAdmin && budy.includes(badword) && m.isGroup) {
+     client.groupParticipantsUpdate(from, [sender], 'remove')
+            reply("Removed\n\nBot Owner Prohibits Use Of Bad Words In The Bot Presence!")
+            return;
+        
+                                                   }
 
     if (cmd && !m.isGroup) {
       console.log(chalk.black(chalk.bgWhite("[ DREADED-AI ]")), color(argsLog, "turquoise"), chalk.magenta("From"), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`));

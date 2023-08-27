@@ -182,15 +182,18 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
         case "help":
         case "menu":
 
-                       client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: `𝖣𝖱𝖤𝖠𝖣𝖤𝖣 𝖡𝖮𝖳\n\nHello ${m.pushName}.\nThis is Dreaded Bot, a simple whatsApp Bot! 
+                       client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: `𝑫𝒓𝒆𝒂𝒅𝒆𝒅 𝑩𝒐𝒕\n\nHello ${m.pushName}.\nThis is Dreaded Bot, a simple whatsApp Bot! My prefix is ${prefix} and below are the usable commands.
   
   𝐀𝐃𝐌𝐈𝐍 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
+  
  delete, promote, demote, remove, close, open, disp-off, disp1, disp7, disp90, icon, subject, desc, leave, tagall, hidetag, revoke
 
   𝐆𝐄𝐍𝐄𝐑𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
-  sticker, toimg, song, lyrics,  mix, script, 
+  
+  sticker, toimg, song, lyrics,  mix, script, owner
 
   𝐎𝐖𝐍𝐄𝐑 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
+  
  broadcast, block, unblock, admin, botpp, join
   
 
@@ -200,6 +203,12 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
   
  - This bot uses baileys and nodejs technology with no database configuration.
  - Do not call or spam the bot! 🦄 
+ - Antilink is automatically active.
+ - AntiBadword might be active depending on the owner configuration of the variables
+
+
+      Enjoy シ︎
+ 
  
    
     
@@ -235,6 +244,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
  m.reply('Group successfully unlocked!'); 
   
  }
+        break;
           case "disp1": { 
                  if (!m.isGroup) throw group; 
                  if (!isBotAdmin) throw botAdmin; 
@@ -526,7 +536,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
  const firstSong = searches[0]; 
  //await client.sendMessage(from, {text: firstSong}); 
  const lyrics = await firstSong.lyrics(); 
- await client.sendMessage(from, { text: lyrics}); 
+ await client.sendMessage(from, { text: lyrics} { quoted: m }); 
  } catch (error) { 
              reply(`I did not find any lyrics for ${text}. Try searching a different song.`); 
              console.log(error); 

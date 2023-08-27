@@ -180,10 +180,16 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
 
                        client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: `𝖣𝖱𝖤𝖠𝖣𝖤𝖣 𝖡𝖮𝖳\n\nHello ${m.pushName}.\nThis is Dreaded Bot, a simple whatsApp Bot! 
   
-  THIS IS A PUBLIC BOT AND DEVELOPMENT IS ON PROGRESS
- 
+  ADMIN COMMANDS
+ delete, promote, demote, remove, close, open, disp1, disp7, disp90, icon, subject, desc, leave, tagall, hidetag, revoke
+
+  MEDIA & GENERAL COMMANDS
+  sticker
+
+  OWNER COMMANDS
   
-  
+
+
        ------- 𝐸𝑛𝑑 ------- 
   
                𝗡𝗼𝘁𝗲: 

@@ -536,7 +536,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
  const firstSong = searches[0]; 
  //await client.sendMessage(from, {text: firstSong}); 
  const lyrics = await firstSong.lyrics(); 
- await client.sendMessage(from, { text: lyrics} { quoted: m }); 
+ await client.sendMessage(from, { text: lyrics}, { quoted: m }); 
  } catch (error) { 
              reply(`I did not find any lyrics for ${text}. Try searching a different song.`); 
              console.log(error); 

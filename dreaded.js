@@ -2,6 +2,8 @@ const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, g
 const fs = require("fs");
 const util = require("util");
 const chalk = require("chalk");
+const Genius = require("genius-lyrics"); 
+ const Client = new Genius.Client("jKTbbU-6X2B9yWWl-KOm7Mh3_Z6hQsgE4mmvwV3P3Qe7oNa9-hsrLxQV5l5FiAZO"); // Scrapes if no key is provided
 const { fetchUrl, isUrl, processTime } = require("./lib/dreadfunc");
 const { Configuration, OpenAIApi } = require("openai");
 let setting = process.env.AI; 
@@ -180,24 +182,22 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
 
                        client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: `𝖣𝖱𝖤𝖠𝖣𝖤𝖣 𝖡𝖮𝖳\n\nHello ${m.pushName}.\nThis is Dreaded Bot, a simple whatsApp Bot! 
   
-  ADMIN COMMANDS
- delete, promote, demote, remove, close, open, disp1, disp7, disp90, icon, subject, desc, leave, tagall, hidetag, revoke
+  𝐀𝐃𝐌𝐈𝐍 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
+ delete, promote, demote, remove, close, open, disp-off, disp1, disp7, disp90, icon, subject, desc, leave, tagall, hidetag, revoke
 
-  MEDIA & GENERAL COMMANDS
-  sticker
+  𝐆𝐄𝐍𝐄𝐑𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
+  sticker, toimg, song, lyrics,  mix, script, 
 
-  OWNER COMMANDS
+  𝐎𝐖𝐍𝐄𝐑 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
+ broadcast, block, unblock, admin, botpp, join
   
-
 
        ------- 𝐸𝑛𝑑 ------- 
   
                𝗡𝗼𝘁𝗲: 
   
- - Dreaded uses baileys and nodejs technology with no database
+ - This bot uses baileys and nodejs technology with no database configuration.
  - Do not call or spam the bot! 🦄 
- - Bot must be admin! ⚠️ 
- - Bot is still under development so expect random bugs and errors! 🔧 
  
    
     
@@ -293,6 +293,93 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
  m.reply('Dissapearing messages successfully turned off!'); 
  }
           break;
+
+          case "icon": { 
+    if (!m.isGroup) throw group; 
+    if (!isAdmin) throw admin; 
+    if (!isBotAdmin) throw botAdmin; 
+    if (!quoted) throw `Send or tag an image with the caption ${prefix + command}`; 
+    if (!/image/.test(mime)) throw `Send or tag an image with the caption ${prefix + command}`; 
+    if (/webp/.test(mime)) throw `Send or tag an image with the caption ${prefix + command}`; 
+    let media = await client.downloadAndSaveMediaMessage(quoted); 
+    await client.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media)); 
+    reply('Group icon updated'); 
+    } 
+    break;
+          case "revoke": 
+ case "newlink": 
+ case "reset": { 
+   if (!m.isGroup) throw group; // add "new Error" to create a new Error object 
+   if (!isAdmin) throw admin; // add "new Error" to create a new Error object 
+   if (!isBotAdmin) throw botAdmin; // add "new Error" to create a new Error object 
+   await client.groupRevokeInvite(m.chat); 
+   await client.sendText(m.chat, 'Group link revoked!', m); // use "client.sendText" instead of "m.reply" to ensure message is sent 
+   let response = await client.groupInviteCode(m.chat); 
+ client.sendText(m.sender, `https://chat.whatsapp.com/${response}\n\nHere is the new group link for ${groupMetadata.subject}`, m, { detectLink: true }); 
+ client.sendText(m.chat, `Sent you the new group link in your inbox!`, m); 
+   // use "client.sendTextWithMentions" instead of "client.sendText" to include group name in message 
+ }
+          
+  break;
+          case "delete": case "del": { 
+                  if (!m.isGroup) throw group; 
+  if (!isBotAdmin) throw botAdmin; 
+  if (!isAdmin) throw admin; 
+    if (!m.quoted) throw `No message quoted for deletion`; 
+    let { chat, fromMe, id, isBaileys } = m.quoted; 
+   if (isBaileys) throw `quoted message is my message or another bot message.`; 
+    client.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.quoted.id, participant: m.quoted.sender } }); 
+  } 
+ break;
+          case "leave": { 
+                 if (!isAdmin) throw admin; 
+ await client.sendText(m.chat, 'GoodBye Everyone. Bot is leaving now. . .'); 
+                 await client.groupLeave(m.chat); 
+  
+             } 
+ break; 
+  
+ 
+          
+          case "subject": case "changesubject": { 
+                 if (!m.isGroup) throw group; 
+                 if (!isBotAdmin) throw botAdmin; 
+                 if (!isAdmin) throw admin; 
+                 if (!text) throw 'Provide the text for the group subject.'; 
+                 await client.groupUpdateSubject(m.chat, text); 
+ m.reply('Group name successfully updated! 👍'); 
+             } 
+             break; 
+           case "desc": case "setdesc": { 
+                 if (!m.isGroup) throw group; 
+                 if (!isBotAdmin) throw botAdmin; 
+                 if (!isAdmin) throw admin; 
+                 if (!text) throw 'Provide the text for the group description' 
+                 await client.groupUpdateDescription(m.chat, text); 
+ m.reply('Group description successfully updated! 👍'); 
+             } 
+ break; 
+ case "hidetag": { 
+             if (!m.isGroup) throw group; 
+             if (!isBotAdmin) throw botAdmin; 
+             if (!isAdmin) throw admin; 
+            client.sendMessage(m.chat, { text : q ? q : '☞︎︎︎ YOU ARE TAGGED ☜︎︎︎' , mentions: participants.map(a => a.id)}, { quoted: m }); 
+             } 
+ break; 
+ case "tagall": { 
+                 if (!m.isGroup) throw group; 
+                 if (!isBotAdmin) throw botAdmin; 
+                 if (!isAdmin) throw admin; 
+ let teks = `You have been tagged here: 
+   
+  Message ${q ? q : ''}*\n\n`; 
+                 for (let mem of participants) { 
+                 teks += `📧 @${mem.id.split('@')[0]}\n`; 
+                 } 
+                 client.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m }); 
+                 } 
+ break;
+ 
           // Other commands
 
           case "sticker": case "s": { 
@@ -312,6 +399,239 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
                  } 
           }
           break;
+          case "dp": { 
+ try { 
+ ha = m.quoted.sender; 
+ qd = await client.getName(ha); 
+ pp2 = await client.profilePictureUrl(ha,'image'); 
+ } catch {  
+ pp2 = 'https://tinyurl.com/yx93l6da'; 
+ } 
+  if (!m.quoted) throw `Tag a user!`; 
+ bar = `Profile Picture of ${qd}`; 
+ client.sendMessage(m.chat, { image: { url: pp2}, caption: bar, fileLength: "999999999999"}, { quoted: m}); 
+ } 
+ break;
+          case "song": { 
+ const getRandom = (ext) => { 
+   return `${Math.floor(Math.random() * 10000)}${ext}`; 
+ }; 
+  
+ const downloadSong = async (randomName, query) => { 
+   try { 
+     const INFO_URL = "https://slider.kz/vk_auth.php?q="; 
+     const DOWNLOAD_URL = "https://slider.kz/download/"; 
+     let { data } = await axios.get(INFO_URL + query); 
+  
+     if (data["audios"][""].length <= 1) { 
+       console.log("==[ SONG NOT FOUND! ]=="); 
+       return { info: "NF" }; 
+     } 
+  
+     
+     let i = 0; 
+     let track = data["audios"][""][i]; 
+     while (/remix|revisited|mix/i.test(track.tit_art)) { 
+       i += 1; 
+       track = data["audios"][""][i]; 
+     } 
+     //if reach the end then select the first song 
+     if (!track) { 
+       track = data["audios"][""][0]; 
+     } 
+  
+     
+     let link = track.url; 
+     link = encodeURI(link); //to replace unescaped characters from link 
+  
+     let songName = track.tit_art; 
+     songName = 
+       songName = 
+       songName = 
+         songName.replace(/\?|<|>|\*|"|:|\||\/|\\/g, ""); //removing special characters which are not allowed in file name 
+     // console.log(link); 
+     // download(songName, link); 
+     const res = await axios({ 
+       method: "GET", 
+       url: link, 
+       responseType: "stream", 
+     }); 
+     data = res.data; 
+     const path = `./${randomName}`; 
+     const writer = fs.createWriteStream(path); 
+     data.pipe(writer); 
+     return new Promise((resolve, reject) => { 
+       writer.on("finish", () => resolve(songName)); 
+       writer.on("error", () => reject); 
+     }); 
+   } catch (err) { 
+     console.log(err); 
+     return { info: "ERR", err: err.stack }; 
+   } 
+ }; 
+  
+ //const handler = async (client, msg, msgInfoObj) => { 
+   //let { prefix, reply, args, from } = msgInfoObj; 
+  
+   if (args.length === 0) { 
+     await reply(`Song name?`); 
+     return; 
+   } 
+   let randomName = getRandom(".mp3"); 
+   let query = args.join("%20"); 
+   let response = await downloadSong(randomName, query); 
+   if (response && response.info == "NF") { 
+     await reply( 
+       `Not found!` 
+     ); 
+     return; 
+   } 
+   if (response && response.info === "ERR") { 
+     await reply(response.err); 
+     return; 
+   } 
+   console.log(`song saved-> ./${randomName}`, response); 
+  
+   await client.sendMessage( 
+     from, 
+     { 
+       document: fs.readFileSync(`./${randomName}`), 
+       fileName: response + ".mp3", 
+       mimetype: "audio/mpeg", 
+       mediaUploadTimeoutMs: 1000 * 30, 
+     }, 
+     { quoted: m } 
+   ); 
+   fs.unlinkSync(`./${randomName}`); 
+    } 
+  
+
+          break;
+          case 'mix': { 
+ if (!text) throw `Example : ${prefix + command} 😅+🤔` 
+ let [emoji1, emoji2] = text.split`+` 
+ let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`) 
+ for (let res of anu.results) { 
+     let encmedia = await client.sendImageAsSticker(m.chat, res.url, m, { packname: packname, author: author, categories: res.tags }) 
+     await fs.unlinkSync(encmedia) 
+ } 
+     } 
+ break;
+          case "lyrics": 
+ try { 
+ if (!text) return reply("Provide a song name!"); 
+ const searches = await Client.songs.search(text); 
+ const firstSong = searches[0]; 
+ //await client.sendMessage(from, {text: firstSong}); 
+ const lyrics = await firstSong.lyrics(); 
+ await client.sendMessage(from, { text: lyrics}); 
+ } catch (error) { 
+             reply(`I did not find any lyrics for ${text}. Try searching a different song.`); 
+             console.log(error); 
+         } 
+ //const artist = await Client.artists.get(456537); 
+ //await client.sendMessage(from, { text: artist} {quoted: m}); 
+ // console.log("About the Artist:\n", artist, "\n"); 
+ break 
+        case "toimage": case "toimg": { 
+    if (!quoted) throw 'Tag a static video with the command!'; 
+    if (!/webp/.test(mime)) throw `Tag a sticker with ${prefix + command}`; 
+  
+    let media = await client.downloadAndSaveMediaMessage(quoted); 
+    let mokaya = await getRandom('.png'); 
+    exec(`ffmpeg -i ${media} ${mokaya}`, (err) => { 
+   fs.unlinkSync(media); 
+   if (err) throw err 
+   let buffer = fs.readFileSync(mokaya); 
+   client.sendMessage(m.chat, { image: buffer, caption: `Converted by Dreaded! 🦄`}, { quoted: m }) 
+   fs.unlinkSync(mokaya); 
+    }); 
+    } 
+  
+    break; 
+          case "linkgroup": case "link": { 
+                 if (!m.isGroup) throw group; 
+                 if (!isBotAdmin) throw botAdmin; 
+                 let response = await client.groupInviteCode(m.chat); 
+                 client.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nGroup link for  ${groupMetadata.subject}`, m, { detectLink: true }); 
+             } 
+ break;
+ 
+          case "script": case "repo": case "sc": 
+ client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `You can deploy this bot using the github link below!\n\nhttps://github.com/Fortunatusmokaya/DREADED-GPT-AI` }, {quoted: m}); 
+  
+ break; 
+
+          // OWNER COMMANDS
+
+          case 'botpp': { 
+    if (!Owner) throw NotOwner; 
+    if (!quoted) throw `Tag an image you want to be the bot's profile picture with ${prefix + command}`; 
+    if (!/image/.test(mime)) throw `Tag an image you want to be the bot's profile picture with ${prefix + command}`; 
+    if (/webp/.test(mime)) throw `Tag an image you want to be the bot's profile picture with ${prefix + command}`; 
+    let media = await client.downloadAndSaveMediaMessage(quoted); 
+    await client.updateProfilePicture(botNumber, { url: media }).catch((err) => fs.unlinkSync(media)); 
+    reply `Bot's profile picture has been successfully updated!`; 
+    } 
+    break;
+
+          case 'broadcast': { 
+         if (!Owner) { 
+             throw NotOwner
+             return; 
+         } 
+         if (!text) { 
+             reply("❌ No broadcast message provided!") 
+             return; 
+         } 
+         let getGroups = await client.groupFetchAllParticipating() 
+         let groups = Object.entries(getGroups) 
+             .slice(0) 
+             .map(entry => entry[1]) 
+         let res = groups.map(v => v.id) 
+         reply(` Broadcasting in ${res.length} Group Chat, in ${res.length * 1.5} seconds`) 
+         for (let i of res) { 
+             let txt = `</ Dreaded Broadcast >\n\n🀄 Message: ${text}\n\nAuthor: ${pushname}` 
+             await client.sendMessage(i, { 
+                 image: { 
+                     url: "https://telegra.ph/file/c75efecf7f0aef851fc02.jpg" 
+                 }, 
+                 caption: `${txt}` 
+             }) 
+         } 
+         reply(`Broadcasted to ${res.length} Groups.`) 
+     } 
+ break;
+
+          case "block": { 
+ if (!Owner) throw NotOwner; 
+ if (!m.quoted) throw `Tag someone!`; 
+ let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net' 
+ await client.updateBlockStatus(users, 'block'); 
+ m.reply (`Blocked!`); 
+ } 
+ break; 
+  
+ case "unblock": { 
+ if (!Owner) throw NotOwner; 
+ if (!m.quoted) throw `Tag someone!`; 
+ let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'; 
+ await client.updateBlockStatus(users, 'unblock'); 
+ m.reply (`Unblocked!`); 
+ } 
+ break;
+
+          case 'join': { 
+                 if (!Owner) throw NotOwner
+                 if (!text) return reply("provide a valid group link") 
+                 let result = args[0].split('https://chat.whatsapp.com/')[1] 
+                 await client.groupAcceptInvite(result).then((res) =>  reply(jsonformat(res))).catch((err) =>reply(`Link has problem.`)) 
+  
+             } 
+  
+  
+ break;
+ 
         case "g": case "openai": 
           
 

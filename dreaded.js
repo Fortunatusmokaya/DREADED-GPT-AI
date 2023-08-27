@@ -93,7 +93,7 @@ const admin = process.env.ADMIN_MSG;
 
   	
 
-  if (!text) return reply("I need more text please. Make your query a bit longer.");
+  if (!text) return reply("I need more text. For better experience with my inbox AI make longer statements.");
 
            const configuration = new Configuration({
 
@@ -190,7 +190,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
 
   𝐆𝐄𝐍𝐄𝐑𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
   
-  sticker, toimg, song, lyrics,  mix, script, owner
+  sticker, toimg, song, lyrics,  mix, script, owner, dp, gpt, ai-img
 
   𝐎𝐖𝐍𝐄𝐑 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
   
@@ -202,12 +202,15 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
                𝗡𝗼𝘁𝗲: 
   
  - This bot uses baileys and nodejs technology with no database configuration.
+ 
  - Do not call or spam the bot! 🦄 
+ 
  - Antilink is automatically active.
+ 
  - AntiBadword might be active depending on the owner configuration of the variables
 
 
-      Enjoy シ︎
+      Enjoy 💐 シ︎
  
  
    
@@ -339,7 +342,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
   if (!isAdmin) throw admin; 
     if (!m.quoted) throw `No message quoted for deletion`; 
     let { chat, fromMe, id, isBaileys } = m.quoted; 
-   if (isBaileys) throw `quoted message is my message or another bot message.`; 
+   if (isBaileys) throw `I cannot delete. Quoted message is my message or another bot message.`; 
     client.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.quoted.id, participant: m.quoted.sender } }); 
   } 
  break;
@@ -486,7 +489,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
    //let { prefix, reply, args, from } = msgInfoObj; 
   
    if (args.length === 0) { 
-     await reply(`Song name?`); 
+     await reply(`Where is the song name?`); 
      return; 
    } 
    let randomName = getRandom(".mp3"); 
@@ -570,7 +573,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
  break;
  
           case "script": case "repo": case "sc": 
- client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `You can deploy this bot using the github link below!\n\nhttps://github.com/Fortunatusmokaya/DREADED-GPT-AI` }, {quoted: m}); 
+ client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `You can deploy this bot using the github link below!\n\nhttps://github.com/Fortunatusmokaya/DREADED-GPT-AI\n\nFork and give us a star ✨.\n\nMade on Earth by Humans!` }, {quoted: m}); 
   
  break; 
 
@@ -644,7 +647,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
   
  break;
  
-        case "g": case "openai": 
+        case "gpt": case "openai": 
           
 
             if (!text) return reply("I need more text please. Make your query a bit longer.");

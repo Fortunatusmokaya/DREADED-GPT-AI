@@ -1,12 +1,14 @@
-# DREADED-AI GPT
+# DREADED-BOT
 
 ***This bot is created with the help of NodeJS and uses [Baileys](https://github.com/adiwajshing/Baileys)***
 
 ## FEATURES
-There are 2 features, getting an AI response to your query by using the command ```!g``` and getting an AI generated image by using the command ```!img```
+This is a highly customisable simple whatsapp bot with group management features and few media commands and chatgpt courtesy of openai APIs.
 
-## Find  OpenAI ApiKey and Change it in Required.json
-- Get openAi key [Here](https://beta.openai.com/account/api-keys) and paste it where relevant!
+You will need an openai API key for AI features to work.
+
+## Find  OpenAI ApiKey.
+- Get openAi key [Here](https://beta.openai.com/account/api-keys) and paste it in the environmental variables section named AI.
 </h2>
  
      
@@ -15,7 +17,7 @@ There are 2 features, getting an AI response to your query by using the command 
      
 
      
-<h2 align="center">   Run Repl and scan QR Code
+<h2 align="center">   Run Repl and scan QR Code then upload creds.json in dreaded1 folder before deploying.
 </h2>
 <h2 align="center">  <a href="https://replit.com/@fortunedreaded/DREADED-QR-SCANNER#"><img src="https://repl.it/badge/github/quiec/whatsasena" />
 </a>
@@ -24,7 +26,7 @@ There are 2 features, getting an AI response to your query by using the command 
    </br>
 
 
-<h2 align="center">  Deploy Via Heroku  
+<h2 align="center">  Deploy Via Heroku. You will be required to fill all the required environmental variables before deploying.
 </h2>
 
 <p align="center" >
@@ -39,25 +41,23 @@ There are 2 features, getting an AI response to your query by using the command 
 
 **Install Via Termux ✅**
 
-Manually install ```node_modules``` or use the command ```npm install``` to install them although you may get error if your terminal is not well configured.
-<br>The ```node_modules``` are [here](https://drive.google.com/file/d/1xgRIwDVuTklxwdtsx933WfmzqtRxEsGV/view?usp=share_link)
+
 ```bash
 $ pkg install git nodejs -y
 $ git clone https://github.com/Fortunatusmokaya/DREADED-GPT-AI
 $ cd DREADED-GPT-AI
-If you did not install the node modules manually then proceed with the command below.
 $ npm install
 ```
-Extract contents of node_modules, from ```node_modules.zip``` to the folder DREADED-AI.
 
-**Run**
+
+**Running the bot**
 ```bash
 $ node index.js
 ```
 
 
 ## License
-[MIT License](https://github.com/Fortunatusmokaya/DREADED-AI/blob/main/LICENSE)
+[MIT License](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/blob/main/LICENSE)
 
 Copyright (c) 2023 Dreaded AI-ChatGpt
 

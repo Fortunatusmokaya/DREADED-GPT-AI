@@ -17,6 +17,7 @@ const { Boom } = require("@hapi/boom");
 const fs = require("fs");
 const axios = require("axios");
 const chalk = require("chalk");
+const FileType = require("file-type");
 const figlet = require("figlet");
 const _ = require("lodash");
 const PhoneNumber = require("awesome-phonenumber");

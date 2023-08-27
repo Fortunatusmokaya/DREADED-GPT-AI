@@ -9,7 +9,7 @@ const { fetchUrl, isUrl, processTime } = require("./lib/dreadfunc");
 const { Configuration, OpenAIApi } = require("openai");
 let setting = process.env.AI; 
 const { smsg, formatp, tanggal, formatDate, getTime,  sleep, clockString, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom } = require('./lib/dreadfunc');
-
+const { exec, spawn, execSync } = require("child_process");
 module.exports = dreaded = async (client, m, chatUpdate, store) => {
   try {
     var body =

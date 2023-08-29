@@ -4,6 +4,7 @@ const util = require("util");
 global.axios = require('axios').default
 const chalk = require("chalk");
 const Genius = require("genius-lyrics"); 
+const ytdl = require("ytdl-secktor");
  const Client = new Genius.Client("jKTbbU-6X2B9yWWl-KOm7Mh3_Z6hQsgE4mmvwV3P3Qe7oNa9-hsrLxQV5l5FiAZO"); // Scrapes if no key is provided
 const { fetchUrl, isUrl, processTime } = require("./lib/dreadfunc");
 const { Configuration, OpenAIApi } = require("openai");

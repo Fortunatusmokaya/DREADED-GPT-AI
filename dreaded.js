@@ -568,7 +568,7 @@ break
             console.log("Audio downloaded ! \n Size: " + fileSizeInMegabytes);
             if (fileSizeInMegabytes <= 40) {
                 //sendFile(from, fs.readFileSync(`./${randomName}`), msg, { audio: true, jpegThumbnail: (await getBuffer(dl.meta.image)).buffer, unlink: true })
-                await sock.sendMessage(
+                await client.sendMessage(
                     from, {
                         document: fs.readFileSync(`./${randomName}`),
                         mimetype: "audio/mpeg",

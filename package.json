@@ -45,6 +45,8 @@
         "human-readable": "^0.2.1",
     "lodash": "^4.17.21",
     "openai": "^3.1.0",
+    "ytdl-secktor": "^0.0.1-development",
+  "yt-search": "^2.10.4",
     "pino": "^7.0.5",
     "qrcode-terminal": "^0.12.0",
     "util": "^0.12.4"

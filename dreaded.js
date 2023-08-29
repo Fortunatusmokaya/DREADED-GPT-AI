@@ -193,7 +193,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
 
   𝐆𝐄𝐍𝐄𝐑𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
   
-  sticker, toimg, song, play, lyrics,  mix, script, owner, dp, gpt, ai-img
+  sticker, toimg, song, play, lyrics,  mix, script, owner, dp, gpt, ai-img, credits
 
   𝐎𝐖𝐍𝐄𝐑 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
   
@@ -231,6 +231,25 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
  m.reply('Promoted To Admin<🥇'); 
           }
           break;
+
+case "remove": case "kick": { 
+  
+                 if (!m.isGroup) throw group; 
+  if (!isBotAdmin) throw botAdmin; 
+  if (!isAdmin) throw admin; 
+  
+  
+  
+                 let users = m.mentionedJid[0] ? m.mentionedJid : m.quoted ? [m.quoted.sender] : [text.replace(/[^0-9]/g, '')+'@s.whatsapp.net']; 
+ if (!users) throw NotOwner; 
+ if (users  == client.decodeJid(client.user.id)) throw 'Bot cannot remove itself 😡';
+ if (users == Owner) { m.reply('Its owner number')}; 
+                 await client.groupParticipantsUpdate(m.chat, users, 'remove'); 
+     m.reply('Successfully removed!'); 
+         } 
+  
+  break;
+ 
  case "close": case "mute": { 
   
                  if (!m.isGroup) throw group; 
@@ -430,6 +449,12 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
  client.sendMessage(m.chat, { image: { url: pp2}, caption: bar, fileLength: "999999999999"}, { quoted: m}); 
  } 
  break;
+
+case "credits": 
+  
+              client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `𝑪𝑹𝑬𝑫𝑰𝑻𝑺\n\n -Dika Ardnt ➪ Indonesia\n - Writing the base code using case method\nhttps://github.com/DikaArdnt\n\n -Adiwajshing ➪ India\n - Writing and Coding the bot's library (baileys)\nhttps://github.com/WhiskeySockets/Baileys\n\n -WAWebSockets Discord Server community\n-Maintaining and reverse engineering the Web Sockets\nhttps://discord.gg/WeJM5FP9GG\n\n𝐷𝑟𝑒𝑎𝑑𝑒𝑑 𝐵𝑜𝑡 シ︎`}); 
+ break; 
+ 
           case "song": { 
  const getRandom = (ext) => { 
    return `${Math.floor(Math.random() * 10000)}${ext}`; 

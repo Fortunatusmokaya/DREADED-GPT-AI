@@ -14,10 +14,26 @@ You will need an openai API key for AI features to work.
      
 <br>
      <br>
+
+## `SET UP`
+
+- Fork this repo by tapping  [here](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/fork)
+- Change repository value in app.json to yours. [Tap here](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/blob/master/app.json#L18)
+- Change repository value in heroku deploy button in  README.md to yours. [Tap here](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/blob/master/README.md)
+
+Alternatively, connect your fork to your heroku account and manually add the environmental variables. 
+
      
 
      
-<h2 align="center">   Run Repl and scan QR Code then upload creds.json in dreaded1 folder before deploying.
+<h2 align="center">   Run Repl and scan QR Code.
+
+If successful your login credentials (creds.json) will be sent to your number.
+
+Upload the creds.json in dreaded1 folder.
+
+Connect your fork to any suitable cloud host and deploy.
+
 </h2>
 <h2 align="center">  <a href="https://replit.com/@fortunedreaded/DREADED-QR-SCANNER#"><img src="https://repl.it/badge/github/quiec/whatsasena" />
 </a>
@@ -37,9 +53,12 @@ You will need an openai API key for AI features to work.
      
 
 
-</br>     
+</br>    
 
-**Install Via Termux ✅**
+You can alternatively connect this repo to other cloud host deployment services like koyeb and manually add the environmental variables.
+
+
+**Install Via Termux locally✅**
 
 
 ```bash

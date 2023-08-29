@@ -18,7 +18,7 @@ You will need an openai API key for AI features to work.
 ## `SET UP`
 
 - Fork this repo by tapping  [here](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/fork)
-- Change repository value in app.json to yours. [Tap here](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/blob/master/app.json#L18)
+- Change repository value in app.json to yours. [Tap here](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/blob/main/app.json#L18)
 - Change repository value in heroku deploy button in  README.md to yours. [Tap here](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/blob/master/README.md)
 
 Alternatively, connect your fork to your heroku account and manually add the environmental variables. 

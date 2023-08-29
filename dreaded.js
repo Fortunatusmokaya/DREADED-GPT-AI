@@ -533,14 +533,14 @@ case 'play': case 'stream': {
                 videos
             } = await yts(text);
             if (!videos || videos.length <= 0) {
-                reply(No Matching videos found for : *${args[0]}*!!)
+                reply("No Matching videos found for")
                 return;
             }
             let urlYt = videos[0].url
             let infoYt = await ytdl.getInfo(urlYt);
             //30 MIN
             if (infoYt.videoDetails.lengthSeconds >= 5800) {
-                reply(❌ Audio too big!\I'm Unable to download big files. 🤥);
+                reply("❌ Audio too big!\I'm Unable to download big files. 🤥");
                 return;
             }
             const getRandom = (ext) => {
@@ -576,7 +576,7 @@ case 'play': case 'stream': {
                     }
                 );
             } else {
-                reply(❌ File size bigger than 40mb.\nI'm unable to download large files.🤥);
+                reply('❌ File size bigger than 40mb.\nI'm unable to download large files.🤥');
             }
             fs.unlinkSync(./${randomName});
         } catch (e) {

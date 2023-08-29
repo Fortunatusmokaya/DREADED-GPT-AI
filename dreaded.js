@@ -522,6 +522,67 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
    fs.unlinkSync(`./${randomName}`); 
     } 
   
+break
+case 'play': case 'stream': {
+        if (!text) {
+            reply('Provide a search term!\nE.g: Play You Broke Me First - By Tate McRae')
+            return;
+        }
+        try {
+            const {
+                videos
+            } = await yts(text);
+            if (!videos || videos.length <= 0) {
+                reply(No Matching videos found for : *${args[0]}*!!)
+                return;
+            }
+            let urlYt = videos[0].url
+            let infoYt = await ytdl.getInfo(urlYt);
+            //30 MIN
+            if (infoYt.videoDetails.lengthSeconds >= 5800) {
+                reply(❌ Audio too big!\I'm Unable to download big files. 🤥);
+                return;
+            }
+            const getRandom = (ext) => {
+                return ${Math.floor(Math.random() * 10000)}${ext};
+            };
+            let titleYt = infoYt.videoDetails.title;
+            let randomName = getRandom(".mp3");
+            const stream = ytdl(urlYt, {
+                    filter: (info) => info.audioBitrate == 160 || info.audioBitrate == 128,
+                })
+                .pipe(fs.createWriteStream(./${randomName}));
+            console.log("Audio downloading ->", urlYt);
+             reply("Downloading...and uploading your song!");
+            await new Promise((resolve, reject) => {
+                stream.on("error", reject);
+                stream.on("finish", resolve);
+            });
+            
+            let stats = fs.statSync(./${randomName});
+            let fileSizeInBytes = stats.size;
+            // Convert the file size to megabytes (optional)
+            let fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
+            console.log("Audio downloaded ! \n Size: " + fileSizeInMegabytes);
+            if (fileSizeInMegabytes <= 40) {
+                sendFile(from, fs.readFileSync(./${randomName}), msg, { audio: true, jpegThumbnail: (await getBuffer(dl.meta.image)).buffer, unlink: true })
+                await client.sendMessage(
+                    from, {
+                        document: fs.readFileSync(./${randomName}),
+                        mimetype: "audio/mpeg",
+                        fileName: titleYt + ".mp3",
+                    }, {
+                        quoted: m
+                    }
+                );
+            } else {
+                reply(❌ File size bigger than 40mb.\nI'm unable to download large files.🤥);
+            }
+            fs.unlinkSync(./${randomName});
+        } catch (e) {
+            reply(e.toString())
+        }
+    }
 
           break;
           case 'mix': { 

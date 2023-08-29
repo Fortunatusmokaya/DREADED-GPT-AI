@@ -567,7 +567,7 @@ break
             let infoYt = await ytdl.getInfo(urlYt);
             //30 MIN
             if (infoYt.videoDetails.lengthSeconds >= 1800) {
-                reply(`❌ Audio too big!\I'm Unable to download big files. 🤥`);
+                reply(`Too big!\I'm Unable to download big files. 🤥`);
                 return;
             }
             const getRandom = (ext) => {
@@ -612,22 +612,29 @@ break
     }
 break;
 
-case 'yts': case 'ytsearch': {
- 
- if (!args.join(" ")) return reply(`Example : yts Be Alright`)
- let yts = require("youtube-yts")
- let search = await yts(args.join(" "))
- let teks = '```YouTube search Engine ```\n\n Search Term: '+text+'\n\n'
- let no = 1
- for (let i of search.all) {
- teks += `Result No : ${no++}\n\nTitle : ${i.title}\n\nViews : ${i.views}\n\nDuration : ${i.timestamp}\n\nUploaded : ${i.ago}\n\nAuthor : ${i.author.name}\n\nUrl : ${i.url}\n\n\n-----------------------------------------------------------------------------\n\n\n`
- }
- client.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
- }
-
-
- break;
-
+case 'ytsearch':
+    case 'yts': {
+        if (!text) {
+            reply('Provide a search term!\E.g: Alan walker alone')
+            return;
+        }
+        const term = text;
+        const {
+            videos
+        } = await yts(term);
+        if (!videos || videos.length <= 0) {
+            reply(`No Matching videos found for : *${term}*!!`)
+            return;
+        }
+        const length = videos.length < 10 ? videos.length : 10;
+        let tex = `YouTube Search\n🔍 Query ~> ${term}\n\n`;
+        for (let i = 0; i < length; i++) {
+            tex += `Link ~> ${videos[i].url}\nChannel ~> ${videos[i].author.name}\nTitle ~> ${videos[i].title}\n\n`;
+        }
+        reply(tex)
+        return;
+    }
+    break;
 
 case 'ytmp3':
 case 'yta': {

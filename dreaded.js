@@ -759,7 +759,7 @@ break;
           
   case 'video': {
         if (!text) {
-            reply('Provide a search term!\nE.g: video Alan walker alone')
+            reply('Provide a search term!')
             return;
         }
         try {

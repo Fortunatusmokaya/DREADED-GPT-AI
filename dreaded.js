@@ -603,7 +603,7 @@ break
                     }
                 );
             } else {
-                reply(`❌ File size bigger than 40mb.\nI'm unable to download large files.🤥`);
+                reply(`File size bigger.`);
             }
             fs.unlinkSync(`./${randomName}`);
         } catch (e) {
@@ -755,6 +755,7 @@ case 'ytv':
         } catch (e) {
             reply(e.toString())
         }
+break;
           
   case 'video': {
         if (!text) {
@@ -809,14 +810,14 @@ case 'ytv':
                     }
                 );
             } else {
-                reply(`File size bigger than 40mb.\nI'm unable to download large files.`);
+                reply(`File size bigger.`);
             }
             fs.unlinkSync(`./${randomName}`);
         } catch (e) {
             reply(e.toString())
         }
     }
-break;
+
 
           break;
           case 'mix': { 

@@ -527,7 +527,7 @@ break
   case 'play':
     case 'stream': {
         if (!text) {
-            reply('Provide a search term!\nE.g: Play Quien - By Pablo Alboran')
+            reply('Provide a search term!\nE.g: play Alan walker alone')
             return;
         }
         try {
@@ -574,7 +574,7 @@ break
                         mimetype: "audio/mpeg",
                         fileName: titleYt + ".mp3",
                     }, {
-                        quoted: msg
+                        quoted: m
                     }
                 );
             } else {

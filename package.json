@@ -47,6 +47,7 @@
     "openai": "^3.1.0",
     "ytdl-secktor": "^0.0.1-development",
   "yt-search": "^2.10.4",
+    "youtube-yts": "^2.0.0",
     "pino": "^7.0.5",
     "qrcode-terminal": "^0.12.0",
     "util": "^0.12.4"

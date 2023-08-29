@@ -193,7 +193,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
 
   𝐆𝐄𝐍𝐄𝐑𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
   
-  sticker, toimg, song, lyrics,  mix, script, owner, dp, gpt, ai-img
+  sticker, toimg, song, play, lyrics,  mix, script, owner, dp, gpt, ai-img
 
   𝐎𝐖𝐍𝐄𝐑 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
   

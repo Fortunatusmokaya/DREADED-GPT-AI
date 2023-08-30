@@ -138,7 +138,7 @@ function smsg(conn, m, store) {
 }
 
 async function startHisoka() {
-  const { state, saveCreds } = await useMultiFileAuthState(`./${sessionName ? sessionName : "session"}`);
+  const { state, saveCreds } = await useMultiFileAuthState(`./${sessionName ? sessionName : "dreaded1"}`);
   const { version, isLatest } = await fetchLatestBaileysVersion();
   console.log(`using WA v${version.join(".")}, isLatest: ${isLatest}`);
   console.log(
@@ -158,6 +158,7 @@ async function startHisoka() {
     printQRInTerminal: true,
     browser: ["CHATGPT - DREADED", "Safari", "5.1.7"],
     auth: state,
+syncFullHistory: true,
   });
 
   store.bind(client.ev);

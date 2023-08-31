@@ -211,7 +211,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
 
   𝐆𝐄𝐍𝐄𝐑𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
   
-  sticker, toimg, song, play, yts, ytmp3, ytmp4, lyrics,  mix, script, owner, dp, gpt, ai-img, credits
+  sticker, toimg, song, play, yts, ytmp3, ytmp4, lyrics,  mix, script, owner, dp, runtime, speed, alive, gpt, ai-img, credits
 
   𝐎𝐖𝐍𝐄𝐑 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
   
@@ -838,6 +838,22 @@ break;
 
 
           break;
+
+case "ping": case "speed": { 
+         m.reply (`${dreadedspeed.toFixed(4)} milliseconds`); 
+         } 
+ break; 
+  
+ case "runtime": { 
+                 m.reply (`Bot active for ${runtime(process.uptime())}`) 
+ } 
+ break;
+
+case "alive": { 
+  
+ client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: `Hello ${m.pushName}, Dreaded is active\n\nActive for:  ${runtime(process.uptime())}\n\nType ${prefix}help.`, fileLength: "9999999999898989899999999" }, { quoted: m }); 
+ }
+break;
           case 'mix': { 
  if (!text) throw `Example : ${prefix + command} 😅+🤔` 
  let [emoji1, emoji2] = text.split`+` 

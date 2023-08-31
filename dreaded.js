@@ -4,6 +4,7 @@ const fs = require("fs");
 const util = require("util");
 global.axios = require('axios').default
 const chalk = require("chalk");
+const speed = require("performance-now");
 const Genius = require("genius-lyrics"); 
 const yts = require("yt-search");
 const ytdl = require("ytdl-secktor");
@@ -86,6 +87,23 @@ const admin = process.env.ADMIN_MSG;
     const group = process.env.GROUP_ONLY_MSG;
     const botAdmin = process.env.BOT_ADMIN_MSG;
     const NotOwner = process.env.NOT_OWNER_MSG;
+
+const runtime = function (seconds) { 
+ seconds = Number(seconds); 
+ var d = Math.floor(seconds / (3600 * 24)); 
+ var h = Math.floor((seconds % (3600 * 24)) / 3600); 
+ var m = Math.floor((seconds % 3600) / 60); 
+ var s = Math.floor(seconds % 60); 
+ var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " Day, ") : ""; 
+ var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " Hours, ") : ""; 
+ var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " Minutes, ") : ""; 
+ var sDisplay = s > 0 ? s + (s == 1 ? " second" : " Seconds") : ""; 
+ return dDisplay + hDisplay + mDisplay + sDisplay; 
+ } 
+  
+ const timestamp = speed(); 
+   const dreadedspeed = speed() - timestamp 
+ 
     // Push Message To Console
     let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
     if (autoreadrecord === 'TRUE' && !m.isGroup) { 

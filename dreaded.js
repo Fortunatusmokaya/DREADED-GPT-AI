@@ -36,8 +36,8 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
         : "";
     var budy = typeof m.text == "string" ? m.text : "";
     
-    const pref = process.env.PREFIX;
-const prefix = pref.split(",");
+    const prefix = process.env.PREFIX;
+// const prefix = pref.split(",");
     const cmd = body.startsWith(prefix);
     const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();
     const args = body.trim().split(/ +/).slice(1);

@@ -38,10 +38,10 @@ const {
       Database  
   
   } = require("quickmongo");  
-  global.chatgpt = new Database(process.env.MONGODB);  
+  global.db = new Database(process.env.MONGODB);  
   
   
- chatgpt.on("ready", () => {  
+ db.on("ready", () => {  
   
       console.log("Connected to gpt database!"); 
   
@@ -300,6 +300,8 @@ syncFullHistory: true,
         startHisoka();
       }
     } else if (connection === "open") {
+
+await db.connect();
       console.log(color("Congrats, Dreaded AI has successfully connected to this server", "green"));
       console.log(color("Follow me on GitHub as Fortunatusmokaya", "red"));
       console.log(color("Text the bot number with !menu to check my command list"));

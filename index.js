@@ -26,10 +26,27 @@ const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/
  const { isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/dreadfunc');
 const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" }) });
 
+
+
 const color = (text, color) => {
   return !color ? chalk.green(text) : chalk.keyword(color)(text);
 };
 
+
+const {  
+  
+      Database  
+  
+  } = require("quickmongo");  
+  global.db = new Database(process.env.MONGODB);  
+  
+  
+  db.on("ready", () => {  
+  
+      console.log("Connected to gpt database!"); 
+  
+  
+ });
 function smsg(conn, m, store) {
   if (!m) return m;
   let M = proto.WebMessageInfo;

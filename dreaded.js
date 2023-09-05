@@ -1027,6 +1027,68 @@ const response = await openai.createChatCompletion({
           }
 
             }
+
+break;
+
+case "ai":
+
+const {
+  Configuration,
+  OpenAIApi
+} = require("openai");
+
+// Function to save a conversation to the database
+async function saveConversation(text) {
+  await db.set("conversation", [{ role: "user", content: text }]);
+}
+
+// Function to get a conversation from the database
+async function getConversation() {
+  return await db.get("conversation") || [];
+}
+
+// Handler for the "gpt" or "openai" case
+async function handleGPTMessage(text, m) {
+  if (!text) return m.reply("I need more text please. Make your query a bit longer.");
+
+  const configuration = new Configuration({
+    apiKey: setting,
+  });
+
+  const openai = new OpenAIApi(configuration);
+
+  // Get the previous conversation history from the database
+  const previousMessages = await getConversation();
+
+  // Add the user's new message to the conversation
+  previousMessages.push({ role: "user", content: text });
+
+  try {
+    const response = await openai.createChatCompletion({
+      model: "gpt-3.5-turbo",
+      messages: previousMessages, // Include the entire conversation history
+    });
+
+    // Extract and send the model's reply
+    const modelReply = response.data.choices[0].message.content;
+    m.reply(modelReply);
+
+    // Save the updated conversation history to the database
+    await saveConversation(text); // Store only the latest user message
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response.status);
+      console.log(error.response.data);
+      console.log(`${error.response.status}\n\n${error.response.data}`);
+    } else {
+      console.log(error);
+      m.reply("I'm Facing An Error: " + error.message);
+    }
+  }
+}
+
+
+
           
           break;
         case "img": case "ai-img": case "image": case "images":

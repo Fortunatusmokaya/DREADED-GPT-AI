@@ -38,10 +38,10 @@ const {
       Database  
   
   } = require("quickmongo");  
-  global.db = new Database(process.env.MONGODB);  
+  global.chatgpt = new Database(process.env.MONGODB);  
   
   
-  db.on("ready", () => {  
+ chatgpt.on("ready", () => {  
   
       console.log("Connected to gpt database!"); 
   

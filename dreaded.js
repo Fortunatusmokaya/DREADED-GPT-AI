@@ -858,6 +858,39 @@ case "alive": {
  client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: `Hello ${m.pushName}, Dreaded is active\n\nActive for:  ${runtime(process.uptime())}\n\nType ${prefix}help.\n\nYou can also interact with our online chatbot built with html and JavaScript with API integration.\n\nLink is given below:\n\nhttps://quantumlab.ru.eu.org/`, fileLength: "9999999999898989899999999" }, { quoted: m }); 
  }
 break;
+case 'apk': {
+if (!text) throw `I need an apk name for download`;
+const getRandomm = (ext) => { return `${Math.floor(Math.random() * 10000)}${ext}`; }; 
+         let randomName = getRandomm(".apk"); 
+         const filePath = `./${randomName}`;     // fs.createWriteStream(`./${randomName}`) 
+const {  searchh , downloadd } = require('aptoide-scraper') 
+         let searc = await searchh(text);          //console.log(searc); 
+         let data={}; 
+         if(searc.length){ data = await downloadd
+(searc[0].id); } 
+         else return reply("App not found!"); 
+const apkSize = parseInt(data.size); 
+         if(apkSize > 100) return reply(`File bigger!`); 
+const url = data.dllink; 
+          let  inf  ="*App Name :* " +data.name; 
+          inf +="\n*App id        :* " +data.package; 
+          inf +="\n*Last Update       :* " +data.lastup; 
+          inf +="\n*App Size     :* " +data.size; 
+         // inf +="\n*App Link     :* " +data.dllink; 
+         inf +="\n\n "+ "caption"
+
+let buttonMessage = { 
+                         document: fs.readFileSync(filePath), 
+                         mimetype: 'application/vnd.android.package-archive', 
+                         fileName: data.name+`.apk`, 
+                         caption : inf 
+  
+                     } 
+
+client.sendMessage(from, buttonMessage, { quoted: m }) 
+
+}
+
           case 'mix': { 
  if (!text) throw `Example : ${prefix + command} 😅+🤔` 
  let [emoji1, emoji2] = text.split`+` 

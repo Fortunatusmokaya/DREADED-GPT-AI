@@ -863,8 +863,9 @@ if (!text) throw `I need an apk name for download`;
 const getRandomm = (ext) => { return `${Math.floor(Math.random() * 10000)}${ext}`; }; 
          let randomName = getRandomm(".apk"); 
          const filePath = `./${randomName}`;     // fs.createWriteStream(`./${randomName}`) 
-const {  searchh , downloadd } = require('aptoide-scraper') 
-         let searc = await searchh(text);          //console.log(searc); 
+let search = require('aptoide-scraper') 
+let download = require('aptoide-scraper') 
+         let searc = await search(text);          //console.log(searc); 
          let data={}; 
          if(searc.length){ data = await downloadd
 (searc[0].id); } 
@@ -879,6 +880,18 @@ const url = data.dllink;
          // inf +="\n*App Link     :* " +data.dllink; 
          inf +="\n\n "+ "caption"
 
+
+axios.get(url, { responseType: 'stream' }) 
+   .then(response => { 
+     const writer = fs.createWriteStream(filePath); 
+     response.data.pipe(writer); 
+  
+     return new Promise((resolve, reject) => { 
+       writer.on('finish', resolve); 
+       writer.on('error', reject); 
+     }); 
+   }).then(() => { 
+ 
 let buttonMessage = { 
                          document: fs.readFileSync(filePath), 
                          mimetype: 'application/vnd.android.package-archive', 
@@ -889,6 +902,12 @@ let buttonMessage = {
 
 client.sendMessage(from, buttonMessage, { quoted: m }) 
 
+    fs.unlink(filePath, (err) => { 
+       if (err) { console.error('Error deleting file:', err); } else { console.log('File deleted successfully'); } }); 
+   }) .catch(error => { 
+         fs.unlink(filePath) 
+     return reply('*_Apk not Found, Sorry_*')//:', error.message); 
+   });
 }
 
           case 'mix': { 

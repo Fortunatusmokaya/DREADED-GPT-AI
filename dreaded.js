@@ -111,11 +111,11 @@ const runtime = function (seconds) {
              client.readMessages([m.key]); 
   client.sendPresenceUpdate('composing', m.chat);
     }
-    if (m.chat.endsWith("@s.whatsapp.net")) {
+    if (!cmd && m.chat.endsWith("@s.whatsapp.net")) {
 
   	
 
-  if (!text) return reply("I need more text. For better experience with my inbox AI make longer statements.");
+  // if (!text) return reply("I need more text. For better experience with my inbox AI make longer statements.");
 
            const configuration = new Configuration({
 

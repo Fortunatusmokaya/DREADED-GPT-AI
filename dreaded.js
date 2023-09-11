@@ -779,36 +779,35 @@ case 'ytv':
         }
 break;
           
-  case 'video': {
-        if (!text) {
-            reply('Provide a search term!')
+  case 'video':
+        let getRandom = (ext) => {
+            return `${Math.floor(Math.random() * 10000)}${ext}`;
+        };
+        if (args.length === 0) {
+            reply(` URL is empty! \nSend ${prefix}ytmp4 url`);
             return;
         }
         try {
-            const {
-                videos
-            } = await yts(text);
-            if (!videos || videos.length <= 0) {
-                reply(`No Matching videos found!`)
+            let urlYt = args[0];
+            if (!urlYt.startsWith("http")) {
+                reply(`Give youtube link!`);
                 return;
             }
-            let urlYt = videos[0].url
             let infoYt = await ytdl.getInfo(urlYt);
             //30 MIN
             if (infoYt.videoDetails.lengthSeconds >= 1800) {
-                reply(`Too big!\I'm Unable to download big files.`);
+                reply(`Video file too big!`);
                 return;
             }
-            const getRandom = (ext) => {
-                return `${Math.floor(Math.random() * 10000)}${ext}`;
-            };
             let titleYt = infoYt.videoDetails.title;
-            let randomName = getRandom(".mp3");
+            let randomName = getRandom(".mp4");
+            
             const stream = ytdl(urlYt, {
-                    filter: (info) => info.audioBitrate == 160 || info.audioBitrate == 128,
+                    filter: (info) => info.itag == 22 || info.itag == 18,
                 })
                 .pipe(fs.createWriteStream(`./${randomName}`));
-            console.log("Audio downloading ->", urlYt);
+            //22 - 1080p/720p and 18 - 360p
+            console.log("Video downloading ->", urlYt);
             // reply("Downloading.. This may take upto 5 min!");
             await new Promise((resolve, reject) => {
                 stream.on("error", reject);
@@ -819,29 +818,25 @@ break;
             let fileSizeInBytes = stats.size;
             // Convert the file size to megabytes (optional)
             let fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
-            console.log("Audio downloaded ! \n Size: " + fileSizeInMegabytes);
-            if (fileSizeInMegabytes <= 40) {
-                //sendFile(from, fs.readFileSync(`./${randomName}`), msg, { audio: true, jpegThumbnail: (await getBuffer(dl.meta.image)).buffer, unlink: true })
-                await client.sendMessage(
+            console.log("Video downloaded ! Size: " + fileSizeInMegabytes);
+            if (fileSizeInMegabytes <= 100) {
+                client.sendMessage(
                     from, {
                         video: fs.readFileSync(`./${randomName}`),
-                        
                         caption: `${titleYt}`,
                     }, {
                         quoted: m
                     }
                 );
             } else {
-                reply(`File size bigger.`);
+                reply(`File size big.`);
             }
+            
             fs.unlinkSync(`./${randomName}`);
         } catch (e) {
             reply(e.toString())
         }
-    }
-
-
-          break;
+break;
 
 case "ping": case "speed": { 
          m.reply (`${dreadedspeed.toFixed(4)} milliseconds`); 

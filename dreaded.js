@@ -592,11 +592,11 @@ break
                 reply(`Too big!\I'm Unable to download big files. 🤥`);
                 return;
             }
-            const getRandom = (ext) => {
+            const getRandonm = (ext) => {
                 return `${Math.floor(Math.random() * 10000)}${ext}`;
             };
             let titleYt = infoYt.videoDetails.title;
-            let randomName = getRandom(".mp3");
+            let randomName = getRandonm(".mp3");
             const stream = ytdl(urlYt, {
                     filter: (info) => info.audioBitrate == 160 || info.audioBitrate == 128,
                 })
@@ -660,7 +660,7 @@ case 'ytsearch':
 
 case 'ytmp3':
 case 'yta': {
-      const getRandom = (ext) => {
+      const getRandommmm = (ext) => {
             return `${Math.floor(Math.random() * 10000)}${ext}`;
         };
         if (args.length === 0) {
@@ -680,7 +680,7 @@ case 'yta': {
                 return;
             }
             let titleYt = infoYt.videoDetails.title;
-            let randomName = getRandom(".mp3");
+            let randomName = getRandommmm(".mp3");
             const stream = ytdl(urlYt, {
                     filter: (info) => info.audioBitrate == 160 || info.audioBitrate == 128,
                 })
@@ -721,7 +721,7 @@ break
 case 'ytmp4':
 case 'ytvideo':
 case 'ytv':
-        const getRandom = (ext) => {
+        const getRandommm = (ext) => {
             return `${Math.floor(Math.random() * 10000)}${ext}`;
         };
         if (args.length === 0) {
@@ -741,7 +741,7 @@ case 'ytv':
                 return;
             }
             let titleYt = infoYt.videoDetails.title;
-            let randomName = getRandom(".mp4");
+            let randomName = getRandommm(".mp4");
             
             const stream = ytdl(urlYt, {
                     filter: (info) => info.itag == 22 || info.itag == 18,
@@ -780,7 +780,7 @@ case 'ytv':
 break;
           
   case 'video':
-        const getRandom = (ext) => {
+        const getRandomm = (ext) => {
             return `${Math.floor(Math.random() * 10000)}${ext}`;
         };
         if (args.length === 0) {
@@ -800,7 +800,7 @@ break;
                 return;
             }
             let titleYt = infoYt.videoDetails.title;
-            let randomName = getRandom(".mp4");
+            let randomName = getRandomm(".mp4");
             
             const stream = ytdl(urlYt, {
                     filter: (info) => info.itag == 22 || info.itag == 18,

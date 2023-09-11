@@ -787,7 +787,7 @@ break;
             reply(` URL is empty! \nSend ${prefix}ytmp4 url`);
             return;
         }
-        
+        try {
             let urlYt = args[0];
           
      

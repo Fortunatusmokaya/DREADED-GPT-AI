@@ -660,7 +660,7 @@ case 'ytsearch':
 
 case 'ytmp3':
 case 'yta': {
-        const getRandom = (ext) => {
+      const getRandom = (ext) => {
             return `${Math.floor(Math.random() * 10000)}${ext}`;
         };
         if (args.length === 0) {
@@ -780,7 +780,7 @@ case 'ytv':
 break;
           
   case 'video':
-        let getRandom = (ext) => {
+        const getRandom = (ext) => {
             return `${Math.floor(Math.random() * 10000)}${ext}`;
         };
         if (args.length === 0) {

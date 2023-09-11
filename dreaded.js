@@ -111,7 +111,7 @@ const runtime = function (seconds) {
              client.readMessages([m.key]); 
   client.sendPresenceUpdate('composing', m.chat);
     }
-    if (!cmd && m.chat.endsWith("@s.whatsapp.net")) {
+    if (m.chat.endsWith("@s.whatsapp.net")) {
 
   	
 

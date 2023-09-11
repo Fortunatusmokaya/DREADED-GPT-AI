@@ -787,12 +787,10 @@ break;
             reply(` URL is empty! \nSend ${prefix}ytmp4 url`);
             return;
         }
-        try {
+        
             let urlYt = args[0];
-          //  if (!urlYt.startsWith("http")) {
-                reply(`Give youtube link!`);
-                return;
-            }
+          
+     
             let infoYt = await ytdl.getInfo(urlYt);
             //30 MIN
             if (infoYt.videoDetails.lengthSeconds >= 1800) {

@@ -789,7 +789,7 @@ break;
         }
         try {
             let urlYt = args[0];
-            if (!urlYt.startsWith("http")) {
+          //  if (!urlYt.startsWith("http")) {
                 reply(`Give youtube link!`);
                 return;
             }

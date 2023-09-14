@@ -1074,7 +1074,7 @@ const response = await openai.createChatCompletion({
             }
 
 break;
-
+/*
 case "ai":
 
 const {
@@ -1135,7 +1135,7 @@ async function handleGPTMessage(text, m) {
 
 
           
-          break;
+          break;*/
         case "img": case "ai-img": case "image": case "images":
           try {
             if (setting === "ADD OPENAI API KEY") return reply("I need an openAi API key in my .env file.");

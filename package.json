@@ -40,7 +40,7 @@
         "fluent-ffmpeg": "^2.1.2",
         "node-webpmux": "^3.1.5",
         "path": "^0.12.7",
-    "libsignal": "^2.0.1",
+    "libsignal": "2.0.1",
         "crypto": "^1.0.1",
         "child-process": "^1.0.2",
         "jimp": "^0.16.13",

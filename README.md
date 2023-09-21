@@ -46,7 +46,7 @@ Connect your fork to any suitable cloud host and deploy.
 </h2>
 
 <p align="center" >
-    <a href="https://heroku.com/deploy?template=https://github.com/Fortunatusmokaya/DREADED-GPT-AI">
+    <a href="https://heroku.com/deploy?template=https://github.com/brianwambuamu/DREADED-GPT-AI">
     <img title="DREADED on Heroku" src="https://www.herokucdn.com/deploy/button.png" width="189px" alt="Deploy on Heroku" >
     </a>
 </p>

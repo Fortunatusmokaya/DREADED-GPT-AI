@@ -11,7 +11,7 @@ const {
   jidDecode,
   proto,
   getContentType,
-} = require("@adiwajshing/baileys");
+} = require("@whiskeysockets/baileys");
 const pino = require("pino");
 const { Boom } = require("@hapi/boom");
 const fs = require("fs");
@@ -33,20 +33,7 @@ const color = (text, color) => {
 };
 
 
-const {  
-  
-      Database  
-  
-  } = require("quickmongo");  
-  global.db = new Database(process.env.MONGODB);  
-  
-  
- db.on("ready", () => {  
-  
-      console.log("Connected to gpt database!"); 
-  
-  
- });
+
 function smsg(conn, m, store) {
   if (!m) return m;
   let M = proto.WebMessageInfo;
@@ -300,8 +287,6 @@ syncFullHistory: true,
         startHisoka();
       }
     } else if (connection === "open") {
-
-await db.connect();
       console.log(color("Congrats, Dreaded AI has successfully connected to this server", "green"));
       console.log(color("Follow me on GitHub as Fortunatusmokaya", "red"));
       console.log(color("Text the bot number with !menu to check my command list"));

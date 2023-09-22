@@ -27,6 +27,7 @@ const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/
 const store = makeInMemoryStore({ logger: pino().child({ level: "silent", stream: "store" }) });
 
     const autoviewstatus = process.env.AUTOVIEW_STATUS || 'TRUE';
+const welcome = process.env.WELCOME || 'TRUE';
 
 const color = (text, color) => {
   return !color ? chalk.green(text) : chalk.keyword(color)(text);
@@ -207,6 +208,24 @@ dreaded(client, m, chatUpdate, store);
     } else return jid;
   };
 
+
+
+client.ev.on('group-participants.update', async (xd) => { 
+ // console.log(anu) 
+  
+  let metadata = await client.groupMetadata(xd.id) 
+  let participants = xd.participants 
+  for (let num of participants) { 
+  if (xd.action == 'add') { 
+  
+  
+  if (num && welcome === 'TRUE') { 
+  
+                                         await client.sendMessage(xd.id, { text: `@${num.split("@")[0]}. 👋\n\nWelcome to ${metadata.subject}.\n\nYou might want to read the group description. Follow the group rules to avoid getting removed.\n\nDreaded Bot ©`, mentions: [num] }) 
+                                           }  
+  } 
+  } 
+  }); 
   client.ev.on("contacts.update", (update) => {
     for (let contact of update) {
       let id = client.decodeJid(contact.id);

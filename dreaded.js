@@ -35,9 +35,9 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
         ? m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text
         : "";
     var budy = typeof m.text == "string" ? m.text : "";
-    
-    const prefix = process.env.PREFIX;
-// const prefix = pref.split(",");
+   
+    const prefix = process.env.PREFIX || '.';
+
     const cmd = body.startsWith(prefix);
     const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();
     const args = body.trim().split(/ +/).slice(1);
@@ -68,13 +68,13 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
     };
     const mime = (quoted.msg || quoted).mimetype || "";
             const qmsg = (quoted.msg || quoted);
-    const author = process.env.STICKER_AUTHOR;
-    const packname = process.env.STICKER_PACKNAME;
-const dev = process.env.DEV; 
+    const author = process.env.STICKER_AUTHOR || 'fortunatus';
+    const packname = process.env.STICKER_PACKNAME || 'dreaded';
+const dev = process.env.DEV || '254114018035 254114018035'
  const DevDreaded = dev.split(",");
-    const badwordkick = process.env.BAD_WORD_KICK;
-   const bad = process.env.BAD_WORD;
-    const autoreadrecord = process.env.AUTOREAD_AND_TYPE;
+    const badwordkick = process.env.BAD_WORD_KICK || 'TRUE';
+   const bad = process.env.BAD_WORD || '';
+    const autoreadrecord = process.env.AUTOREAD_AND_TYPE || 'TRUE';
     const badword = bad.split(",");
     const Owner = DevDreaded.map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(m.sender)
     // Group
@@ -84,10 +84,10 @@ const dev = process.env.DEV;
      const groupAdmin = m.isGroup ? await getGroupAdmins(participants) : ""; 
      const isBotAdmin = m.isGroup ? groupAdmin.includes(botNumber) : false; 
      const isAdmin = m.isGroup ? groupAdmin.includes(m.sender) : false;
-const admin = process.env.ADMIN_MSG;
-    const group = process.env.GROUP_ONLY_MSG;
-    const botAdmin = process.env.BOT_ADMIN_MSG;
-    const NotOwner = process.env.NOT_OWNER_MSG;
+const admin = process.env.ADMIN_MSG || 'Are you an admin?';
+    const group = process.env.GROUP_ONLY_MSG || 'Is this a group chat?';
+    const botAdmin = process.env.BOT_ADMIN_MSG || 'Am I an admin?'
+    const NotOwner = process.env.NOT_OWNER_MSG || 'Are you the owner?';
 
 const runtime = function (seconds) { 
  seconds = Number(seconds); 

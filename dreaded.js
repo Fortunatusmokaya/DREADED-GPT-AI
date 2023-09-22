@@ -35,8 +35,8 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
         ? m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text
         : "";
     var budy = typeof m.text == "string" ? m.text : "";
-   
-    const prefix = process.env.PREFIX || '.';
+   // leave the prefix string empty if you don't want the bot to use a prefix
+    const prefix = process.env.PREFIX || '';
 
     const cmd = body.startsWith(prefix);
     const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();

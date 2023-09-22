@@ -26,37 +26,24 @@ Alternatively, connect your fork to your heroku account and manually add the env
      
 
      
-<h2 align="center">   Run Repl and scan QR Code.
+<h2 align="center">   Use termux and scan QR Code.
 
-If successful your login credentials (creds.json) will be sent to your number.
 
-Upload the creds.json in dreaded1 folder.
+Upload the creds.json from your termux files to the dreaded1 folder.
 
 Connect your fork to any suitable cloud host and deploy.
 
-</h2>
-<h2 align="center">  <a href="https://replit.com/@fortunedreaded/DREADED-QR-SCANNER#"><img src="https://repl.it/badge/github/quiec/whatsasena" />
-</a>
-</h2>
-   <br>
-   </br>
+Add the environmental variables in your hosting site for bot to work.
 
 
-<h2 align="center">  Deploy Via Heroku. You will be required to fill all the required environmental variables before deploying.
-</h2>
 
-<p align="center" >
-    <a href="https://heroku.com/deploy?template=https://github.com/Fortunatusmokaya/DREADED-GPT-AI">
-    <img title="DREADED on Heroku" src="https://www.herokucdn.com/deploy/button.png" width="189px" alt="Deploy on Heroku" >
-    </a>
-</p>
+
      
 
 
-</br>    
-
-You can alternatively connect this repo to other cloud host deployment services like koyeb and manually add the environmental variables.
-
+Termux procedure is given below.
+ 
+Replit will be added however you can easily add it yourself.
 
 **Install Via Termux locally✅**
 

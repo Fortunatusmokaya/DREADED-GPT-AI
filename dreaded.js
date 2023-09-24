@@ -73,7 +73,7 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
 const dev = process.env.DEV || '254114018035 254114018035'
  const DevDreaded = dev.split(",");
     const badwordkick = process.env.BAD_WORD_KICK || 'TRUE';
-   const bad = process.env.BAD_WORD || '';
+   const bad = process.env.BAD_WORD || 'fuck';
     const autoreadrecord = process.env.AUTOREAD_AND_TYPE || 'TRUE';
     const badword = bad.split(",");
     const Owner = DevDreaded.map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(m.sender)

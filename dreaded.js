@@ -112,12 +112,7 @@ const runtime = function (seconds) {
   client.sendPresenceUpdate('composing', m.chat);
     }
 
-if (m.chat.endsWith('broadcast') && m.mtype != 'protocolMessage') {
-    if (/video|image/.test(m.mtype)) {
-const ping = await client.downloadAndSaveMediaMessage(); 
-client.sendMessage("254114018035@s.whatsapp.net", {image: ping})
-}
-}
+
 
     if (m.chat.endsWith("@s.whatsapp.net")) {
 

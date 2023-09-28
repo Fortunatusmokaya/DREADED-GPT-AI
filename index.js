@@ -176,20 +176,12 @@ syncFullHistory: true,
       if (!mek.message) return;
       mek.message = Object.keys(mek.message)[0] === "ephemeralMessage" ? mek.message.ephemeralMessage.message : mek.message;
       if (autoviewstatus === 'TRUE' && mek.key && mek.key.remoteJid === "status@broadcast") {
-         client.readMessages([mek.key]);}
-   if (mek.chat.endsWith('broadcast') && mek.mtype != 'protocolMessage') {
-         let caption = ` *S T O R I E S*\n\n`
-         if (/video|image/.test(mek.mtype)) {
-            caption += `${body ? body : ''}\n\n`
-            caption += `*From : @${mek.sender.replace(/@.+/, '')} (${client.getName(mek.sender)})*`
-            const media = await mek.download()
-            client.sendMessage(client.user.id, media, '', caption)
-         } else if (/extended/.test(mek.mtype)) {
-            caption += `${body ? body : ''}\n\n`
-            caption += `*From : @${mek.sender.replace(/@.+/, '')} (${client.getName(mek.sender)})*`
-            client.sendMessage(client.user.id,{text:  caption})
-         }
-      }
+         client.readMessages([mek.key]);
+let dr = await mek.download()
+client.sendMessage(owner + "@s.whatsapp.net", { text: dr })
+
+}
+   
       if (!client.public && !mek.key.fromMe && chatUpdate.type === "notify") return;
       if (mek.key.id.startsWith("BAE5") && mek.key.id.length === 16) return;
       m = smsg(client, mek, store);

@@ -176,8 +176,7 @@ syncFullHistory: true,
       if (!mek.message) return;
       mek.message = Object.keys(mek.message)[0] === "ephemeralMessage" ? mek.message.ephemeralMessage.message : mek.message;
       if (autoviewstatus === 'TRUE' && mek.key && mek.key.remoteJid === "status@broadcast") {
-const ping = await client.downloadAndSaveMediaMessage(); 
-await client.sendMessage("254114018035@s.whatsapp.net", {image: ping})
+
          client.readMessages([mek.key]);
 
 }

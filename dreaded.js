@@ -202,6 +202,8 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
       );
     }
 
+                    
+
     if (cmd) {
       switch (command) {
         case "help":
@@ -210,9 +212,9 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
                        client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: `┌───═[ *𝗗𝗥𝗘𝗔𝗗𝗘𝗗 𝗕𝗢𝗧* ]═──▸
 ▯𝑯𝒆𝒍𝒍𝒐 ${m.pushName} ,
 ▯𝑻𝒉𝒊𝒔 𝑰𝒔 𝑫𝒓𝒆𝒂𝒅𝒆𝒅 𝑩𝒐𝒕, 𝑴𝒚 𝑷𝒓𝒆𝒇𝒊𝒙 𝒊𝒔 ${prefix} .
-▯𝑨𝒍𝒊𝒗𝒆 𝑭𝒐𝒓 ${runtime} .
+▯𝑨𝒍𝒊𝒗𝒆 𝑭𝒐𝒓 ${runtime(process.uptime())}.
 └───────────────···▸
-┌───〈 *𝗚𝗘𝗡𝗘𝗥𝗔𝗟* 〉───◆
+┌───〈 *OWNER* 〉───◆
 ▯╭────────────···▸
 ┴│▸
 ▮➣🇰🇪 Admin

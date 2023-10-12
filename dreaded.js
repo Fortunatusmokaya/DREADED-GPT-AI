@@ -207,40 +207,70 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
         case "help":
         case "menu":
 
-                       client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: `𝑫𝒓𝒆𝒂𝒅𝒆𝒅 𝑩𝒐𝒕\n\nHello ${m.pushName}.\nThis is Dreaded Bot, a simple whatsApp Bot! My prefix is ${prefix} and below are the usable commands.\n\nAlso check out our online chatbot here:
+                       client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: `┌───═[ *𝗗𝗥𝗘𝗔𝗗𝗘𝗗 𝗕𝗢𝗧* ]═──▸
+▯𝑯𝒆𝒍𝒍𝒐 {pushname} ,
+▯𝑻𝒉𝒊𝒔 𝑰𝒔 𝑫𝒓𝒆𝒂𝒅𝒆𝒅 𝑩𝒐𝒕, 𝑴𝒚 𝑷𝒓𝒆𝒇𝒊𝒙 𝒊𝒔 {prefix} .
+▯𝑨𝒍𝒊𝒗𝒆 𝑭𝒐𝒓 {runtime} .
+└───────────────···▸
+┌───〈 *𝗚𝗘𝗡𝗘𝗥𝗔𝗟* 〉───◆
+▯╭────────────···▸
+┴│▸
+▮➣🇰🇪 Admin
+▮➣🇰🇪 Broadcast
+▮➣🇰🇪 Join
+▮➣🇰🇪 Botpp
+▮➣🇰🇪 Block 
+▮➣🇰🇪 Unblock
+┬│▸
+│╰─────────────···▸
+└───────────────···▸
 
- https://quantumlab.ru.eu.org/
-  
-  𝐀𝐃𝐌𝐈𝐍 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
-  
- delete, promote, demote, remove, close, open, disp-off, disp1, disp7, disp90, icon, subject, desc, leave, tagall, hidetag, revoke
+┌───〈 *𝗚𝗘𝗡𝗘𝗥𝗔𝗟* 〉───◆
+▯╭─────────────···▸
+┴│▸
+▮➣🇰🇪 Sticker
+▮➣🇰🇪 Toimg
+▮➣🇰🇪 Song
+▮➣🇰🇪 Play
+▮➣🇰🇪 Yts
+▮➣🇰🇪 Ytmp3 
+▮➣🇰🇪 Ytmp4
+▮➣🇰🇪 Lyrics
+▮➣🇰🇪 Mix
+▮➣🇰🇪Ai-img
+▮➣🇰🇪 Gpt
+▮➣🇰🇪 DP
+▮➣🇰🇪 Speed
+▮➣🇰🇪 Alive
+▮➣🇰🇪 Runtime
+▮➣🇰🇪 Credits
+▮➣🇰🇪 Script
+▮➣🇰🇪 Owner
+┬│▸
+│╰────────────··
+┌───〈 *𝗔𝗗𝗠𝗜𝗡* 〉───◆
+▯╭─────────────···▸
+▮➣🇰🇪 Promote
+▮➣🇰🇪 Demote
+▮➣🇰🇪 Delete
+▮➣🇰🇪 Remove
+▮➣🇰🇪 Close
+▮➣🇰🇪 Open
+▮➣🇰🇪 Disp-off
+▮➣🇰🇪 Disp
+▮➣🇰🇪 Disp
+▮➣🇰🇪 Disp
+▮➣🇰🇪 Icon
+▮➣🇰🇪 Subject
+▮➣🇰🇪 Desc
+▮➣🇰🇪 Leave
+▮➣🇰🇪 Tagall
+▮➣🇰🇪 Hidetag
+▮➣🇰🇪 Revoke
+┃✵╰──────────────
+╰━━━━━━━━━━━━━━━┈⊷
 
-  𝐆𝐄𝐍𝐄𝐑𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
-  
-  sticker, toimg, song, play, yts, ytmp3, ytmp4, lyrics,  mix, script, owner, dp, runtime, speed, alive, gpt, ai-img, credits
 
-  𝐎𝐖𝐍𝐄𝐑 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
-  
- broadcast, block, unblock, admin, botpp, join
-  
-
-       ------- 𝐸𝑛𝑑 ------- 
-  
-               𝗡𝗼𝘁𝗲: 
-
-  
- - This bot uses baileys and nodejs technology with no database configuration.
- 
- - Do not call or spam the bot! 🦄 
- 
- - Antilink is automatically active.
- 
- - AntiBadword might be active depending on the owner configuration of the variables
-
-
-      Enjoy 💐 シ︎
- 
- 
    
     
  `, fileLength: "9999999999999999999999"}, { quoted: m }); 

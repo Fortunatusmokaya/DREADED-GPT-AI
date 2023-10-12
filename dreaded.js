@@ -268,12 +268,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
 ▮➣🇰🇪 Hidetag
 ▮➣🇰🇪 Revoke
 ┃✵╰──────────────
-╰━━━━━━━━━━━━━━━┈⊷
-
-
-   
-    
- `, fileLength: "9999999999999999999999"}, { quoted: m }); 
+╰━━━━━━━━━━━━━━━┈•`, fileLength: "9999999999999999999999"}, { quoted: m }); 
            break;
           m.reply(`This Public bot is under development.`)
           // Group Commands

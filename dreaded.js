@@ -71,6 +71,8 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
     const author = process.env.STICKER_AUTHOR || 'fortunatus';
     const packname = process.env.STICKER_PACKNAME || 'dreaded';
 const dev = process.env.DEV || '254114018035 254114018035'
+
+const menu = process.env.MENU_TYPE || 'VIDEO';
  const DevDreaded = dev.split(",");
     const badwordkick = process.env.BAD_WORD_KICK || 'TRUE';
    const bad = process.env.BAD_WORD || 'fuck';
@@ -206,46 +208,104 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
       switch (command) {
         case "help":
         case "menu":
+let cap = `┌───═[ 𝗗𝗥𝗘𝗔𝗗𝗘𝗗 𝗕𝗢𝗧 ]═──▸
 
-                       client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: `𝑫𝒓𝒆𝒂𝒅𝒆𝒅 𝑩𝒐𝒕\n\nHello ${m.pushName}.\nThis is Dreaded Bot, a simple whatsApp Bot! My prefix is ${prefix} and below are the usable commands.\n\nAlso check out our online chatbot here:
+▯ Hello 
+This is a simple WhatsApp Bot.
+Below is my command list.
+▯
+▯
+└───────────────···▸
+┌───〈 𝗢𝗪𝗡𝗘𝗥 〉───◆
+▯╭────────────···▸
+┴│▸
+▮➣Admin
+▮➣Broadcast
+▮➣Join
+▮➣Botpp
+▮➣Block 
+▮➣Unblock
+┬│▸
+│╰─────────────···▸
+└───────────────···▸
 
- https://quantumlab.ru.eu.org/
-  
-  𝐀𝐃𝐌𝐈𝐍 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
-  
- delete, promote, demote, remove, close, open, disp-off, disp1, disp7, disp90, icon, subject, desc, leave, tagall, hidetag, revoke
+┌───〈 𝗚𝗘𝗡𝗘𝗥𝗔𝗟 〉───◆
+▯╭─────────────···▸
+┴│▸
+▮➣Sticker
+▮➣Toimg
+▮➣Song
+▮➣Play
+▮➣Yts
+▮➣Ytmp3 
+▮➣Ytmp4
+▮➣Lyrics
+▮➣Mix
+▮➣Ai-img
+▮➣Gpt
+▮➣DP
+▮➣Speed
+▮➣Alive
+▮➣Runtime
+▮➣Credits
+▮➣Script
+▮➣Owner
+┬│▸
+│╰────────────··
+┌───〈 𝗔𝗗𝗠𝗜𝗡 〉───◆
+▯╭─────────────···▸
+▮➣Promote
+▮➣Demote
+▮➣Delete
+▮➣Remove
+▮➣Close
+▮➣Open
+▮➣Disp-off
+▮➣Disp-7
+▮➣Disp-90
+▮➣Icon
+▮➣Subject
+▮➣Desc
+▮➣Leave
+▮➣Tagall
+▮➣Hidetag
+▮➣Revoke
+┃✵╰──────────────
+╰━━━━━━━━━━━━━━━┈⊷`;
 
-  𝐆𝐄𝐍𝐄𝐑𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
-  
-  sticker, toimg, song, play, yts, ytmp3, ytmp4, lyrics,  mix, script, owner, dp, runtime, speed, alive, gpt, ai-img, credits
+if (menu === 'VIDEO') {
 
-  𝐎𝐖𝐍𝐄𝐑 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒
-  
- broadcast, block, unblock, admin, botpp, join
-  
+                   client.sendMessage(m.chat, {
+                        video: fs.readFileSync('./menu.mp4'),
+                        caption: cap,
+                        gifPlayback: false
+                    }, {
+                        quoted: m
+                    })
+                } else if (menu === 'TEXT') {
+client.sendMessage(from, { text: cap}, {quoted: m})
 
-       ------- 𝐸𝑛𝑑 ------- 
-  
-               𝗡𝗼𝘁𝗲: 
+} else if (menu === 'IMAGE') {
+client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: cap, fileLength: "9999999999"}, { quoted: m })
+} else if (menu === 'LINK') {
+client.sendMessage(m.chat, {
+                        text: cap,
+                        contextInfo: {
+                            externalAdReply: {
+                                showAdAttribution: true,
+                                title: `DREADED BOT`,
+                                body: `A simple WhatsApp bot.`,
+                                thumbnail: fs.readFileSync('./dreaded.jpg'),
+                                sourceUrl: `https://github.com/Fortunatusmokaya/DREADED-GPT-AI`,
+                                mediaType: 1,
+                                renderLargerThumbnail: true
+                            }
+                        }
+                    }, {
+                        quoted: m
+                    })
 
-  
- - This bot uses baileys and nodejs technology with no database configuration.
- 
- - Do not call or spam the bot! 🦄 
- 
- - Antilink is automatically active.
- 
- - AntiBadword might be active depending on the owner configuration of the variables
-
-
-      Enjoy 💐 シ︎
- 
- 
-   
-    
- `, fileLength: "9999999999999999999999"}, { quoted: m }); 
-           break;
-          m.reply(`This Public bot is under development.`)
+}
           // Group Commands
           break;
           case "admin" : { 

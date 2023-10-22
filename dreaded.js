@@ -278,7 +278,7 @@ if (menu === 'VIDEO') {
                    client.sendMessage(m.chat, {
                         video: fs.readFileSync('./menu.mp4'),
                         caption: cap,
-                        gifPlayback: false
+                        gifPlayback: true
                     }, {
                         quoted: m
                     })

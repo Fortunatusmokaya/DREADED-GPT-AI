@@ -225,6 +225,8 @@ Below is my command list.
 ▮➣Botpp
 ▮➣Block 
 ▮➣Unblock
+▮➣Setvar
+▮➣Getvar
 ┬│▸
 │╰─────────────···▸
 └───────────────···▸
@@ -250,6 +252,7 @@ Below is my command list.
 ▮➣Credits
 ▮➣Script
 ▮➣Owner
+▮➣Dreaded
 ┬│▸
 │╰────────────··
 ┌───〈 𝗔𝗗𝗠𝗜𝗡 〉───◆
@@ -1017,10 +1020,14 @@ client.sendMessage(from, buttonMessage, { quoted: m })
  break;
  
           case "script": case "repo": case "sc": 
- client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `You can deploy this bot using the github link below!\n\nhttps://github.com/Fortunatusmokaya/DREADED-GPT-AI\n\nFork and give us a star ✨.\n\nMade on Earth by Humans!` }, {quoted: m}); 
+ client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `You can deploy this bot using the github link below!\n\nhttps://github.com/Fortunatusmokaya/DREADED-GPT-AI\n\nYou can link dreaded bot without scanning qr using the pairing method in this repo below:\n\nhttps://github.com/Fortunatusmokaya/DREADED-PAIRING\n\nFork and give us a star ✨.\n\nAre you having difficulties deploying this bot? Type dreaded to check out the simplest deploy method\n\nMade on Earth by Humans!` }, {quoted: m}); 
   
  break; 
 
+case "tutorial": case "dreaded": case "hshhs": 
+ client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `DEPLOY TUTORIAL\nStep 1 - Linking the bot\n\nLINK1: https://github.com/Fortunatusmokaya/DREADED-GPT-AI\nLINK2: https://github.com/Fortunatusmokaya/DREADED-PAIRING\n\n -On your preferred terminal clone LINK2 using git clone.\n -Create directory of the cloned repo using cd DREADED-PAIRING\ -Install node modules from package.json using npm install\n -Delete session folder and start bot using rm -rf session && node index.js\n -You will be prompted to enter the phone number to link and after that the pairing code will be displayed on the terminal.\n -Copy and paste it in the "Link with phone number section. Bingo! You will receive a file creds.json in the bots account!\n\n ------Step 2 - Actual deploy-------\n\n -Create a GitHub account and fork the repo in LINK1 above.\nUpload the creds.json file to the dreaded1 folder in your fork\n -Connect your repo to any affordable cloud host site e.g heroku or panel. You will need to add buildpacks if necessary.\n\nGood luck. Any issues contact owner!\n\nNOTE:\n\n -Frequently sync your fork with the main repo to keep up with necessary changes and modifications.\n - All Heroku Variables For Dreaded can be found in the heroku.md file in the main repo. You can change them using setvar/getvar commands!\n\nGracefully Made on Earth by Humans! 🥀` }, {quoted: m}); 
+  
+break;
           // OWNER COMMANDS
 
           case 'botpp': { 

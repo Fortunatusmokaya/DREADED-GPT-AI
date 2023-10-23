@@ -37,7 +37,9 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
     var budy = typeof m.text == "string" ? m.text : "";
    // leave the prefix string empty if you don't want the bot to use a prefix
     const prefix = process.env.PREFIX || '';
-
+const Heroku = require("heroku-client");  
+ const appname = process.env.APP_NAME || '';
+ const herokuapi = process.env.HEROKU_API;
     const cmd = body.startsWith(prefix);
     const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();
     const args = body.trim().split(/ +/).slice(1);
@@ -242,6 +244,7 @@ Below is my command list.
 ▮➣Ytmp3 
 ▮➣Ytmp4
 ▮➣Lyrics
+▮➣Movie
 ▮➣Mix
 ▮➣Ai-img
 ▮➣Gpt
@@ -253,6 +256,7 @@ Below is my command list.
 ▮➣Script
 ▮➣Owner
 ▮➣Dreaded
+▮➣Termux
 ┬│▸
 │╰────────────··
 ┌───〈 𝗔𝗗𝗠𝗜𝗡 〉───◆
@@ -1009,8 +1013,44 @@ client.sendMessage(from, buttonMessage, { quoted: m })
    fs.unlinkSync(mokaya); 
     }); 
     } 
+
+break;
+case "movie": 
+             if (!text) return reply(`Provide a series or movie name.`);  
+              let fids = await axios.get(`http://www.omdbapi.com/?apikey=742b2d09&t=${text}&plot=full`);  
+              let imdbt = "";  
+              console.log(fids.data)  
+              imdbt += "⚍⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚍\n" + " ``` IMDB MOVIE SEARCH```\n" + "⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎\n";  
+              imdbt += "🎬Title      : " + fids.data.Title + "\n";  
+              imdbt += "📅Year       : " + fids.data.Year + "\n";  
+              imdbt += "⭐Rated      : " + fids.data.Rated + "\n";  
+              imdbt += "📆Released   : " + fids.data.Released + "\n";  
+              imdbt += "⏳Runtime    : " + fids.data.Runtime + "\n";  
+              imdbt += "🌀Genre      : " + fids.data.Genre + "\n";  
+              imdbt += "👨🏻‍💻Director   : " + fids.data.Director + "\n";  
+              imdbt += "✍Writer     : " + fids.data.Writer + "\n";  
+              imdbt += "👨Actors     : " + fids.data.Actors + "\n";  
+              imdbt += "📃Plot       : " + fids.data.Plot + "\n";  
+              imdbt += "🌐Language   : " + fids.data.Language + "\n";  
+              imdbt += "🌍Country    : " + fids.data.Country + "\n";  
+              imdbt += "🎖️Awards     : " + fids.data.Awards + "\n";  
+              imdbt += "📦BoxOffice  : " + fids.data.BoxOffice + "\n";  
+              imdbt += "🏙️Production : " + fids.data.Production + "\n";  
+              imdbt += "🌟imdbRating : " + fids.data.imdbRating + "\n";  
+              imdbt += "❎imdbVotes  : " + fids.data.imdbVotes + "";  
+             client.sendMessage(from, {  
+                  image: {  
+                      url: fids.data.Poster,  
+                  },  
+                  caption: imdbt,  
+              },  
+                 { quoted: m }); 
   
-    break; 
+  
+          break; 
+ 
+  
+   
           case "linkgroup": case "link": { 
                  if (!m.isGroup) throw group; 
                  if (!isBotAdmin) throw botAdmin; 
@@ -1073,6 +1113,38 @@ break;
          reply(`Broadcasted to ${res.length} Groups.`) 
      } 
  break;
+case "getvar": 
+ if (!Owner) throw NotOwner;  
+     const heroku = new Heroku({  
+         token: herokuapi, // Replace 'heroku' with your actual Heroku token 
+     });  
+     let baseUR = "/apps/" + appname;  
+     let h9 = await heroku.get(baseUR + '/config-vars');  
+     let stoy = '*Below Are Heroku Variables For Dreaded:*\n\n';  
+     for ( vrt in h9) { // Added 'const' to declare 'vr' 
+         stoy += vrt + '=' + h9[vrt] + '\n\n'; // Fixed variable name 'str' to 'sto' 
+     }  
+     reply(stoy); 
+  
+     break; 
+ case "setvar": 
+ if (!Owner) throw NotOwner;  
+ if(!text.split('=')[1]) return reply('Incorrect Usage:\nProvide the key and value correctly\nExample: setvar AUTOVIEW_STATUS=TRUE')  
+ const herok = new Heroku({  
+            token: herokuapi,  
+          });  
+          let baseURI = "/apps/" + appname;  
+ await herok.patch(baseURI + "/config-vars", {  
+            body: {  
+                    [text.split('=')[0]]: text.split('=')[1],  
+            },  
+ });  
+          await reply(`✅ The variable ${text.split('=')[0]} = ${text.split('=')[1]} has been set Successfuly.\nWait 20s for changes to effect!`);  
+  
+  
+  
+ break; 
+ 
 
           case "block": { 
  if (!Owner) throw NotOwner; 

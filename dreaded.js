@@ -257,6 +257,7 @@ Below is my command list.
 ▮➣Owner
 ▮➣Dreaded
 ▮➣Termux
+▮➣Vars
 ┬│▸
 │╰────────────··
 ┌───〈 𝗔𝗗𝗠𝗜𝗡 〉───◆
@@ -541,6 +542,9 @@ case "remove": case "kick": {
  client.sendMessage(m.chat, { image: { url: pp2}, caption: bar, fileLength: "999999999999"}, { quoted: m}); 
  } 
  break;
+
+/*case "vars":
+let vaa = `These are all heroku variables for Dreaded Bot:*/
 
 case "credits": 
   
@@ -1065,7 +1069,7 @@ case "movie":
  break; 
 
 case "tutorial": case "dreaded": case "hshhs": 
- client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `DEPLOY TUTORIAL\nStep 1 - Linking the bot\n\nLINK1: https://github.com/Fortunatusmokaya/DREADED-GPT-AI\nLINK2: https://github.com/Fortunatusmokaya/DREADED-PAIRING\n\n -On your preferred terminal clone LINK2 using git clone.\n\n -Create directory of the cloned repo using cd DREADED-PAIRING\n\n -Install node modules from package.json using npm install\n\n -Delete session folder and start bot using rm -rf session && node index.js\n\n -You will be prompted to enter the phone number to link and after that the pairing code will be displayed on the terminal.\n\n -Copy and paste it in the "Link with phone number section. Bingo! You will receive a file creds.json in the bots account!\n\n ------Step 2 - Actual deploy-------\n\n -Create a GitHub account and fork the repo in LINK1 above.\n\nUpload the creds.json file to the dreaded1 folder in your fork\n\n -Connect your repo to any affordable cloud host site e.g heroku or panel. You will need to add buildpacks if necessary.\n\nGood luck. Any issues contact owner!\n\nNOTE:\n\n -Frequently sync your fork with the main repo to keep up with necessary changes and modifications.\n - All Heroku Variables For Dreaded can be found in the heroku.md file in the main repo. You can change them using setvar/getvar commands!\n\nGracefully Made on Earth by Humans! 🥀` }, {quoted: m}); 
+ client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `DEPLOY TUTORIAL\nStep 1 - Linking the bot\n\nLINK1: https://github.com/Fortunatusmokaya/DREADED-GPT-AI\nLINK2: https://github.com/Fortunatusmokaya/DREADED-PAIRING\n\n -On your preferred terminal clone LINK2 using git clone.\n\n -Create directory of the cloned repo using cd DREADED-PAIRING\n\n -Install node modules from package.json using npm install\n\n -Delete session folder and start bot using rm -rf session && node index.js\n\n -You will be prompted to enter the phone number to link and after that the pairing code will be displayed on the terminal.\n\n -Copy and paste it in the "Link with phone number section. Bingo! You will receive a file creds.json in the bots account!\n\n ------Step 2 - Actual deploy-------\n\n -Create a GitHub account and fork the repo in LINK1 above.\n\nUpload the creds.json file to the dreaded1 folder in your fork\n\n -Connect your repo to any affordable cloud host site e.g heroku or panel. You will need to add buildpacks if necessary.\n\nGood luck. Any issues contact owner!\n\nNOTE:\n\n -Frequently sync your fork with the main repo to keep up with necessary changes and modifications.\n - All Heroku Variables For Dreaded can be found in the .env file in the main repo. You can change them using setvar/getvar commands!\n\nGracefully Made on Earth by Humans! 🥀` }, {quoted: m}); 
   
 break;
 case "termux":

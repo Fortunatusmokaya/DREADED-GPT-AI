@@ -43,6 +43,8 @@ const Heroku = require("heroku-client");
 const gptdm = process.env.GPT_INBOX || 'TRUE';
     const cmd = body.startsWith(prefix);
 const autobio = process.env.AUTOBIO || 'TRUE';
+const botname = process.env.BOTNAME || 'DREADED BOT';
+  
     const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();
     const args = body.trim().split(/ +/).slice(1);
     const pushname = m.pushName || "No Name";
@@ -214,8 +216,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
 
     if (cmd) {
       switch (command) {
-const botname = process.env.BOTNAME || 'DREADED BOT';
-        case "help":
+      case "help":
         case "menu":
 let cap = `┌───═[ ${botname} ]═──▸
 

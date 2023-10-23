@@ -1,6 +1,6 @@
 const sessionName = "dreaded1";
-const donet = "https://github.com/Fortunatusmokaya/DREADED-AI";
-const owner = ["254114018035"]; // This will send a notification once the bot reconnects
+const donet = "https://github.com/abrahamdw882/DREADED-AI";
+const owner = ["233533763772"]; // This will send a notification once the bot reconnects
 const {
   default: dreadedConnect,
   useMultiFileAuthState,
@@ -19,7 +19,6 @@ const axios = require("axios");
 const chalk = require("chalk");
 const FileType = require("file-type");
 const figlet = require("figlet");
-const packname = process.env.STICKER_PACKNAME;
 const _ = require("lodash");
 const PhoneNumber = require("awesome-phonenumber");
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/dreadexif'); 
@@ -340,29 +339,6 @@ function _0x52d5(_0x3a531d,_0x45537c){const _0x2f668c=_0x2f66();return _0x52d5=f
     return await client.sendMessage(jid, { image: buffer, caption: caption, ...options }, { quoted });
   };
 
-client.sendFile = async(jid, PATH, fileName, quoted = {}, options = {}) => { 
-         let types = await client.getFile(PATH, true) 
-         let { filename, size, ext, mime, data } = types 
-         let type = '', mimetype = mime, pathFile = filename 
-         if (options.asDocument) type = 'document' 
-        if (options.asSticker || /webp/.test(mime)) { 
-          let { writeExif } = require('./lib/dreadexif.js') 
-             let media = { mimetype: mime, data } 
-             pathFile = await writeExif(media, { packname: packname, author: packname, categories: options.categories ? options.categories : [] }) 
-             await fs.promises.unlink(filename) 
-             type = 'sticker' 
-             mimetype = 'image/webp' 
-         } 
-         else if (/image/.test(mime)) type = 'image' 
-         else if (/video/.test(mime)) type = 'video' 
-         else if (/audio/.test(mime)) type = 'audio' 
-         else type = 'document' 
-         await client.sendMessage(jid, { [type]: { url: pathFile }, mimetype, fileName, ...options }, { quoted, ...options }) 
-         return fs.promises.unlink(pathFile) 
-     } 
-     client.parseMention = async(text) => { 
-         return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net') 
-     }
         client.sendImageAsSticker = async (jid, path, quoted, options = {}) => { 
          let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0); 
          // let buffer 

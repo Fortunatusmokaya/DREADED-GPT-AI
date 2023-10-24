@@ -52,7 +52,11 @@ $ node index.js
 ```
 
 
+Incase of any issues, contact me  [here](https://wa.me/+254114018035) via WhatsApp or [here](mokayafortunatus@gmail.com) via Email.
+
+
 ## License
+
 [MIT License](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/blob/main/LICENSE)
 
 Copyright (c) 2023 Dreaded-GPT-AI

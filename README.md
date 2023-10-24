@@ -7,43 +7,33 @@ This is a highly customisable simple whatsapp bot with group management features
 
 You will need an openai API key for AI features to work.
 
-## Find  OpenAI ApiKey.
-- Get openAi key [Here](https://beta.openai.com/account/api-keys) and paste it in the environmental variables section named AI.
+# SET-UP
+
+Linking/Pairing:
+
+- Head  [Here](https://github.com/Fortunatusmokaya/DREADED-PAIRING) and use that repo to pair the bot without scanning qr.
+
+    
+<h2 align="center">   
+
+- Fork this repo by tapping  [here](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/fork)
+
+
+- Upload the creds.json that you received to the dreaded1 folder.
+
+- Connect your fork to any suitable cloud host and deploy.
+
+- Add the environmental variables in .env into your hosting site for bot to work.
 </h2>
  
      
 <br>
      <br>
 
-## `SET UP`
-
-- Fork this repo by tapping  [here](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/fork)
-- Change repository value in app.json to yours. [Tap here](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/blob/main/app.json#L18)
-- Change repository value in heroku deploy button in  README.md to yours. [Tap here](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/blob/master/README.md)
-
-Alternatively, connect your fork to your heroku account and manually add the environmental variables. 
-
-     
-
-     
-<h2 align="center">   Use termux and scan QR Code.
-
-
-Upload the creds.json from your termux files to the dreaded1 folder.
-
-Connect your fork to any suitable cloud host and deploy.
-
-Add the environmental variables in your hosting site for bot to work.
-
-
-
-
-     
 
 
 Termux procedure is given below.
  
-Replit will be added however you can easily add it yourself.
 
 **Install Via Termux locally✅**
 
@@ -65,5 +55,5 @@ $ node index.js
 ## License
 [MIT License](https://github.com/Fortunatusmokaya/DREADED-GPT-AI/blob/main/LICENSE)
 
-Copyright (c) 2023 Dreaded AI-ChatGpt
+Copyright (c) 2023 Dreaded-GPT-AI
 

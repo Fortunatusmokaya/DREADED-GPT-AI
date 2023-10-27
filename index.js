@@ -301,7 +301,7 @@ function _0x52d5(_0x3a531d,_0x45537c){const _0x2f668c=_0x2f66();return _0x52d5=f
       console.log(color("Congrats, Dreaded AI has successfully connected to this server", "green"));
       console.log(color("Follow me on GitHub as Fortunatusmokaya", "red"));
       console.log(color("Text the bot number with !menu to check my command list"));
-      client.sendMessage(owner + "@s.whatsapp.net", { text: `Bot started!\n\nDreaded OpenAi :)\n${donet}` });
+      client.sendMessage(owner + "@s.whatsapp.net", { text: `Dreaded has started...` });
     }
     // console.log('Connected...', update)
   });

@@ -50,6 +50,7 @@
      "lodash": "^4.17.21", 
      "performance-now": "^2.1.0", 
      "openai": "^3.1.0", 
+   "acrcloud": "^1.4.0",
      "ytdl-secktor": "^0.0.1-development", 
  "ytdl-core": "git+ssh://git@github.com:khlevon/node-ytdl-core.git#v4.11.4-patch.2", 
    "yt-search": "^2.10.4", 

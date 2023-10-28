@@ -348,7 +348,6 @@ let resultPromise = python.runSource(sourcecode);
 resultPromise
     .then(resultt => {
         console.log(resultt);
-let pit = '
 reply('Result: ${resultt.stdout}\n\nError: ${resultt.stderr}');
     })
     .catch(err => {

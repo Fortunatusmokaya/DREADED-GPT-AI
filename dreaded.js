@@ -54,7 +54,7 @@ const botname = process.env.BOTNAME || 'DREADED BOT';
     let text = (q = args.join(" "));
     const arg = budy.trim().substring(budy.indexOf(" ") + 1);
     const arg1 = arg.trim().substring(arg.indexOf(" ") + 1);
-
+    m.isBaileys = m.id.startsWith("BAE5") && m.id.length === 16;
     const from = m.chat;
     const reply = m.reply;
     const sender = m.sender;

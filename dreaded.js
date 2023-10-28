@@ -362,7 +362,31 @@ case "remove": case "kick": {
          } 
   
   break;
+
+case "enc":
+
+var JavaScriptObfuscator = require('javascript-obfuscator');
+if (!text) throw 'provide code to encrypt';
  
+var obfuscationResult = JavaScriptObfuscator.obfuscate(text, 
+
+  
+    {
+        compact: false,
+        controlFlowFlattening: true,
+        controlFlowFlatteningThreshold: 1,
+        numbersToExpressions: true,
+        simplify: true,
+        stringArrayShuffle: true,
+        splitStrings: true,
+        stringArrayThreshold: 1
+    }
+);
+
+console.log("successfully encrypted the code");
+reply(obfuscationResult.getObfuscatedCode());
+
+break;
  case "close": case "mute": { 
   
                  if (!m.isGroup) throw group; 

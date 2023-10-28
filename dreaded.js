@@ -121,6 +121,17 @@ const runtime = function (seconds) {
   client.sendPresenceUpdate('composing', m.chat);
     }
 
+      if (mek.key.id.startsWith("BAE5") && mek.key.id.length === 16) { 
+ if (!m.isGroup) return; 
+ if (isAdmin) return; 
+ if (!isBotAdmin) return; 
+ kiso = m.sender; 
+ client.sendMessage(m.chat, { text: `𝐃𝐫𝐞𝐚𝐝𝐞𝐝 is detecting presence of another bot.\n@${kiso.split("@")[0]} is a bot and has been removed!`, contextInfo:{mentionedJid:[kiso]}}, {quoted:m}); 
+ await client.groupParticipantsUpdate(m.chat, [kiso], 'remove'); 
+  
+ } 
+ 
+
 if (autobio === 'TRUE'){ 
  client.updateProfileStatus(`This bot is active 24/7`).catch(_ => _) 
          } 

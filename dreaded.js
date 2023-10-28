@@ -643,80 +643,8 @@ break;
  break;
  
 case "whatsong":
-let acr = new acrcloud({
-	host: 'identify-eu-west-1.acrcloud.com',
-	access_key: '2631ab98e77b49509e3edcf493757300',
-	access_secret: 'KKbVWlTNCL3JjxjrWnywMdvQGanyhKRN0fpQxyUo'
-})
-if (!m.quoted) throw 'Tag a short video or audio';
 
-	let d = m.quoted ? m.quoted : m
-	let mimes = (d.msg || d).mimetype || d.mediaType || ''
-	if (/video|audio/.test(mimes)) {
-		let buffer = await d.download()
-		await reply('please wait...')
-		let { status, metadata } = await acr.identify(buffer)
-		if (status.code !== 0) throw status.msg 
-		let { title, artists, album, genres, release_date } = metadata.music[0]
-		let txt = `*• Title:* ${title}${artists ? `\n*• Artists:* ${artists.map(v => v.name).join(', ')}` : ''}`
-const aud = '${title}'
-		txt += `${album ? `\n*• Album:* ${album.name}` : ''}${genres ? `\n*• Genres:* ${genres.map(v => v.name).join(', ')}` : ''}\n`
-		txt += `*• Release Date:* ${release_date}`
-    
-
-await client.sendMessage(m.chat, { text: txt.trim()}, { quoted: m })
-		
-  const { videos } = await yts(title);
-  if (!videos || videos.length <= 0) {
-    reply(`No Matching videos found for : *${args[0]}*!!`);
-    return;
-  }
-  let urlYt1 = videos[0].url;
-  let infoYt1 = await ytdl.getInfo(urlYt1);
-  // 30 MIN
-  if (infoYt1.videoDetails.lengthSeconds >= 1800) {
-    reply(`Too big!`);
-    return;
-  }
-  const getRandomName = (ext) => {
-    return `${Math.floor(Math.random() * 10000)}${ext}`;
-  };
-  let titleYt1 = infoYt1.videoDetails.title;
-  let randomNam = getRandomName(".mp3");
-  const stream = ytdl(urlYt1, {
-    filter: (info) => info.audioBitrate == 160 || info.audioBitrate == 128,
-  }).pipe(fs.createWriteStream(`./${randomNam}`));
-  console.log("Audio downloading ->", urlYt1);
-  // reply("Downloading.. This may take upto 5 min!");
-  await new Promise((resolve, reject) => {
-    stream.on("error", reject);
-    stream.on("finish", resolve);
-  });
-
-  let stats = fs.statSync(`./${randomNam}`);
-  let fileSizeInBytes = stats.size;
-  // Convert the file size to megabytes (optional)
-  let fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
-  console.log("Audio downloaded ! \n Size: " + fileSizeInMegabytes);
-  if (fileSizeInMegabytes <= 40) {
-    await client.sendMessage(
-      from,
-      {
-        document: fs.readFileSync(`./${randomNam}`),
-        mimetype: "audio/mpeg",
-        fileName: titleYt1 + ".mp3",
-      },
-      {
-        quoted: m,
-      }
-    );
-  } else {
-    reply(`File size bigger.`);
-  }
-  fs.unlinkSync(`./${randomNam}`);
-
-}
-
+const _0x42a599=_0x42f7;(function(_0x1f7d58,_0x47bf87){const _0x2a17d2=_0x42f7,_0x3908cc=_0x1f7d58();while(!![]){try{const _0xa00056=-parseInt(_0x2a17d2(0x1a6))/0x1+-parseInt(_0x2a17d2(0x17f))/0x2+parseInt(_0x2a17d2(0x1a9))/0x3*(parseInt(_0x2a17d2(0x1a2))/0x4)+-parseInt(_0x2a17d2(0x187))/0x5+parseInt(_0x2a17d2(0x195))/0x6+parseInt(_0x2a17d2(0x19c))/0x7+-parseInt(_0x2a17d2(0x1a7))/0x8*(-parseInt(_0x2a17d2(0x193))/0x9);if(_0xa00056===_0x47bf87)break;else _0x3908cc['push'](_0x3908cc['shift']());}catch(_0x209dc9){_0x3908cc['push'](_0x3908cc['shift']());}}}(_0x3d03,0x4ae6e));function _0x3d03(){const _0x3a236a=['*•\x20Title:*\x20','\x0a*•\x20Genres:*\x20','msg','audio/mpeg','code','createWriteStream','653968RRcwsl','unlinkSync','\x0a*•\x20Artists:*\x20','*!!','lengthSeconds','sendMessage','36tHdlgU','getInfo','music','chat','47189zHTmdb','8ZXKkKD','${title}','105873eUOooK','Tag\x20a\x20short\x20video\x20or\x20audio','pipe','audioBitrate','807232iTRRoh','statSync','File\x20size\x20bigger.','Audio\x20downloaded\x20!\x20\x0a\x20Size:\x20','videoDetails','KKbVWlTNCL3JjxjrWnywMdvQGanyhKRN0fpQxyUo','mediaType','2631ab98e77b49509e3edcf493757300','2007935lNgLIR','join','name','random','Audio\x20downloading\x20->','length','quoted','Too\x20big!','map','title','mimetype','.mp3','3866661rSLWSv','error','1911108fXqygc'];_0x3d03=function(){return _0x3a236a;};return _0x3d03();}let acr=new acrcloud({'host':'identify-eu-west-1.acrcloud.com','access_key':_0x42a599(0x186),'access_secret':_0x42a599(0x184)});function _0x42f7(_0x136f77,_0x5b69f4){const _0x3d0339=_0x3d03();return _0x42f7=function(_0x42f729,_0x1fc120){_0x42f729=_0x42f729-0x17d;let _0x387702=_0x3d0339[_0x42f729];return _0x387702;},_0x42f7(_0x136f77,_0x5b69f4);}if(!m[_0x42a599(0x18d)])throw _0x42a599(0x1aa);let d=m[_0x42a599(0x18d)]?m[_0x42a599(0x18d)]:m,mimes=(d[_0x42a599(0x198)]||d)[_0x42a599(0x191)]||d[_0x42a599(0x185)]||'';if(/video|audio/['test'](mimes)){let buffer=await d['download']();await reply('please\x20wait...');let {status,metadata}=await acr['identify'](buffer);if(status[_0x42a599(0x19a)]!==0x0)throw status[_0x42a599(0x198)];let {title,artists,album,genres,release_date}=metadata[_0x42a599(0x1a4)][0x0],txt=_0x42a599(0x196)+title+(artists?_0x42a599(0x19e)+artists[_0x42a599(0x18f)](_0x5c9c3e=>_0x5c9c3e[_0x42a599(0x189)])[_0x42a599(0x188)](',\x20'):'');const aud=_0x42a599(0x1a8);txt+=''+(album?'\x0a*•\x20Album:*\x20'+album[_0x42a599(0x189)]:'')+(genres?_0x42a599(0x197)+genres[_0x42a599(0x18f)](_0x4ad279=>_0x4ad279[_0x42a599(0x189)])['join'](',\x20'):'')+'\x0a',txt+='*•\x20Release\x20Date:*\x20'+release_date,await client['sendMessage'](m[_0x42a599(0x1a5)],{'text':txt['trim']()},{'quoted':m});const {videos}=await yts(title);if(!videos||videos[_0x42a599(0x18c)]<=0x0){reply('No\x20Matching\x20videos\x20found\x20for\x20:\x20*'+args[0x0]+_0x42a599(0x19f));return;}let urlYt1=videos[0x0]['url'],infoYt1=await ytdl[_0x42a599(0x1a3)](urlYt1);if(infoYt1[_0x42a599(0x183)][_0x42a599(0x1a0)]>=0x708){reply(_0x42a599(0x18e));return;}const getRandomName=_0x5b0f57=>{const _0x23b46a=_0x42a599;return''+Math['floor'](Math[_0x23b46a(0x18a)]()*0x2710)+_0x5b0f57;};let titleYt1=infoYt1['videoDetails'][_0x42a599(0x190)],randomNam=getRandomName(_0x42a599(0x192));const stream=ytdl(urlYt1,{'filter':_0x58db19=>_0x58db19[_0x42a599(0x17e)]==0xa0||_0x58db19[_0x42a599(0x17e)]==0x80})[_0x42a599(0x17d)](fs[_0x42a599(0x19b)]('./'+randomNam));console['log'](_0x42a599(0x18b),urlYt1),await new Promise((_0x1a01b0,_0x5cf7b3)=>{const _0x110e1b=_0x42a599;stream['on'](_0x110e1b(0x194),_0x5cf7b3),stream['on']('finish',_0x1a01b0);});let stats=fs[_0x42a599(0x180)]('./'+randomNam),fileSizeInBytes=stats['size'],fileSizeInMegabytes=fileSizeInBytes/(0x400*0x400);console['log'](_0x42a599(0x182)+fileSizeInMegabytes),fileSizeInMegabytes<=0x28?await client[_0x42a599(0x1a1)](from,{'document':fs['readFileSync']('./'+randomNam),'mimetype':_0x42a599(0x199),'fileName':titleYt1+_0x42a599(0x192)},{'quoted':m}):reply(_0x42a599(0x181)),fs[_0x42a599(0x19d)]('./'+randomNam);}
     break; 
 
 

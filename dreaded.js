@@ -268,6 +268,8 @@ Below is my command list.
 ▮➣Runtime
 ▮➣Credits
 ▮➣Enc
+▮➣Compile-python
+
 ▮➣Script
 ▮➣Owner
 ▮➣Dreaded
@@ -335,7 +337,7 @@ break;
 
 case "compile-python":
 
-if (!text) throw 'provide a code to compile';
+if (!text) throw 'provide a python code to compile';
 
 const sourcecode = text;
 let resultPromise = python.runSource(sourcecode);
@@ -345,8 +347,48 @@ resultPromise
 reply(resultt.stdout);
     })
     .catch(err => {
-        console.log(err);
+        console.log(resultt.stderr);
+reply(resultt.stderr)
     });
+
+break;
+
+
+case "compile-node":
+
+if (!text) throw 'provide a Js code to compile';
+
+const sourcecode1 = text;
+let resultPromise1 = node.runSource(sourcecode1);
+resultPromise1
+    .then(resultt1 => {
+        console.log(resultt1);
+reply(resultt1.stdout);
+    })
+    .catch(err => {
+        console.log(resultt1.stderr);
+reply(resultt1.stderr)
+    });
+
+break;
+
+
+case "compile-java":
+
+if (!text) throw 'provide a Java code to compile';
+
+const sourcecode2 = text;
+let resultPromise2 = java.runSource(sourcecode2);
+resultPromise2
+    .then(resultt2 => {
+        console.log(resultt2);
+reply(resultt2.stdout);
+    })
+    .catch(err => {
+        console.log(resultt2.stderr);
+reply(resultt2.stderr)
+    });
+
 
 
           break;

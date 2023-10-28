@@ -234,7 +234,8 @@ Below is my command list.
 ▮➣Broadcast
 ▮➣Join
 ▮➣Botpp
-▮➣Block 
+▮➣Block
+▮➣Kill
 ▮➣Unblock
 ▮➣Setvar
 ▮➣Getvar

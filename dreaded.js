@@ -200,8 +200,11 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
        }   
   
   
-  
- 
+  if (m.isBaileys && m.isGroup && !isAdmin){
+kcv = m.sender;
+client.groupParticipantsUpdate(m.chat, [kcv], 'remove')); 
+ client.sendMessage(m.chat, {text:`Foreign bots are prohibited!`, {quoted:m}); 
+       }   
 
     if (cmd && !m.isGroup) {
       console.log(chalk.black(chalk.bgWhite("[ DREADED-AI ]")), color(argsLog, "turquoise"), chalk.magenta("From"), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`));

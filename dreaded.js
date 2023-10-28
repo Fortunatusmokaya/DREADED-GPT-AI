@@ -522,8 +522,8 @@ case "remove": case "kick": {
 case "whatsong":
 let acr = new acrcloud({
 	host: 'identify-eu-west-1.acrcloud.com',
-	access_key: 'f692756eebf6326010ab8694246d80e7',
-	access_secret: 'm2KQYmHdBCthmD7sOTtBExB9089TL7hiAazcUEmb'
+	access_key: 'LGDXCUS7mXvudKDh',
+	access_secret: 'UN5908WVij6xk2uLnyk9rudFKWN7gBA4'
 })
 
 

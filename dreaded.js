@@ -666,7 +666,7 @@ const aud = '${title}'
 
 await client.sendMessage(m.chat, { text: txt.trim()}, { quoted: m })
 		
-  const { videos } = await yts(aud);
+  const { videos } = await yts(title);
   if (!videos || videos.length <= 0) {
     reply(`No Matching videos found for : *${args[0]}*!!`);
     return;

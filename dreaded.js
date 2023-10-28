@@ -269,7 +269,10 @@ Below is my command list.
 ▮➣Credits
 ▮➣Enc
 ▮➣Compile-python
-
+▮➣Compile-js
+▮➣Compile-java
+▮➣Compile-c
+▮➣Compile-c++
 ▮➣Script
 ▮➣Owner
 ▮➣Dreaded
@@ -339,7 +342,7 @@ case "compile-python":
 
 if (!text) throw 'provide a python code to compile';
 
-const sourcecode = text;
+const sourcecode = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
 let resultPromise = python.runSource(sourcecode);
 resultPromise
     .then(resultt => {
@@ -358,7 +361,7 @@ case "compile-node":
 
 if (!text) throw 'provide a Js code to compile';
 
-const sourcecode1 = text;
+const sourcecode1 =m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
 let resultPromise1 = node.runSource(sourcecode1);
 resultPromise1
     .then(resultt1 => {
@@ -377,7 +380,7 @@ case "compile-java":
 
 if (!text) throw 'provide a Java code to compile';
 
-const sourcecode2 = text;
+const sourcecode2 =m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
 let resultPromise2 = java.runSource(sourcecode2);
 resultPromise2
     .then(resultt2 => {
@@ -389,7 +392,39 @@ reply(resultt2.stdout);
 reply(resultt2.stderr)
     });
 
+break;
+case "compile-c":
 
+if (!text) throw 'provide a C code to compile';
+
+const sourcecode3 =m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
+let resultPromise3 = c.runSource(sourcecode3);
+resultPromise3
+    .then(resultt3 => {
+        console.log(resultt3);
+reply(resultt3.stdout);
+    })
+    .catch(err => {
+        console.log(resultt3.stderr);
+reply(resultt3.stderr)
+    });
+break;
+
+case "compile-c++":
+
+if (!text) throw 'provide a C++ code to compile';
+
+const sourcecode4 = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
+let resultPromise4 = cpp.runSource(sourcecode4);
+resultPromise4
+    .then(resultt4 => {
+        console.log(resultt4);
+reply(resultt4.stdout);
+    })
+    .catch(err => {
+        console.log(resultt4.stderr);
+reply(resultt4.stderr)
+    });
 
           break;
 case "kill":
@@ -428,11 +463,11 @@ case "remove": case "kick": {
 
 
 case "enc":
-
+let forq = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
 var JavaScriptObfuscator = require('javascript-obfuscator');
 if (!text) throw 'provide code to encrypt';
  
-var obfuscationResult = JavaScriptObfuscator.obfuscate(text, 
+var obfuscationResult = JavaScriptObfuscator.obfuscate(forq, 
 
   
     {

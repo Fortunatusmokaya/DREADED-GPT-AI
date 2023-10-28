@@ -1,4 +1,5 @@
 const sessionName = "dreaded1";
+const antiforeign = process.env.ANTIFOREIGN || 'TRUE';
 const donet = "https://github.com/Fortunatusmokaya/DREADED-AI";
 const owner = process.env.DEV || '254114018035'; // This will send a notification once the bot reconnects
 const {
@@ -217,7 +218,7 @@ client.ev.on('group-participants.update', async (sama) => {
       let meta = await (await client.groupMetadata(sama.id)); 
        let memu = sama.participants[0]; 
        if (sama.action == 'add') {
-          if (!memu.startsWith('254')) {
+          if (!memu.startsWith('254') && antiforeign === 'TRUE') {
                                   await client.groupParticipantsUpdate(sama.id, [memu], 'remove'); 
                  client.sendMessage(sama.id, { text: `@${memu.split`@`[0]} has been removed by Dreaded! Only Kenyan numbers are allowed to join!`});
                  }

@@ -7,6 +7,8 @@ const chalk = require("chalk");
 const speed = require("performance-now");
 const Genius = require("genius-lyrics"); 
 const yts = require("yt-search");
+const fetch = require("node-fetch");
+const acrcloud = require("acrcloud");
 const ytdl = require("ytdl-core");
  const Client = new Genius.Client("jKTbbU-6X2B9yWWl-KOm7Mh3_Z6hQsgE4mmvwV3P3Qe7oNa9-hsrLxQV5l5FiAZO"); // Scrapes if no key is provided
 const { fetchUrl, isUrl, processTime } = require("./lib/dreadfunc");
@@ -518,7 +520,16 @@ case "remove": case "kick": {
                  } 
  break;
  
-          // Other commands
+case "shorturl": 
+if (!args[0]) return reply('Provide a link you want to shorten.')
+if (!args[0].startsWith('https://')) throw 'Invalid link. A valid link must start with *https://*'
+let anua = await fetch(`https://api.akuari.my.id/short/tinyurl?link=${text}`)
+let datqa = await anua.json()
+                client.sendMessage(m.chat, { text: datqa.hasil }, {quoted:m })
+
+    break;
+
+      // Other commands
 
           case "sticker": case "s": { 
             if (/image/.test(mime)) { 

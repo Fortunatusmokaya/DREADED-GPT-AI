@@ -124,7 +124,17 @@ const runtime = function (seconds) {
     }
 
       
-
+if (budy.startsWith('>')) { 
+   if (!Owner) return;
+   try { 
+ let evaled = await eval(budy.slice(2)); 
+ if (typeof evaled !== 'string') evaled = require('util').inspect(evaled); 
+ await reply(evaled); 
+   } catch (err) { 
+ await reply(String(err)); 
+   } 
+ } 
+ 
 if (autobio === 'TRUE'){ 
  client.updateProfileStatus(`This bot is active 24/7`).catch(_ => _) 
          } 
@@ -237,7 +247,7 @@ Below is my command list.
 ▮➣Broadcast
 ▮➣Join
 ▮➣Botpp
-▮➣Eval
+▮➣>
 ▮➣Block
 ▮➣Kill
 ▮➣Unblock

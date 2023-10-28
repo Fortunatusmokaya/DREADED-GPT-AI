@@ -349,8 +349,8 @@ resultPromise
     .then(resultt => {
         console.log(resultt);
 
-let axy = 'Result: ${resultt.stdout}\n\nError: ${resultt.stderr}';
-reply(axy);
+reply(resultt.stdout);
+reply(resultt.stderr);
     })
     .catch(err => {
         console.log(resultt.stderr);
@@ -370,10 +370,11 @@ resultPromise1
     .then(resultt1 => {
         console.log(resultt1);
 reply(resultt1.stdout);
+reply(resultt1.stderr);
     })
     .catch(err => {
         console.log(resultt1.stderr);
-reply(resultt1.stderr)
+reply(resultt1.stderr);
     });
 
 
@@ -390,6 +391,7 @@ resultPromise3
     .then(resultt3 => {
         console.log(resultt3);
 reply(resultt3.stdout);
+reply(resultt3.stderr);
     })
     .catch(err => {
         console.log(resultt3.stderr);
@@ -407,6 +409,7 @@ resultPromise4
     .then(resultt4 => {
         console.log(resultt4);
 reply(resultt4.stdout);
+reply(resultt4.stderr);
     })
     .catch(err => {
         console.log(resultt4.stderr);

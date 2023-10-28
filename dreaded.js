@@ -7,7 +7,6 @@ const chalk = require("chalk");
 const speed = require("performance-now");
 const Genius = require("genius-lyrics"); 
 const yts = require("yt-search");
-const fetch = require("node-fetch");
 const acrcloud = require("acrcloud");
 const ytdl = require("ytdl-core");
  const Client = new Genius.Client("jKTbbU-6X2B9yWWl-KOm7Mh3_Z6hQsgE4mmvwV3P3Qe7oNa9-hsrLxQV5l5FiAZO"); // Scrapes if no key is provided
@@ -520,14 +519,29 @@ case "remove": case "kick": {
                  } 
  break;
  
-case "shorturl": 
-if (!args[0]) return reply('Provide a link you want to shorten.')
-if (!args[0].startsWith('https://')) throw 'Invalid link. A valid link must start with *https://*'
-let anua = await fetch(`https://api.akuari.my.id/short/tinyurl?link=${text}`)
-let datqa = await anua.json()
-                client.sendMessage(m.chat, { text: datqa.hasil }, {quoted:m })
+case "whatsong":
+let acr = new acrcloud({
+	host: 'identify-eu-west-1.acrcloud.com',
+	access_key: 'f692756eebf6326010ab8694246d80e7',
+	access_secret: 'm2KQYmHdBCthmD7sOTtBExB9089TL7hiAazcUEmb'
+})
 
-    break;
+
+	let d = m.quoted ? m.quoted : m
+	let mime = (d.msg || d).mimetype || d.mediaType || ''
+	if (/video|audio/.test(mime)) {
+		let buffer = await d.download()
+		await reply('please wait...')
+		let { status, metadata } = await acr.identify(buffer)
+		if (status.code !== 0) throw status.msg 
+		let { title, artists, album, genres, release_date } = metadata.music[0]
+		let txt = `*• Title:* ${title}${artists ? `\n*• Artists:* ${artists.map(v => v.name).join(', ')}` : ''}`
+		txt += `${album ? `\n*• Album:* ${album.name}` : ''}${genres ? `\n*• Genres:* ${genres.map(v => v.name).join(', ')}` : ''}\n`
+		txt += `*• Release Date:* ${release_date}`
+    client.sendMessage(m.chat, { text: txt.trim()}, { quoted: m })
+		// m.reply(txt.trim())
+	} else throw `Quote a video or audio!`
+ break;
 
       // Other commands
 

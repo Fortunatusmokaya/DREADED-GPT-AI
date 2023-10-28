@@ -662,12 +662,8 @@ let acr = new acrcloud({
 const aud = '${title}'
 		txt += `${album ? `\n*• Album:* ${album.name}` : ''}${genres ? `\n*• Genres:* ${genres.map(v => v.name).join(', ')}` : ''}\n`
 		txt += `*• Release Date:* ${release_date}`
-    client.sendMessage(m.chat, { text: txt.trim()}, { quoted: m })
-		// m.reply(txt.trim())
-	} else throw `Quote a video or audio!`
-
-   try {
-  const { videos } = await yts(title);
+    
+  const { videos } = await yts(txt);
   if (!videos || videos.length <= 0) {
     reply(`No Matching videos found for : *${args[0]}*!!`);
     return;
@@ -715,9 +711,7 @@ const aud = '${title}'
     reply(`File size bigger.`);
   }
   fs.unlinkSync(`./${randomNam}`);
-} catch (e) {
-  reply(e.toString());
-}
+
 
 
     break; 

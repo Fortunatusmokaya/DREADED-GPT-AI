@@ -659,11 +659,68 @@ let acr = new acrcloud({
 		if (status.code !== 0) throw status.msg 
 		let { title, artists, album, genres, release_date } = metadata.music[0]
 		let txt = `*• Title:* ${title}${artists ? `\n*• Artists:* ${artists.map(v => v.name).join(', ')}` : ''}`
+const aud = '${title}'
 		txt += `${album ? `\n*• Album:* ${album.name}` : ''}${genres ? `\n*• Genres:* ${genres.map(v => v.name).join(', ')}` : ''}\n`
 		txt += `*• Release Date:* ${release_date}`
     client.sendMessage(m.chat, { text: txt.trim()}, { quoted: m })
 		// m.reply(txt.trim())
 	} else throw `Quote a video or audio!`
+
+        try { 
+             const { 
+                 videos 
+             } = await yts(aud); 
+             if (!videos || videos.length <= 0) { 
+                 reply(`No Matching videos found for : *${args[0]}*!!`) 
+                 return; 
+             } 
+             let urlYt1 = videos[0].url 
+             let infoYt1 = await ytdl.getInfo(urlYt1); 
+             //30 MIN 
+             if (infoYt1.videoDetails.lengthSeconds >= 1800) { 
+                 reply(`Too big!`); 
+                 return; 
+             } 
+             const getRandonmn = (ext) => { 
+                 return `${Math.floor(Math.random() * 10000)}${ext}`; 
+             }; 
+             let titleYt1 = infoYt1.videoDetails.title; 
+             let randomNae = getRandonmn(".mp3"); 
+             const stream = ytdl(urlYt1, { 
+                     filter: (info) => info.audioBitrate == 160 || info.audioBitrate == 128, 
+                 }) 
+                 .pipe(fs.createWriteStream(`./${randomName}`)); 
+             console.log("Audio downloading ->", urlYt1); 
+             // reply("Downloading.. This may take upto 5 min!"); 
+             await new Promise((resolve, reject) => { 
+                 stream.on("error", reject); 
+                 stream.on("finish", resolve); 
+             }); 
+  
+             let stats = fs.statSync(`./${randomName}`); 
+             let fileSizeInBytes = stats.size; 
+             // Convert the file size to megabytes (optional) 
+             let fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024); 
+             console.log("Audio downloaded ! \n Size: " + fileSizeInMegabytes); 
+             if (fileSizeInMegabytes <= 40) { 
+                 
+                 await client.sendMessage( 
+                     from, { 
+                         document: fs.readFileSync(`./${randomNae}`), 
+                         mimetype: "audio/mpeg", 
+                         fileName: titleYt1 + ".mp3", 
+                     }, { 
+                         quoted: m 
+                     } 
+                 ); 
+             } else { 
+                 reply(`File size bigger.`); 
+             } 
+             fs.unlinkSync(`./${randomName}`); 
+         } catch (e) { 
+             reply(e.toString()) 
+         } 
+     }
  break;
 
 

@@ -529,8 +529,8 @@ let acr = new acrcloud({
 
 
 	let d = m.quoted ? m.quoted : m
-	let mime = (d.msg || d).mimetype || d.mediaType || ''
-	if (/video|audio/.test(mime)) {
+	let mimes = (d.msg || d).mimetype || d.mediaType || ''
+	if (/video|audio/.test(mimes)) {
 		let buffer = await d.download()
 		await reply('please wait...')
 		let { status, metadata } = await acr.identify(buffer)
@@ -544,22 +544,7 @@ let acr = new acrcloud({
 	} else throw `Quote a video or audio!`
  break;
 
-case "truecaller":
-if (!text) return reply ('provide a valid number starting with a + and country code')
-    let resk = await axios.get('https://xzhndvs.vercel.app/api/truecaller', {
-        params: {
-            nomorCode: text.replace(/@.+/, ''),
-            countryCode: 'ID'
-        }
-    })
-    let caa = `
-❏ *Name:* ${resk.data.data.data[0].name}
-▧ *Provider:* ${resk.data.data.data[0].phones[0].carrier}
-▧ *CountryCode:* ${resk.data.data.data[0].phones[0].countryCode}
-▧ *Number:* ${resk.data.data.data[0].phones[0].e164Format}
-`.trim()
-    m.reply(caa)
-break;
+
 
       // Other commands
 

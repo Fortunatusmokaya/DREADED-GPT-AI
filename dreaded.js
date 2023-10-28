@@ -8,6 +8,7 @@ const speed = require("performance-now");
 const Genius = require("genius-lyrics"); 
 const yts = require("yt-search");
 const acrcloud = require("acrcloud");
+const node = require("node-fetch-commonjs");
 const ytdl = require("ytdl-core");
  const Client = new Genius.Client("jKTbbU-6X2B9yWWl-KOm7Mh3_Z6hQsgE4mmvwV3P3Qe7oNa9-hsrLxQV5l5FiAZO"); // Scrapes if no key is provided
 const { fetchUrl, isUrl, processTime } = require("./lib/dreadfunc");
@@ -363,6 +364,17 @@ case "remove": case "kick": {
          } 
   
   break;
+
+case "shorten":
+
+
+
+if (!args[0]) return reply('Provide a valid link to shorten')
+if (!args[0].startsWith('https://')) throw 'Link provided seems invalid. I do not see *https://*'
+let anua = await fetch(`https://api.akuari.my.id/short/tinyurl?link=${text}`)
+let dataf = await anua.json()
+               client.sendMessage(m.chat, { text: dataf.hasil }, {quoted:m })
+break;
 
 case "enc":
 

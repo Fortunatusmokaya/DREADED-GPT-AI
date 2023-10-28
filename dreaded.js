@@ -7,6 +7,7 @@ const chalk = require("chalk");
 const speed = require("performance-now");
 const Genius = require("genius-lyrics"); 
 const yts = require("yt-search");
+const {c, cpp, node, python, java} = require('compile-run');
 const acrcloud = require("acrcloud");
 const node = require("node-fetch-commonjs");
 const ytdl = require("ytdl-core");
@@ -330,6 +331,23 @@ client.sendMessage(m.chat, {
 
 }
           // Group Commands
+break;
+
+case "compile-python":
+
+if (!text) throw 'provide a code to compile';
+
+const sourcecode = text;
+let resultPromise = python.runSource(sourcecode);
+resultPromise
+    .then(resultt => {
+        console.log(resultt);
+reply(resultt);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
 
           break;
 case "kill":

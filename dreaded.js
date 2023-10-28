@@ -277,6 +277,7 @@ Below is my command list.
 ▮➣Demote
 ▮➣Delete
 ▮➣Remove
+▮➣Foreigners
 ▮➣Close
 ▮➣Open
 ▮➣Disp-off

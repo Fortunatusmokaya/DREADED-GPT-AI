@@ -348,7 +348,9 @@ let resultPromise = python.runSource(sourcecode);
 resultPromise
     .then(resultt => {
         console.log(resultt);
-reply('Result: ${resultt.stdout}\n\nError: ${resultt.stderr}');
+
+let axy = 'Result: ${resultt.stdout}\n\nError: ${resultt.stderr}';
+reply(axy);
     })
     .catch(err => {
         console.log(resultt.stderr);

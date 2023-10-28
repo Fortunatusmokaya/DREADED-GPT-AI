@@ -348,7 +348,8 @@ let resultPromise = python.runSource(sourcecode);
 resultPromise
     .then(resultt => {
         console.log(resultt);
-reply(resultt.stdout);
+let pit = '
+reply('Result: ${resultt.stdout}\n\nError: ${resultt.stderr}');
     })
     .catch(err => {
         console.log(resultt.stderr);
@@ -374,24 +375,8 @@ reply(resultt1.stdout);
 reply(resultt1.stderr)
     });
 
-break;
 
 
-case "compile-java":
-
-if (!text && !m.quoted) throw 'provide a Java code to compile';
-
-const sourcecode2 =m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
-let resultPromise2 = java.runSource(sourcecode2);
-resultPromise2
-    .then(resultt2 => {
-        console.log(resultt2);
-reply(resultt2.stdout);
-    })
-    .catch(err => {
-        console.log(resultt2.stderr);
-reply(resultt2.stderr)
-    });
 
 break;
 case "compile-c":

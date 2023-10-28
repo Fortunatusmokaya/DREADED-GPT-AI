@@ -59,7 +59,8 @@
      "qrcode-terminal": "^0.12.0", 
      "util": "^0.12.4" 
    }, 
-   "directories": { 
+"devDependencies":{"javascript":"^1.0.0","javascript-obfuscator":"^4.1.0"},
+  "directories": { 
      "lib": "lib", 
      "src": "src" 
    }, 

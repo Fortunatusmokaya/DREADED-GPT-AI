@@ -431,6 +431,12 @@ break;
           }
           break;
 
+case 'restart':  
+  if (!Owner) throw `Owner Only` 
+  reply(`Dreaded is restarting. . .`)  
+  await sleep(3000)  
+  process.exit()  
+  break;
 case "remove": case "kick": { 
   
                  if (!m.isGroup) throw group; 

@@ -360,8 +360,6 @@ break;
 
 case "compile-node":
 if (!text && !m.quoted) throw 'Provide a Js code to compile.';
-const sourcecode1 =m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
-
 
 const sourcecode1 = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text;
 

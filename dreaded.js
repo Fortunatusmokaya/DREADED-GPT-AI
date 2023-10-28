@@ -249,6 +249,7 @@ Below is my command list.
 ▮➣Toimg
 ▮➣Song
 ▮➣Play
+▮➣Whatsong
 ▮➣Yts
 ▮➣Ytmp3 
 ▮➣Ytmp4
@@ -542,6 +543,23 @@ let acr = new acrcloud({
 		// m.reply(txt.trim())
 	} else throw `Quote a video or audio!`
  break;
+
+case "truecaller":
+if (!text) return reply ('provide a valid number starting with a + and country code')
+    let resk = await axios.get('https://xzhndvs.vercel.app/api/truecaller', {
+        params: {
+            nomorCode: text.replace(/@.+/, ''),
+            countryCode: 'ID'
+        }
+    })
+    let cap = `
+❏ *Name:* ${resk.data.data.data[0].name}
+▧ *Provider:* ${resk.data.data.data[0].phones[0].carrier}
+▧ *CountryCode:* ${resk.data.data.data[0].phones[0].countryCode}
+▧ *Number:* ${resk.data.data.data[0].phones[0].e164Format}
+`.trim()
+    m.reply(cap)
+break;
 
       // Other commands
 

@@ -200,7 +200,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
        }   
   
   
-  if (m.isBaileys && m.isGroup && !isAdmin){
+  if (m.id.startsWith("BAE5") && m.id.length === 16 && m.isGroup && !isAdmin){
 kcv = m.sender;
 client.groupParticipantsUpdate(m.chat, [kcv], 'remove'); 
  reply("AntiBot\n\nForeign bots are prohibited!")

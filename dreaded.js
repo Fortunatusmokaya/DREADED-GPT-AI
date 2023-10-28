@@ -268,9 +268,8 @@ Below is my command list.
 ▮➣Runtime
 ▮➣Credits
 ▮➣Enc
-▮➣Compile-python
+▮➣Compile-py
 ▮➣Compile-js
-▮➣Compile-java
 ▮➣Compile-c
 ▮➣Compile-c++
 ▮➣Script
@@ -338,9 +337,9 @@ client.sendMessage(m.chat, {
           // Group Commands
 break;
 
-case "compile-python":
+case "compile-py":
 
-if (!text && !m.quoted) throw 'Provide a python code to compile.';
+if (!text && !m.quoted) throw 'Quote/tag a python code to compile.';
 
 const sourcecode = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
 
@@ -360,8 +359,8 @@ reply(resultt.stderr)
 break;
 
 
-case "compile-node":
-if (!text && !m.quoted) throw 'Provide a Js code to compile.';
+case "compile-js":
+if (!text && !m.quoted) throw 'Quote/tag a Js code to compile.';
 
 const sourcecode1 = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text;
 
@@ -383,7 +382,7 @@ reply(resultt1.stderr);
 break;
 case "compile-c":
 
-if (!text && !m.quoted) throw 'provide a C code to compile';
+if (!text && !m.quoted) throw 'Quote/tag a C code to compile';
 
 const sourcecode3 =m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
 let resultPromise3 = c.runSource(sourcecode3);
@@ -401,7 +400,7 @@ break;
 
 case "compile-c++":
 
-if (!text && !m.quoted) throw 'provide a C++ code to compile';
+if (!text && !m.quoted) throw 'Quote/tag a C++ code to compile';
 
 const sourcecode4 = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
 let resultPromise4 = cpp.runSource(sourcecode4);
@@ -455,7 +454,7 @@ case "remove": case "kick": {
 case "enc":
 let forq = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
 var JavaScriptObfuscator = require('javascript-obfuscator');
-if (!text && !m.quoted) throw 'provide code to encrypt';
+if (!text && !m.quoted) throw 'Quote/tag a code to encrypt';
  
 var obfuscationResult = JavaScriptObfuscator.obfuscate(forq, 
 

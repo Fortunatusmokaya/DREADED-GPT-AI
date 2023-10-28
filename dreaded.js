@@ -648,7 +648,7 @@ let acr = new acrcloud({
 	access_key: '2631ab98e77b49509e3edcf493757300',
 	access_secret: 'KKbVWlTNCL3JjxjrWnywMdvQGanyhKRN0fpQxyUo'
 })
-
+if (!m.quoted) throw 'Tag a short video or audio';
 
 	let d = m.quoted ? m.quoted : m
 	let mimes = (d.msg || d).mimetype || d.mediaType || ''
@@ -663,7 +663,10 @@ const aud = '${title}'
 		txt += `${album ? `\n*• Album:* ${album.name}` : ''}${genres ? `\n*• Genres:* ${genres.map(v => v.name).join(', ')}` : ''}\n`
 		txt += `*• Release Date:* ${release_date}`
     
-  const { videos } = await yts(txt);
+
+await client.sendMessage(m.chat, { text: txt.trim()}, { quoted: m })
+		
+  const { videos } = await yts(aud);
   if (!videos || videos.length <= 0) {
     reply(`No Matching videos found for : *${args[0]}*!!`);
     return;

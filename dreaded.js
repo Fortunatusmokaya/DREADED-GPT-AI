@@ -265,6 +265,7 @@ Below is my command list.
 ▮➣Alive
 ▮➣Runtime
 ▮➣Credits
+▮➣Enc
 ▮➣Script
 ▮➣Owner
 ▮➣Dreaded

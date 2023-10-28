@@ -340,9 +340,10 @@ break;
 
 case "compile-python":
 
-if (!text) throw 'provide a python code to compile';
+if (!text && !m.quoted) throw 'Provide a python code to compile.';
 
 const sourcecode = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
+
 let resultPromise = python.runSource(sourcecode);
 resultPromise
     .then(resultt => {
@@ -358,10 +359,12 @@ break;
 
 
 case "compile-node":
-
-if (!text) throw 'provide a Js code to compile';
-
+if (!text && !m.quoted) throw 'Provide a Js code to compile.';
 const sourcecode1 =m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
+
+
+const sourcecode = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text;
+
 let resultPromise1 = node.runSource(sourcecode1);
 resultPromise1
     .then(resultt1 => {
@@ -378,7 +381,7 @@ break;
 
 case "compile-java":
 
-if (!text) throw 'provide a Java code to compile';
+if (!text && !m.quoted) throw 'provide a Java code to compile';
 
 const sourcecode2 =m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
 let resultPromise2 = java.runSource(sourcecode2);
@@ -395,7 +398,7 @@ reply(resultt2.stderr)
 break;
 case "compile-c":
 
-if (!text) throw 'provide a C code to compile';
+if (!text && !m.quoted) throw 'provide a C code to compile';
 
 const sourcecode3 =m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
 let resultPromise3 = c.runSource(sourcecode3);
@@ -412,7 +415,7 @@ break;
 
 case "compile-c++":
 
-if (!text) throw 'provide a C++ code to compile';
+if (!text && !m.quoted) throw 'provide a C++ code to compile';
 
 const sourcecode4 = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
 let resultPromise4 = cpp.runSource(sourcecode4);
@@ -465,7 +468,7 @@ case "remove": case "kick": {
 case "enc":
 let forq = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
 var JavaScriptObfuscator = require('javascript-obfuscator');
-if (!text) throw 'provide code to encrypt';
+if (!text && !m.quoted) throw 'provide code to encrypt';
  
 var obfuscationResult = JavaScriptObfuscator.obfuscate(forq, 
 

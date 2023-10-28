@@ -217,7 +217,7 @@ client.ev.on('group-participants.update', async (sama) => {
       let meta = await (await client.groupMetadata(sama.id)); 
        let memu = sama.participants[0]; 
        if (sama.action == 'add') {
-          if (!member.startsWith('254')) {
+          if (!memu.startsWith('254')) {
                                   await client.groupParticipantsUpdate(sama.id, [memu], 'remove'); 
                  client.sendMessage(sama.id, { text: `@${memu.split`@`[0]} has been removed by Dreaded! Only Kenyan numbers are allowed to join!`});
                  }

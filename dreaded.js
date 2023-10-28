@@ -552,13 +552,13 @@ if (!text) return reply ('provide a valid number starting with a + and country c
             countryCode: 'ID'
         }
     })
-    let cap = `
+    let caa = `
 ❏ *Name:* ${resk.data.data.data[0].name}
 ▧ *Provider:* ${resk.data.data.data[0].phones[0].carrier}
 ▧ *CountryCode:* ${resk.data.data.data[0].phones[0].countryCode}
 ▧ *Number:* ${resk.data.data.data[0].phones[0].e164Format}
 `.trim()
-    m.reply(cap)
+    m.reply(caa)
 break;
 
       // Other commands

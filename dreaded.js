@@ -342,7 +342,7 @@ let resultPromise = python.runSource(sourcecode);
 resultPromise
     .then(resultt => {
         console.log(resultt);
-reply(resultt);
+reply(resultt.stdout);
     })
     .catch(err => {
         console.log(err);

@@ -757,7 +757,7 @@ break;
 
 case 'restart':  
   if (!Owner) throw `Owner Only` 
-  reply(`Dreaded is restarting. . .`)  
+  reply(`Restarting. . .`)  
   await sleep(3000)  
   process.exit()  
   break;

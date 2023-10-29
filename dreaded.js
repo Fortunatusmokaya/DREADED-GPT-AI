@@ -124,6 +124,26 @@ const runtime = function (seconds) {
   client.sendPresenceUpdate('composing', m.chat);
     }
 
+
+
+if (m.isGroup && m.mentionedJid.length > 10 && !isAdmin) { 
+kids1 = m.sender;
+client.sendMessage(m.chat, { 
+  
+                delete: { 
+                   remoteJid: m.chat, 
+                   fromMe: false, 
+                   id: m.key.id, 
+                   participant: kids1
+                } 
+             }).then(() => client.groupParticipantsUpdate(m.chat, [kids1], 'remove')); 
+ await client.sendMessage(m.chat, { text: `Do not tagall or hidetag here.\nTo minimize false alarm I am removing @${kids1.split("@")[0]} for tagging group participants. Bye 👋`, contextInfo:{mentionedJid:[kids1]}}, {quoted:m}) 
+ 
+  
+  
+ 
+
+         } 
 function _0x4f1b(_0x44e88, _0x1e223f) {
     var _0x3db626 = _0x11cc();
     return _0x4f1b = function (_0x2e8ed0, _0x5cd594) {

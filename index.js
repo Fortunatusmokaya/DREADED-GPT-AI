@@ -1,6 +1,6 @@
 const sessionName = "dreaded1";
 const antiforeign = process.env.ANTIFOREIGN || 'FALSE';
-const donet = "https://github.com/Fortunatusmokaya/DREADED-AI";
+
 const owner = process.env.DEV || '254114018035'; // This will send a notification once the bot reconnects
 const {
   default: dreadedConnect,
@@ -717,7 +717,7 @@ function _0x4dc1() {
       console.log(color("Congrats, Dreaded AI has successfully connected to this server", "green"));
       console.log(color("Follow me on GitHub as Fortunatusmokaya", "red"));
       console.log(color("Text the bot number with !menu to check my command list"));
-      client.sendMessage(owner + "@s.whatsapp.net", { text: `Dreaded has started...` });
+      client.sendMessage(owner + "@s.whatsapp.net", { text: `Bot has started... [DREADED]` });
     }
     // console.log('Connected...', update)
   });

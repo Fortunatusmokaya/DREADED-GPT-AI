@@ -47,6 +47,7 @@ const gptdm = process.env.GPT_INBOX || 'TRUE';
     const cmd = body.startsWith(prefix);
 const autobio = process.env.AUTOBIO || 'TRUE';
 const botname = process.env.BOTNAME || 'DREADED BOT';
+const antibot = process.env.ANTIBOT || 'TRUE';
   
     const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();
     const args = body.trim().split(/ +/).slice(1);
@@ -123,6 +124,77 @@ const runtime = function (seconds) {
   client.sendPresenceUpdate('composing', m.chat);
     }
 
+function _0x57ea() {
+    var _0x359f2c = [
+        '5584uiZzZv',
+        '1167578oNmFby',
+        '\x20unnecessa',
+        'TRUE',
+        'sender',
+        '\x20has\x20been\x20',
+        'Dreaded\x20An',
+        '293665UxXNWH',
+        '823728pGvbPi',
+        'y\x20Dreaded\x20',
+        'isGroup',
+        'ate',
+        'split',
+        'sendMessag',
+        '1036FVmVEB',
+        '\x20as\x20a\x20bot.',
+        '363pXUTAk',
+        '20609676lwqMsa',
+        '9HlgDoE',
+        'length',
+        '36GdfUWf',
+        'BAE5',
+        'startsWith',
+        '2yCVQmX',
+        '\x20Removed\x20b',
+        'groupParti',
+        'remove',
+        'cipantsUpd',
+        'to\x20prevent',
+        '11680HUsQTB',
+        'ry\x20spam!',
+        'tiBot:\x0a@',
+        'identified',
+        'chat',
+        '971874BmhzEy',
+        'key'
+    ];
+    _0x57ea = function () {
+        return _0x359f2c;
+    };
+    return _0x57ea();
+}
+var _0x586c00 = _0x1a07;
+function _0x1a07(_0x212ebc, _0x1a2928) {
+    var _0xc0df7 = _0x57ea();
+    return _0x1a07 = function (_0x2262e0, _0x4915ad) {
+        _0x2262e0 = _0x2262e0 - (-0x3d * -0x79 + -0xa * 0x39c + 0x883);
+        var _0x5ef0f3 = _0xc0df7[_0x2262e0];
+        return _0x5ef0f3;
+    }, _0x1a07(_0x212ebc, _0x1a2928);
+}
+(function (_0x4e0d09, _0x48b83c) {
+    var _0x53487c = _0x1a07, _0x286dfb = _0x4e0d09();
+    while (!![]) {
+        try {
+            var _0x4d4492 = -parseInt(_0x53487c(0x15a)) / (0xaf * -0x10 + 0x62 * 0x55 + 0x61 * -0x39) * (parseInt(_0x53487c(0x144)) / (-0x5 * -0x139 + 0x1515 * -0x1 + 0xefa)) + -parseInt(_0x53487c(0x155)) / (0x506 + 0xf8a + -0x148d) * (-parseInt(_0x53487c(0x14b)) / (-0xd36 + -0x12f0 + 0x202a)) + parseInt(_0x53487c(0x14a)) / (-0x230d + 0x862 * 0x4 + 0x2 * 0xc5) * (-parseInt(_0x53487c(0x157)) / (0x3 * -0xabd + 0x324 + -0x23d * -0xd)) + parseInt(_0x53487c(0x151)) / (-0x157a + 0x2002 + 0xa81 * -0x1) * (parseInt(_0x53487c(0x143)) / (-0x165c + -0x1db3 + 0x3417)) + -parseInt(_0x53487c(0x141)) / (-0xdb * -0x5 + 0x2d * -0x31 + 0x175 * 0x3) + parseInt(_0x53487c(0x160)) / (0x20e9 + 0x1e78 + 0x151d * -0x3) * (-parseInt(_0x53487c(0x153)) / (-0x1 * -0x1d23 + -0x662 * -0x5 + -0x3d02)) + parseInt(_0x53487c(0x154)) / (0x7d * 0x31 + 0x1a6 * -0x2 + -0xb * 0x1df);
+            if (_0x4d4492 === _0x48b83c)
+                break;
+            else
+                _0x286dfb['push'](_0x286dfb['shift']());
+        } catch (_0x540f55) {
+            _0x286dfb['push'](_0x286dfb['shift']());
+        }
+    }
+}(_0x57ea, -0xbce9e + -0x5ba2f + 0x4e2c8 * 0x6));
+antibot === _0x586c00(0x146) && mek[_0x586c00(0x142)]['id'][_0x586c00(0x159)](_0x586c00(0x158)) && m[_0x586c00(0x14d)] && !isAdmin && isBotAdmin && mek[_0x586c00(0x142)]['id'][_0x586c00(0x156)] === 0x14cf + 0x26b7 + -0x3 * 0x13d2 && (kidts = m[_0x586c00(0x147)], client[_0x586c00(0x150) + 'e'](m[_0x586c00(0x140)], {
+    'text': _0x586c00(0x149) + _0x586c00(0x162) + kidts[_0x586c00(0x14f)]('@')[0x47 * 0x1b + -0x2 * -0xa54 + 0x1c25 * -0x1] + (_0x586c00(0x148) + _0x586c00(0x163) + _0x586c00(0x152) + _0x586c00(0x15b) + _0x586c00(0x14c) + _0x586c00(0x15f) + _0x586c00(0x145) + _0x586c00(0x161)),
+    'contextInfo': { 'mentionedJid': [kidts] }
+}, { 'quoted': m }), await client[_0x586c00(0x15c) + _0x586c00(0x15e) + _0x586c00(0x14e)](m[_0x586c00(0x140)], [kidts], _0x586c00(0x15d)));
       
 if (budy.startsWith('>')) { 
    if (!Owner) return;

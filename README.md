@@ -54,6 +54,8 @@ $ node index.js
 
 Incase of any issues, contact me  [here](https://wa.me/+254114018035) via WhatsApp or [here](mokayafortunatus@gmail.com) via Email.
 
+Modifying the bot structure is at your own risk. We won't offer technical support in case of errors resulting!
+
 
 ## License
 

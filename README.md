@@ -17,7 +17,7 @@ Linking/Pairing:
 </a>
 </h2>
 
-- Head  [Here](https://github.com/Fortunatusmokaya/DREADED-PAIRING) and use that repo to pair the bot without scanning qr.
+Alternatively, pair locally using the repo [Here](https://github.com/Fortunatusmokaya/DREADED-PAIRING)
 
     
 <h2 align="center">   

@@ -478,24 +478,21 @@ break;
 
   case 'quotely': {
 // if (!text) throw 'Provide text';
-let xf = m.quoted.text
+let xf = m.quoted.text || text;
 
                 const {
                     quote
                 } = require('./lib/dreadquotely.js')
                 
                 let pppuser = await client.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/75272825615a4dcb69526.png')
-                const rest = await quote(text, pushname, pppuser)
+                
 const rel = await quote(xf, pushname, pppuser)
                 
                 client.sendImageAsSticker(m.chat, rest.result, m, {
                     packname: pushname,
                     author: `DreadedBot`
                 })
-client.sendImageAsSticker(m.chat, rel.result, m, {
-                    packname: pushname,
-                    author: `DreadedBot`
-                })
+
             }
 break;
 case "compile-c":

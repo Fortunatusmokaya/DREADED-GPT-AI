@@ -341,7 +341,7 @@ Below is my command list.
 ┴│▸
 ▮➣Sticker
 ▮➣Toimg
-▮➣Tourl
+▮➣Upload
 ▮➣Smeme
 ▮➣Song
 ▮➣Play
@@ -500,7 +500,7 @@ const rel = await quote(xf, pushname, pppuser)
             }
 
 break;
-            case 'tourl': {
+            case 'upload': {
                 
                 let fta2 = await client.downloadAndSaveMediaMessage(qmsg)
                 if (/image/.test(mime)) {
@@ -514,6 +514,17 @@ break;
 
             }
             break;
+case 'attp':
+                if (!q) return reply('I need text;')
+              
+                client.sendMessage(m.chat, {
+                    sticker: {
+                        url: `https://api.lolhuman.xyz/api/attp?apikey=cde5404984da80591a2692b6&text=${q}`
+                    }
+                }, {
+                    quoted: m
+                })
+                break;
             case 'smeme': {
                 let responnd = `Quote an image or sticker with the 2 texts separated with |`
                 if (!/image/.test(mime)) return reply(responnd)

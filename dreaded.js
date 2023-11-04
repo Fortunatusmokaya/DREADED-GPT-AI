@@ -477,7 +477,7 @@ reply(resultt1.stderr);
 break;
 
   case 'quotely': {
-const xf = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
+const xf = m.quoted ? m.quoted.text ? m.quoted.text : text ? text;
                 const {
                     quote
                 } = require('./lib/dreadquotely.js')

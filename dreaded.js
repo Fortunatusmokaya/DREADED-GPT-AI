@@ -341,6 +341,8 @@ Below is my command list.
 ┴│▸
 ▮➣Sticker
 ▮➣Toimg
+▮➣Tourl
+▮➣Smeme
 ▮➣Song
 ▮➣Play
 ▮➣Whatsong
@@ -378,6 +380,7 @@ Below is my command list.
 ▮➣Delete
 ▮➣Remove
 ▮➣Foreigners
+▮➣Faker
 ▮➣Close
 ▮➣Open
 ▮➣Disp-off
@@ -497,6 +500,20 @@ const rel = await quote(xf, pushname, pppuser)
             }
 
 break;
+            case 'tourl': {
+                
+                let fta2 = await client.downloadAndSaveMediaMessage(qmsg)
+                if (/image/.test(mime)) {
+                    let fta = await TelegraPh(fta2)
+                    reply(util.format(fta))
+                } else if (!/image/.test(mime)) {
+                    let fta = await UploadFileUgu(fta2)
+                    reply(util.format(fta))
+                }
+                await fs.unlinkSync(fta2)
+
+            }
+            break;
             case 'smeme': {
                 let responnd = `Quote an image or sticker with the 2 texts separated with |`
                 if (!/image/.test(mime)) return reply(responnd)

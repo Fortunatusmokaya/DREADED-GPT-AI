@@ -575,7 +575,7 @@ function _0x40c6() {
         '27989tCQoID',
         '168765oAXpMe',
         'ate',
-        'Dreaded\x20ha',
+        '𝐷readed\x20ha',
         '422RQjzbp',
         '\x20removed!',
         'No\x20virtual',

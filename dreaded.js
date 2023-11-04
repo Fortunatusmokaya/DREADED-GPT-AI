@@ -477,12 +477,13 @@ reply(resultt1.stderr);
 break;
 
   case 'quotely': {
+const xf = m.quoted ? m.quoted.text ? m.quoted.text : text ? text : m.text : m.text
                 const {
                     quote
                 } = require('./lib/dreadquotely.js')
-                if (!q) return reply('Provide text!')
+                if (!xf) return reply('Provide text!')
                 let pppuser = await client.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/75272825615a4dcb69526.png')
-                const rest = await quote(q, pushname, pppuser)
+                const rest = await quote(xf, pushname, pppuser)
                 
                 client.sendImageAsSticker(m.chat, rest.result, m, {
                     packname: pushname,

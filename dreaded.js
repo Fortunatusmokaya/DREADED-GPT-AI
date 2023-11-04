@@ -488,7 +488,7 @@ let xf = m.quoted.text || text;
                 
 const rel = await quote(xf, pushname, pppuser)
                 
-                client.sendImageAsSticker(m.chat, rest.result, m, {
+                client.sendImageAsSticker(m.chat, rel.result, m, {
                     packname: pushname,
                     author: `DreadedBot`
                 })

@@ -428,9 +428,6 @@ client.sendMessage(m.chat, {
           // Group Commands
 break;
 
-case "faker" : {
-          
-break;
 
 
 

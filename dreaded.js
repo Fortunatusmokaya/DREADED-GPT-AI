@@ -494,6 +494,25 @@ const rel = await quote(xf, pushname, pppuser)
                 })
 
             }
+
+break;
+            case 'smeme': {
+                let responnd = `Quote an image or sticker with the 2 texts separated with |`
+                if (!/image/.test(mime)) return reply(responnd)
+                if (!text) return reply(responnd)
+           
+                atas = text.split('|')[0] ? text.split('|')[0] : '-'
+                bawah = text.split('|')[1] ? text.split('|')[1] : '-'
+                let dwnld = await client.downloadAndSaveMediaMessage(qmsg)
+                let fatGans = await TelegraPh(dwnld)
+                let smeme = `https://api.memegen.link/images/custom/${encodeURIComponent(bawah)}/${encodeURIComponent(atas)}.png?background=${fatGans}`
+                let pop = await client.sendImageAsSticker(m.chat, smeme, m, {
+                    packname: packname,
+
+                })
+                fs.unlinkSync(pop)
+            }
+            
 break;
 case "compile-c":
 

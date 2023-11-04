@@ -478,7 +478,7 @@ break;
 
   case 'quotely': {
 // if (!text) throw 'Provide text';
-let xf = m.quoted.text || text;
+let xf = m.quoted.text || q;
 
                 const {
                     quote

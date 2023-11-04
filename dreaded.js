@@ -474,7 +474,21 @@ reply(resultt1.stderr);
 
 
 
+break;
 
+  case 'quotely': {
+                const {
+                    quote
+                } = require('./lib/dreadquotely.js')
+                if (!q) return reply('Provide text!')
+                let pppuser = await client.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/75272825615a4dcb69526.png')
+                const rest = await quote(q, pushname, pppuser)
+                
+                client.sendImageAsSticker(m.chat, rest.result, m, {
+                    packname: pushname,
+                    author: `DreadedBot`
+                })
+            }
 break;
 case "compile-c":
 

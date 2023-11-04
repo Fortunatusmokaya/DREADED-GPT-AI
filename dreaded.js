@@ -1025,6 +1025,33 @@ case "credits":
   
               client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `𝑪𝑹𝑬𝑫𝑰𝑻𝑺\n\n -Dika Ardnt ➪ Indonesia\n - Writing the base code using case method\nhttps://github.com/DikaArdnt\n\n -Adiwajshing ➪ India\n - Writing and Coding the bot's library (baileys)\nhttps://github.com/WhiskeySockets/Baileys\n\n -WAWebSockets Discord Server community\n-Maintaining and reverse engineering the Web Sockets\nhttps://discord.gg/WeJM5FP9GG\n\n𝐷𝑟𝑒𝑎𝑑𝑒𝑑 𝐵𝑜𝑡 シ︎`}); 
  break; 
+
+case "take": {
+
+  if (!m.quoted) return reply('Quote a sticker!')
+  let fortunx = await client.getName(sender);
+  
+  if (!/webp/.test(mime)) throw `Tag sticker with caption  ${prefix + command}`;
+  if (m.quoted.isAnimated === true) {
+  client.downloadAndSavemediaxMessage(quoted, "gifee");
+  client.sendMessage(m.chat, {sticker:fs.readFileSync("gifee.webp")},{quoted:m});
+  } else if (/image/.test(mime)) {
+  let mediax = await quoted.download();
+  let encmediax = await client.sendImageAsSticker(m.chat, mediax, m, { packname: fortunx, author: fortunx });
+  await fs.unlinkSync(encmediax);
+
+
+
+} else if (/video/.test(mime)) {
+  if ((quoted.msg || quoted).seconds > 11) return m.reply('Not long than 10 seconds!');
+  let mediax = await quoted.download();
+  let encmediax = await client.sendVideoAsSticker(m.chat, mediax, m, { packname: fortunx, author: fortunx });
+  await fs.unlinkSync(encmediax)
+  } else {
+  reply(`Send a short video with caption ${prefix + command}`);
+  }
+  }
+break;
  
           case "song": { 
  const getRandom = (ext) => { 

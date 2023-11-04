@@ -477,8 +477,8 @@ reply(resultt1.stderr);
 break;
 
   case 'quotely': {
-// if (!text) throw 'Provide text';
-let xf = m.quoted.text || q;
+if (!m.quoted.text) throw 'Tag a text';
+let xf = m.quoted.text;
 
                 const {
                     quote

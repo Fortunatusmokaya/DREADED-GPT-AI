@@ -13,6 +13,7 @@ const acrcloud = require("acrcloud");
 const ytdl = require("ytdl-core");
  const Client = new Genius.Client("jKTbbU-6X2B9yWWl-KOm7Mh3_Z6hQsgE4mmvwV3P3Qe7oNa9-hsrLxQV5l5FiAZO"); // Scrapes if no key is provided
 const { fetchUrl, isUrl, processTime } = require("./lib/dreadfunc");
+const { TelegraPh, UploadFileUgu, webp2mp4File, floNime } = require('./lib/dreadupload');
 const { Configuration, OpenAIApi } = require("openai");
 let setting = process.env.AI; 
 const { smsg, formatp, tanggal, formatDate, getTime,  sleep, clockString, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom } = require('./lib/dreadfunc');

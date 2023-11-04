@@ -428,6 +428,33 @@ client.sendMessage(m.chat, {
           // Group Commands
 break;
 
+case "faker" : {
+          if (!m.isGroup) throw group; 
+      if (!isBotAdmin) throw botAdmin; 
+     if (!isAdmin) throw admin; 
+
+          let fake = participants.filter(v => !v.admin).map(v => v.id).filter(v => v.startsWith('1') && v != client.decodeJid(client.user.id)); 
+
+          if (!args || !args[0]) { 
+             if (fake.length == 0) return reply('No virtual numbers detected!'); 
+             m.reply (`Dreaded has detected ${fake.length} members using +1 fake virtual WhatsApp accounts.  To remove them send faker -x`); 
+
+       
+
+          } else if (args[0] == '-x') { 
+             
+                await client.groupParticipantsUpdate(m.chat, [fake], 'remove'); 
+
+             
+             await m.reply (`${fake.length} +1 fake accounts successfully removed!`); 
+          } 
+          }
+break;
+
+
+
+
+
 case "compile-py":
 
 if (!text && !m.quoted) throw 'Quote/tag a python code to compile.';

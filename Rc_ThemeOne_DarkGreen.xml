@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <int name="ModChaSendBKColor" value="-15239072" />
+    <boolean name="disable_hiddenchat_access" value="false" />
+    <boolean name="my_statusd" value="false" />
+    <int name="emojipopup_icons" value="-15633583" />
+    <int name="ModFabNormalColor" value="-15160955" />
+    <boolean name="hide_action_l" value="false" />
+    <boolean name="hide_action_m" value="false" />
+    <boolean name="Conv_call_btn" value="false" />
+    <boolean name="Audio_sensor" value="true" />
+    <boolean name="Hide_div" value="true" />
+    <boolean name="isSwipeEnabled" value="true" />
+    <boolean name="tabadgeTextColor_Gactive" value="false" />
+    <boolean name="HomeBarText_Gactive" value="false" />
+    <boolean name="list_bg_color_Gactive" value="false" />
+    <int name="emojipopup_body" value="-16777216" />
+    <boolean name="ModChatEmojiColor_Gactive" value="false" />
+    <boolean name="NameProf" value="false" />
+    <boolean name="emojipopup_body_Gactive" value="false" />
+    <int name="ModChatRightBubble" value="-14803426" />
+    <int name="ConvoBack" value="-16777216" />
+    <boolean name="onlinechat" value="true" />
+    <boolean name="ModChaSendBKColor_Gactive" value="false" />
+    <int name="ModChatLeftBubble" value="-15239072" />
+    <boolean name="enable_fivminstatus" value="false" />
+    <string name="ui_home_styleV3">one</string>
+    <boolean name="yo_want_airplanemode" value="false" />
+    <int name="ModDarkConPickColor" value="-16437980" />
+    <boolean name="enable_grp_separationV2" value="true" />
+    <int name="ModChatColor_GC" value="-15976145" />
+    <boolean name="chat_contactpicV2" value="true" />
+    <boolean name="chat_mypicV2" value="true" />
+    <int name="list_bg_color" value="-15921907" />
+    <boolean name="group_mypicV2" value="true" />
+    <boolean name="key_with_thumb" value="false" />
+    <int name="ModConBackColor" value="-16777216" />
+    <boolean name="yo_hideinfo" value="false" />
+    <boolean name="PicProf" value="false" />
+    <boolean name="Hide_contact_picker_section_recent_chats" value="false" />
+    <int name="ModConPickColor_GCDir" value="2" />
+    <boolean name="tabadgeBKColor_Gactive" value="false" />
+    <boolean name="ModChatColor_Gactive" value="true" />
+    <string name="bubble_style">bdrop</string>
+    <int name="ModChatBubbleHyperlinks" value="-1959108" />
+    <boolean name="Hide_contact_picker_section_frequent_chats" value="false" />
+    <boolean name="ModChatLeftBubble_Gactive" value="false" />
+    <int name="ModDarkConPickColorNav" value="-16777216" />
+    <int name="ModChatColor_GCDir" value="2" />
+    <string name="pic_startlocation">1</string>
+    <boolean name="AttBt" value="false" />
+    <boolean name="pic_inside" value="false" />
+    <boolean name="ModDarkConPickColor_Gactive" value="false" />
+    <boolean name="statuschat" value="true" />
+    <int name="ModChatEmojiColor" value="-15239072" />
+    <int name="emojipopup_header" value="-16777216" />
+    <boolean name="emojipopup_icons_Gactive" value="false" />
+    <boolean name="ModDarkConPickColorNav_Gactive" value="false" />
+    <int name="HomeBarText" value="-1" />
+    <int name="ModChatColor" value="-15633583" />
+    <int name="tabadgeBKColor" value="-6218188" />
+    <boolean name="log_show_name_check" value="true" />
+    <boolean name="emojipopup_header_Gactive" value="false" />
+    <boolean name="home_imgBK" value="false" />
+    <boolean name="custom_wall_profilepic" value="false" />
+    <boolean name="Hide_contact_picker_section_other_contacts" value="false" />
+    <int name="ModConPickColor" value="-15633583" />
+    <int name="tabadgeTextColor" value="-1" />
+    <string name="ConvoEntry">7</string>
+    <int name="ModConColor" value="-16777216" />
+    <boolean name="chats_show_contact_online_toast_check" value="false" />
+    <string name="key_story_view">4</string>
+    <string name="tick_style">stockorg</string>
+    <int name="ModConPickColor_GC" value="-15976145" />
+    <boolean name="hide_fab" value="true" />
+    <boolean name="yo_want_nightmode" value="true" />
+    <int name="ModConColor_GCDir" value="2" />
+    <string name="ui_bottom_style">one</string>
+    <boolean name="ModConBackColor_Gactive" value="false" />
+    <boolean name="my_name" value="false" />
+    <int name="pic_chat_size_pickerV2" value="40" />
+    <boolean name="TxtSelect" value="true" />
+    <boolean name="custom_wall" value="false" />
+    <boolean name="ModChatEntry_Gactive" value="false" />
+    <boolean name="elapsed_time" value="false" />
+    <boolean name="ModFabNormalColor_Gactive" value="false" />
+    <boolean name="hide_action_a" value="false" />
+    <boolean name="hide_action_b" value="false" />
+    <boolean name="Audio_ears" value="false" />
+    <int name="ModChatEntry" value="-15724528" />
+    <boolean name="ConvoBack_Gactive" value="false" />
+    <int name="square_photo_ratio_picker" value="100" />
+    <boolean name="group_participants_picV2" value="true" />
+    <boolean name="ModConPickColor_Gactive" value="true" />
+    <string name="HomeEntry">yousef</string>
+    <boolean name="ModChatBubbleHyperlinks_Gactive" value="false" />
+    <boolean name="key_story_elevation" value="false" />
+    <int name="main_text" value="17" />
+    <boolean name="ModChatRightBubble_Gactive" value="false" />
+    <int name="ModConColor_GC" value="-15976145" />
+    <boolean name="ModConColor_Gactive" value="false" />
+    <int name="text_size_pick" value="16" />
+</map>

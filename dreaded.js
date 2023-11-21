@@ -46,7 +46,7 @@ const Heroku = require("heroku-client");
  const herokuapi = process.env.HEROKU_API;
 const gptdm = process.env.GPT_INBOX || 'TRUE';
     const cmd = body.startsWith(prefix);
-const autobio = process.env.AUTOBIO || 'TRUE';
+//const autobio = process.env.AUTOBIO || 'TRUE';
 const botname = process.env.BOTNAME || 'DREADED BOT';
 const antibot = process.env.ANTIBOT || 'TRUE';
   
@@ -229,21 +229,7 @@ if (budy.startsWith('>')) {
    } 
  } 
  
-if (autobio === 'TRUE'){ 
-            setInterval(() => { 
 
-                                 const date = new Date() 
-
-                         client.updateProfileStatus( 
-
-                                         `${botname} is active 24/7\n\n${date.toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })} It's a ${date.toLocaleString('en-US', { weekday: 'long', timeZone: 'Africa/Nairobi'})}.` 
-
-                                 ) 
-
-                         }, 10 * 1000) 
-
-}
- 
 
 
     if (gptdm === 'TRUE' && m.chat.endsWith("@s.whatsapp.net")) {

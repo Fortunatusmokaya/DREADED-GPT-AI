@@ -984,10 +984,11 @@ try {
  if (users  == client.decodeJid(client.user.id)) throw 'Bot cannot remove itself 😡';
  if (users == Owner) { m.reply('Its owner number')}; 
                  await client.groupParticipantsUpdate(m.chat, users, 'remove'); 
+await m.reply('Successfully removed!'); 
 } catch (errr) { 
  await reply("Something is wrong! Did you give me a user to remove?")}
 
-     await m.reply('Successfully removed!'); 
+     
          } 
   
   break;

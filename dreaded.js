@@ -102,6 +102,8 @@ const admin = process.env.ADMIN_MSG || 'Are you an admin?';
     const botAdmin = process.env.BOT_ADMIN_MSG || 'Am I an admin?'
     const NotOwner = process.env.NOT_OWNER_MSG || 'Are you the owner?';
 const wapresence = process.env.WA_PRESENCE || 'recording';
+const antilink = process.env.ANTILINK || 'TRUE';
+const antilinkall = process.env.ANTILINK_ALL || 'TRUE';
 
 const runtime = function (seconds) { 
  seconds = Number(seconds); 
@@ -297,7 +299,7 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
             
         
                                                    }
-    if (body.includes('chat.whatsapp.com') && !Owner && isBotAdmin && !isAdmin && m.isGroup) { 
+    if (antilink === 'TRUE' && body.includes('chat.whatsapp.com') && !Owner && isBotAdmin && !isAdmin && m.isGroup) { 
   
  kid = m.sender; 
   
@@ -310,7 +312,23 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
                    participant: kid 
                 } 
              }).then(() => client.groupParticipantsUpdate(m.chat, [kid], 'remove')); 
- client.sendMessage(m.chat, {text:`Removed\n\n@${kid.split("@")[0]} sending group links is prohibited by Bot Owner!`, contextInfo:{mentionedJid:[kid]}}, {quoted:m}); 
+ client.sendMessage(m.chat, {text:`Removed:\n\n@${kid.split("@")[0]}, sending group links is prohibited by Bot Owner!`, contextInfo:{mentionedJid:[kid]}}, {quoted:m}); 
+       }   
+
+if (antilink === 'TRUE' && antilinkall === 'TRUE' && body.includes('http') && !Owner && isBotAdmin && !isAdmin && m.isGroup) { 
+  
+ ki = m.sender; 
+  
+ client.sendMessage(m.chat, { 
+  
+                delete: { 
+                   remoteJid: m.chat, 
+                   fromMe: false, 
+                   id: m.key.id, 
+                   participant: ki
+                } 
+             }).then(() => client.groupParticipantsUpdate(m.chat, [ki], 'remove')); 
+ client.sendMessage(m.chat, {text:`Removed:\n\n@${ki.split("@")[0]}, sending links is prohibited by Bot Owner!`, contextInfo:{mentionedJid:[ki]}}, {quoted:m}); 
        }   
   
   
@@ -389,8 +407,6 @@ Below is my command list.
 ▮➣Compile-c++
 ▮➣Script
 ▮➣Owner
-▮➣Dreaded
-▮➣Termux
 ▮➣Vars
 ▮➣Mail
 ▮➣Inbox
@@ -504,6 +520,7 @@ reply(resultt1.stderr);
 break;
 
   case 'quotely': {
+try {
 if (!m.quoted.text) throw 'Tag a text';
 let xf = m.quoted.text;
 
@@ -519,6 +536,9 @@ const rel = await quote(xf, pushname, pppuser)
                     packname: pushname,
                     author: `DreadedBot`
                 })
+
+} catch (errr) { 
+ await reply("Tag some text for quotely")}
 
             }
 
@@ -1205,7 +1225,7 @@ function _0x14eb(){const _0x17ec6c=['Audio\x20downloading\x20->','mediaType','st
  break;
 
 case "vars":
-let vaa = `These are all heroku variables for Dreaded Bot:\n\n----REQUIRED VARIABLES----\n\nHEROKU_API\nThis must be fetched and set manually to allow usage of getvar and setvar.\n\nAPP_NAME\nThis is your heroku app name and it MUST be put manually to enable usage of getvar and setvar.\n\nNOT_OWNER_MSG\nMessage bot will send if non-owner uses owner cmd\n\nADMIN_MSG\nMessage sent if admin cmd is used by non-admin\n\nBOT_ADMIN_MSG\nMessage sent if admin cmd is used and bot is not admin\n\nBOTNAME\nName for your bot\n\nGROUP_ONLY_MSG\nMessage bot sends if a group command is used in private chat.\n\nAI\nopenai API key for chatgpt\n\nDEV\nInput a number to be sudo user.Should be in international format without spaces\n\nSTICKER_AUTHOR\nSticker watermarks\n\nSTICKER_AUTHOR\nSticker watermarks\n\nBAD_WORD\nAny words considered bad\n\nMENU_TYPE\nInput either TEXT, LINK, IMAGE or VIDEO\n\n ✓The set of variables below require you to put TRUE or FALSE\n\n----------\n\nAUTOVIEW\nAUTOBIO\nAUTOREAD_AND_TYPE\nAUTOVIEW_STATUS\nBAD_WORD_KICK\nGPT_INBOX\n\nNOTE:\n - TRUE or FALSE must be in capital letters\n -Wrong inputs will make your bot unresponsive.\n - You can add this vars manually or use getvar and setvar commands.\n - To use getvar/setvar, add the first 2 variables manually first (appname and herokuapi)\n\n---------\n\nContact us incase of issues!`
+let vaa = `These are all heroku variables for Dreaded Bot:\n\n----REQUIRED VARIABLES----\n\nHEROKU_API\nThis must be fetched and set manually to allow usage of getvar and setvar.\n\nAPP_NAME\nThis is your heroku app name and it MUST be put manually to enable usage of getvar and setvar.\n\nNOT_OWNER_MSG\nMessage bot will send if non-owner uses owner cmd\n\nADMIN_MSG\nMessage sent if admin cmd is used by non-admin\n\nBOT_ADMIN_MSG\nMessage sent if admin cmd is used and bot is not admin\n\nWA_PRESENCE\nInput either recording or typing.\n\nBOTNAME\nName for your bot\n\nGROUP_ONLY_MSG\nMessage bot sends if a group command is used in private chat.\n\nAI\nopenai API key for chatgpt\n\nDEV\nInput a number to be sudo user.Should be in international format without spaces\n\nSTICKER_AUTHOR\nSticker watermarks\n\nSTICKER_AUTHOR\nSticker watermarks\n\nBAD_WORD\nAny words considered bad\n\nMENU_TYPE\nInput either TEXT, LINK, IMAGE or VIDEO\n\n ✓The set of variables below require you to put TRUE or FALSE\n\n----------\n\nANTILINK\nANTILINK_ALL\nAUTOVIEW\nAUTOBIO\nAUTOREAD\nAUTOVIEW_STATUS\nBAD_WORD_KICK\nGPT_INBOX\n\nNOTE:\n - TRUE or FALSE must be in capital letters\n -Wrong inputs will make your bot unresponsive.\n - You can add this vars manually or use getvar and setvar commands.\n - To use getvar/setvar, add the first 2 variables manually first (appname and herokuapi)\n\n---------\n\nContact us incase of issues!`
 reply(vaa)
 break;
 
@@ -1221,7 +1241,7 @@ case "take": {
   
   if (!/webp/.test(mime)) throw `Tag sticker with caption  ${prefix + command}`;
   if (m.quoted.isAnimated === true) {
-  client.downloadAndSavemediaxMessage(quoted, "gifee");
+  client.downloadAndSavemediaMessage(quoted, "gifee");
   client.sendMessage(m.chat, {sticker:fs.readFileSync("gifee.webp")},{quoted:m});
   } else if (/image/.test(mime)) {
   let mediax = await quoted.download();
@@ -1232,11 +1252,11 @@ case "take": {
 
 } else if (/video/.test(mime)) {
   if ((quoted.msg || quoted).seconds > 11) return m.reply('Not long than 10 seconds!');
-  let mediax = await quoted.download();
-  let encmediax = await client.sendVideoAsSticker(m.chat, mediax, m, { packname: fortunx, author: fortunx });
-  await fs.unlinkSync(encmediax)
+  let mediaxx = await quoted.download();
+  let encmediaxx = await client.sendVideoAsSticker(m.chat, mediaxx, m, { packname: fortunx, author: fortunx });
+  await fs.unlinkSync(encmediaxx)
   } else {
-  reply(`Send a short video with caption ${prefix + command}`);
+  reply(`Send a sticker with caption ${prefix + command}`);
   }
   }
 break;
@@ -1754,19 +1774,11 @@ case "movie":
  break;
  
           case "script": case "repo": case "sc": 
- client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `You can deploy this bot using the github link below!\n\nhttps://github.com/Fortunatusmokaya/DREADED-GPT-AI\n\nYou can link dreaded bot without scanning qr using the pairing method in this repo below:\n\nhttps://github.com/Fortunatusmokaya/DREADED-PAIRING\n\nFork and give us a star ✨.\n\nAre you having difficulties deploying this bot? Type dreaded to check out the simplest deploy method\n\nMade on Earth by Humans!` }, {quoted: m}); 
+ client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `You can deploy this bot using the github link below!\n\nhttps://github.com/Fortunatusmokaya/DREADED-GPT-AI\n\nYou can link dreaded bot without scanning qr using replit in the link below:\n\nhttps://replit.com/@botdreaded/Pairing-Dreaded\n\nFork and give us a star ✨.\n\nAre you having difficulties deploying this bot? Contact us for help\n\nMade on Earth by Humans!` }, {quoted: m}); 
   
  break; 
 
-case "tutorial": case "dreaded": case "hshhs": 
- client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `DEPLOY TUTORIAL\nStep 1 - Linking the bot\n\nLINK1: https://github.com/Fortunatusmokaya/DREADED-GPT-AI\nLINK2: https://github.com/Fortunatusmokaya/DREADED-PAIRING\n\n -On your preferred terminal clone LINK2 using git clone.\n\n -Create directory of the cloned repo using cd DREADED-PAIRING\n\n -Install node modules from package.json using npm install\n\n -Delete session folder and start bot using rm -rf session && node index.js\n\n -You will be prompted to enter the phone number to link and after that the pairing code will be displayed on the terminal.\n\n -Copy and paste it in the "Link with phone number section. Bingo! You will receive a file creds.json in the bots account!\n\n ------Step 2 - Actual deploy-------\n\n -Create a GitHub account and fork the repo in LINK1 above.\n\nUpload the creds.json file to the dreaded1 folder in your fork\n\n -Connect your repo to any affordable cloud host site e.g heroku or panel. You will need to add buildpacks if necessary.\n\nGood luck. Any issues contact owner!\n\nNOTE:\n\n -Frequently sync your fork with the main repo to keep up with necessary changes and modifications.\n - All Heroku Variables For Dreaded can be found in the .env file in the main repo. You can change them using setvar/getvar commands!\n\nGracefully Made on Earth by Humans! 🥀` }, {quoted: m}); 
-  
-break;
-case "termux":
-let termux = `pkg install nodejs\n\npkg install git\n\npkg install ffmpeg\n\ngit clone https://github.com/Fortunatusmokaya/DREADED-PAIRING\n\ncd DREADED-PAIRING\n\nnpm install\n\nrm -rf session && node index.js\n\nEnter number to get corresponding pairing code.`
-let qx = await client.sendMessage(from, {text: termux}, {quoted:m})
-await client.sendMessage(from, {text: 'Copy paste and run this commands line by line on termux to link your account without scanning qr'}, {quoted: qx})
-break;
+
           // OWNER COMMANDS
 
           case 'botpp': { 

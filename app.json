@@ -54,9 +54,62 @@
       "description": "Put a message that the bot will send if a parameter that works in group chats only is violated. Example: This command will work in groups only",
       "required": true
     },
-      "AUTOREAD_AND_TYPE": {
-      "description": "Put here TRUE if you want bot to automatically bluetick messages in private and simulate false typing",
+      "AUTOREAD": {
+      "description": "Put here TRUE if you want bot to automatically bluetick messages in private chats",
       "required": true
+},
+ "AUTOVIEW": {
+      "description": "Input true if you want bot to automatically read status update",
+      "required": false
+},
+ "WA_PRESENCE": {
+      "description": "Input either recording or typing. This enables bot to simulate typing or recording.",
+      "required": false
+},
+ "ANTILINK": {
+      "description": "Input TRUE if you want bot to kick link senders",
+      "required": false
+},
+ "ANTILINK_ALL": {
+      "description": "Input TRUE if you want bot to kick users sending any links.",
+      "required": false
+},
+ "ANTIBOT": {
+      "description": "Input TRUE if you want bot to kick other bots from group",
+      "required": false
+},
+ "WELCOME": {
+      "description": "Input TRUE if you want bot to send welcome message to new members.",
+      "required": false
+},
+ "ANTIFOREIGN": {
+      "description": "Input TRUE if you want bot to kick non-kenyan numbers joining.",
+      "required": false
+},
+ "AUTOBIO": {
+      "description": "Input TRUE if you want bot to autoupdate its about with current time and date.",
+      "required": false
+},
+ "APP_NAME": {
+      "description": "Input your app name that you put above.",
+      "required": true
+},
+ "STICKER_AUTHOR": {
+      "description": "Input sticker data for author",
+      "required": false
+},
+ "STICKER_PACKNAME": {
+      "description": "Input sticker data for packname",
+      "required": false
+},
+ "GPT_INBOX": {
+      "description": "Input TRUE if you want bot to autoreply inbox messages using openai API.",
+      "required": false
+},
+ "MENU_TYPE": {
+      "description": "Input either VIDEO, LINK or IMAGE. This will allow bot to display different dynamic menu types",
+      "required": false
+
     
     
     },

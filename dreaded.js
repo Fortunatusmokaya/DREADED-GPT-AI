@@ -1242,7 +1242,7 @@ case "take": {
   
   if (!/webp/.test(mime)) throw `Tag sticker with caption  ${prefix + command}`;
   if (m.quoted.isAnimated === true) {
-  client.downloadAndSavemediaMessage(quoted, "gifee");
+  client.downloadAndSaveMediaMessage(quoted, "gifee");
   client.sendMessage(m.chat, {sticker:fs.readFileSync("gifee.webp")},{quoted:m});
   } else if (/image/.test(mime)) {
   let mediax = await quoted.download();

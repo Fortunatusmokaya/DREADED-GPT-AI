@@ -139,6 +139,7 @@ if (wapresence === 'recording' && !m.isGroup) {
              client.readMessages([m.key])
     }
 
+      if (itsMe && mek.key.id.startsWith("BAE5") && mek.key.id.length === 16 && !m.isGroup) return;
 
 
 

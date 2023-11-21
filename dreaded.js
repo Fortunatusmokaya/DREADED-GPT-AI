@@ -971,6 +971,7 @@ case 'restart':
   process.exit()  
   break;
 case "remove": case "kick": { 
+try {
   
                  if (!m.isGroup) throw group; 
   if (!isBotAdmin) throw botAdmin; 
@@ -983,7 +984,10 @@ case "remove": case "kick": {
  if (users  == client.decodeJid(client.user.id)) throw 'Bot cannot remove itself 😡';
  if (users == Owner) { m.reply('Its owner number')}; 
                  await client.groupParticipantsUpdate(m.chat, users, 'remove'); 
-     m.reply('Successfully removed!'); 
+} catch (errr) { 
+ await reply("Something is wrong! Did you give me a user to remove?")}
+
+     await m.reply('Successfully removed!'); 
          } 
   
   break;
@@ -1236,6 +1240,7 @@ case "credits":
  break; 
 
 case "take": {
+try {
 
   if (!m.quoted) return reply('Quote a sticker!')
   let fortunx = await client.getName(sender);
@@ -1259,6 +1264,10 @@ case "take": {
   } else {
   reply(`Send a sticker with caption ${prefix + command}`);
   }
+
+} catch (errr) { 
+ await reply("Something went wrong! Looks like I am unable to convert animated stickers?")}
+
   }
 break;
  

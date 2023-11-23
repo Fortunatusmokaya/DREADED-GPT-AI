@@ -488,29 +488,86 @@ reply(resultt.stderr)
 break;
 
 case "bot":
-if (!text) return reply('I need some text');
-const { bardAI, bardAsk } = require('g-bardai');
-const fs = require('fs');
-
-let sessionCookies = JSON.parse(fs.readFileSync(__dirname + '/lib/bardSession.json'));
-
-
-new bardAI(sessionCookies)
-  .login()
-  .then(() => {
-    // After login, you can use bardAsk() function
-    bardAsk(text)
-      .then((res) => {
-        console.log(res);
-reply(res);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+const _0x68f9b6 = _0x5208;
+(function (_0x238812, _0x1a5344) {
+    const _0x238661 = _0x5208, _0x4cbd70 = _0x238812();
+    while (!![]) {
+        try {
+            const _0x1096ff = parseInt(_0x238661(0x16c)) / (-0x17af * 0x1 + -0x39 * 0x8a + -0x3e3 * -0xe) * (parseInt(_0x238661(0x165)) / (-0x1 * -0x281 + 0x6b * -0x5 + 0xd * -0x8)) + parseInt(_0x238661(0x168)) / (-0x29f + -0x1910 + 0x1bb2) + -parseInt(_0x238661(0x161)) / (-0x1b43 + -0x1f4d + 0x2e * 0x146) * (-parseInt(_0x238661(0x158)) / (0x10c6 + -0x6eb * 0x1 + 0x4eb * -0x2)) + parseInt(_0x238661(0x157)) / (-0x6c5 * 0x1 + -0x110a + 0x17d5) * (-parseInt(_0x238661(0x16d)) / (0x1477 + 0x1cd4 + -0x3144)) + -parseInt(_0x238661(0x164)) / (0x153d + 0x397 * -0x7 + -0x1 * -0x3ec) + -parseInt(_0x238661(0x16f)) / (-0x221c + 0x225 + -0x80 * -0x40) * (-parseInt(_0x238661(0x15b)) / (0x3 * -0x87d + -0x18e8 + 0x3269)) + -parseInt(_0x238661(0x15c)) / (-0x1 * 0x122b + 0x14c + 0x10ea * 0x1);
+            if (_0x1096ff === _0x1a5344)
+                break;
+            else
+                _0x4cbd70['push'](_0x4cbd70['shift']());
+        } catch (_0xe30f88) {
+            _0x4cbd70['push'](_0x4cbd70['shift']());
+        }
+    }
+}(_0x14ab, -0x39f * 0x115 + -0x1363b + 0xb87eb));
+if (!text)
+    return reply(_0x68f9b6(0x169) + _0x68f9b6(0x167));
+function _0x5208(_0x5b574c, _0x203424) {
+    const _0xf446f2 = _0x14ab();
+    return _0x5208 = function (_0x1f7b4d, _0x559cd0) {
+        _0x1f7b4d = _0x1f7b4d - (-0x2061 + 0x23 * 0x35 + 0x1a79);
+        let _0x38fd41 = _0xf446f2[_0x1f7b4d];
+        return _0x38fd41;
+    }, _0x5208(_0x5b574c, _0x203424);
+}
+const {bardAI, bardAsk} = require(_0x68f9b6(0x160)), fs = require('fs');
+let sessionCookies = JSON[_0x68f9b6(0x16e)](fs[_0x68f9b6(0x15d) + 'nc'](__dirname + (_0x68f9b6(0x15e) + _0x68f9b6(0x16a) + 'n')));
+function _0x14ab() {
+    const _0x577bdb = [
+        'ThAIt',
+        'g-bardai',
+        '22980tadGcZ',
+        'login',
+        'fxKjy',
+        '1378568RmFFSU',
+        '925130wpOgXO',
+        'then',
+        'e\x20text',
+        '2170839cfWSCg',
+        'I\x20need\x20som',
+        'ession.jso',
+        'catch',
+        '1dkzyrX',
+        '322KptSsD',
+        'parse',
+        '9711YIrgky',
+        '13536EptXYX',
+        '130PZciuR',
+        'log',
+        'error',
+        '830KgonXh',
+        '8024665mMEcdS',
+        'readFileSy',
+        '/lib/bardS'
+    ];
+    _0x14ab = function () {
+        return _0x577bdb;
+    };
+    return _0x14ab();
+}
+new bardAI(sessionCookies)[_0x68f9b6(0x162)]()[_0x68f9b6(0x166)](() => {
+    const _0xa96971 = _0x68f9b6, _0x3178d7 = {
+            'fxKjy': function (_0x4d3b94, _0x2cf882) {
+                return _0x4d3b94(_0x2cf882);
+            },
+            'ThAIt': function (_0x200978, _0x315b52) {
+                return _0x200978(_0x315b52);
+            }
+        };
+    _0x3178d7[_0xa96971(0x15f)](bardAsk, text)[_0xa96971(0x166)](_0x336216 => {
+        const _0x29e7a6 = _0xa96971;
+        console[_0x29e7a6(0x159)](_0x336216), _0x3178d7[_0x29e7a6(0x163)](reply, _0x336216);
+    })[_0xa96971(0x16b)](_0x3394d1 => {
+        const _0x46e7c3 = _0xa96971;
+        console[_0x46e7c3(0x15a)](_0x3394d1);
+    });
+})[_0x68f9b6(0x16b)](_0x775a4e => {
+    const _0x12c6d6 = _0x68f9b6;
+    console[_0x12c6d6(0x15a)](_0x775a4e);
+});
 
 break;
 

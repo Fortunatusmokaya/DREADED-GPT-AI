@@ -487,6 +487,31 @@ reply(resultt.stderr)
 
 break;
 
+case "bot":
+if (!text) return reply('I need some text');
+const { bardAI, bardAsk } = require('g-bardai');
+const fs = require('fs');
+
+let sessionCookies = JSON.parse(fs.readFileSync('/lib/bardSession.json'));
+
+
+new bardAI(sessionCookies)
+  .login()
+  .then(() => {
+    // After login, you can use bardAsk() function
+    bardAsk(text)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+break;
 
 case "compile-js":
 if (!text && !m.quoted) throw 'Quote/tag a Js code to compile.';

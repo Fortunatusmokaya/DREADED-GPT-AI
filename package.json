@@ -25,6 +25,7 @@
       "@whiskeysockets/baileys": "^6.4.0",
      "@adiwajshing/keyed-db": "^0.2.4", 
      "@hapi/boom": "^10.0.0", 
+    "badadvice": "^1.0.0",
                  "aptoide-scraper":"^1.0.1", 
      "awesome-phonenumber": "^2.64.0", 
      "axios": "^1.3.4", 

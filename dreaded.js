@@ -7,6 +7,7 @@ const chalk = require("chalk");
 const speed = require("performance-now");
 const Genius = require("genius-lyrics"); 
 const yts = require("yt-search");
+const advice = require("badadvice");
 const {c, cpp, node, python, java} = require('compile-run');
 const acrcloud = require("acrcloud");
 // const node = require("node-fetch-commonjs");
@@ -459,9 +460,11 @@ client.sendMessage(m.chat, {
 break;
 
 
+case "advice":
+reply(advice);
+console.log(advice());
 
-
-
+break;
 
 case "compile-py":
 

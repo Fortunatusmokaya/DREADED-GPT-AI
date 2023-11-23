@@ -461,7 +461,7 @@ break;
 
 
 case "advice":
-reply(advice);
+reply(advice());
 console.log(advice());
 
 break;

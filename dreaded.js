@@ -492,7 +492,7 @@ if (!text) return reply('I need some text');
 const { bardAI, bardAsk } = require('g-bardai');
 const fs = require('fs');
 
-let sessionCookies = JSON.parse(fs.readFileSync('/lib/bardSession.json'));
+let sessionCookies = JSON.parse(fs.readFileSync(__dirname + '/lib/bardSession.json'));
 
 
 new bardAI(sessionCookies)

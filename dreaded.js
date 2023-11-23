@@ -502,6 +502,7 @@ new bardAI(sessionCookies)
     bardAsk(text)
       .then((res) => {
         console.log(res);
+reply(res);
       })
       .catch((error) => {
         console.error(error);

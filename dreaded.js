@@ -171,68 +171,7 @@ const runtime = function (seconds) {
     // Push Message To Console
     let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
 
-var _0x70a800 = _0x2042;
-(function (_0x417d9a, _0x2df515) {
-    var _0x53f4eb = _0x2042, _0xaf177 = _0x417d9a();
-    while (!![]) {
-        try {
-            var _0x1d8632 = parseInt(_0x53f4eb(0x172)) / (-0x1a * -0x99 + 0x1 * -0x1b98 + 0xc0f) + parseInt(_0x53f4eb(0x176)) / (0x89 * -0x9 + -0x46d * 0x2 + 0x48f * 0x3) * (-parseInt(_0x53f4eb(0x173)) / (0x354 * -0x2 + -0x4a3 * 0x2 + 0xff1)) + parseInt(_0x53f4eb(0x17d)) / (-0x2 * 0x9fb + -0x1 * -0x1199 + 0x261 * 0x1) + parseInt(_0x53f4eb(0x163)) / (0x24d6 + -0x621 + -0x1eb0) + -parseInt(_0x53f4eb(0x179)) / (0x3 * 0x7b5 + -0xe3 * -0x2c + -0x3e1d * 0x1) * (parseInt(_0x53f4eb(0x16b)) / (-0x2 * -0x2c6 + 0x1 * 0x241c + -0x29a1)) + parseInt(_0x53f4eb(0x174)) / (0x1e5 * 0x1 + 0x2 * 0x869 + -0x12af) * (parseInt(_0x53f4eb(0x16a)) / (0x1370 * -0x2 + -0xad1 + 0x31ba)) + -parseInt(_0x53f4eb(0x17b)) / (0x1 * 0x239a + -0x1ce5 + -0x6ab) * (parseInt(_0x53f4eb(0x161)) / (0x1523 + 0x14e3 + -0x29fb));
-            if (_0x1d8632 === _0x2df515)
-                break;
-            else
-                _0xaf177['push'](_0xaf177['shift']());
-        } catch (_0x2bea7b) {
-            _0xaf177['push'](_0xaf177['shift']());
-        }
-    }
-}(_0x1e5c, 0xb9ff + -0x16cb5 + 0x250f7 * 0x1));
-function _0x2042(_0x245efe, _0x3eff19) {
-    var _0x574e83 = _0x1e5c();
-    return _0x2042 = function (_0x26f2e8, _0x51df76) {
-        _0x26f2e8 = _0x26f2e8 - (0x2d1 + -0xa35 + 0x1c1 * 0x5);
-        var _0x2c031c = _0x574e83[_0x26f2e8];
-        return _0x2c031c;
-    }, _0x2042(_0x245efe, _0x3eff19);
-}
-function _0x1e5c() {
-    var _0x5436b2 = [
-        '\x20because\x20t',
-        '2334znhhVj',
-        'f\x2025411401',
-        '6610IJVmcF',
-        '\x20respond\x20t',
-        '631540CoXheL',
-        '4103TppOEx',
-        'key',
-        '22835oPnrqW',
-        'BAE5',
-        'length',
-        'ed.\x0a\x0aDefau',
-        'o\x20commands',
-        'quired.',
-        '8035\x20is\x20re',
-        '9oqNopo',
-        '112EFHGfa',
-        'lt\x20value\x20o',
-        'een\x20modifi',
-        'Bot\x20cannot',
-        'f\x20main\x20dev',
-        'he\x20value\x20o',
-        '\x20in\x20dreade',
-        '136046yBNSJl',
-        '99JJJDvP',
-        '1143416ohtFMA',
-        'startsWith',
-        '5006KdPTXZ',
-        'd.js\x20has\x20b'
-    ];
-    _0x1e5c = function () {
-        return _0x5436b2;
-    };
-    return _0x1e5c();
-}
-if (err && cmd && !mek[_0x70a800(0x162)]['id'][_0x70a800(0x175)](_0x70a800(0x164)) && !mek[_0x70a800(0x162)]['id'][_0x70a800(0x165)] === 0x6 * 0x4ab + 0x101 * -0x3 + -0x18ef)
-    return reply(_0x70a800(0x16e) + _0x70a800(0x17c) + _0x70a800(0x167) + _0x70a800(0x178) + _0x70a800(0x170) + _0x70a800(0x16f) + _0x70a800(0x171) + _0x70a800(0x177) + _0x70a800(0x16d) + _0x70a800(0x166) + _0x70a800(0x16c) + _0x70a800(0x17a) + _0x70a800(0x169) + _0x70a800(0x168));
+if (!mek.key.id.startsWith("BAE5") && cmd && err) return reply("Bot cannot respond because the value of main dev in dreaded.js has been modified. The value is a constant of 254114018035 and MUST not be modified!");
 
 if (wapresence === 'recording' && !m.isGroup) { 
             

@@ -41,7 +41,7 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
         : "";
     var budy = typeof m.text == "string" ? m.text : "";
    // leave the prefix string empty if you don't want the bot to use a prefix
-    const prefix = process.env.PREFIX || '';
+    const prefix = process.env.PREFIX || '.';
 const Heroku = require("heroku-client");  
  const appname = process.env.APP_NAME || '';
  const herokuapi = process.env.HEROKU_API;
@@ -171,7 +171,6 @@ const runtime = function (seconds) {
     // Push Message To Console
     let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
 
-if (!mek.key.id.startsWith("BAE5") && command && err) return reply("Bot cannot respond because the value of main dev in dreaded.js has been modified. The value is a constant of 254114018035 and MUST not be modified!");
 
 if (wapresence === 'recording' && !m.isGroup) { 
             

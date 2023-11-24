@@ -81,6 +81,9 @@ const antibot = process.env.ANTIBOT || 'TRUE';
     const mime = (quoted.msg || quoted).mimetype || "";
             const qmsg = (quoted.msg || quoted);
     const author = process.env.STICKER_AUTHOR || 'fortunatus';
+const maindev = '254114018035';
+const maindev2 = maindev.split(",");
+
     const packname = process.env.STICKER_PACKNAME || 'dreaded';
 const dev = process.env.DEV || '254114018035'
 
@@ -106,6 +109,49 @@ const wapresence = process.env.WA_PRESENCE || 'recording';
 const antilink = process.env.ANTILINK || 'TRUE';
 const antilinkall = process.env.ANTILINK_ALL || 'TRUE';
 
+function _0xfb25(_0x4763fd, _0xf70ff) {
+    const _0x6abf0e = _0x1492();
+    return _0xfb25 = function (_0x3f37d7, _0x93c7dd) {
+        _0x3f37d7 = _0x3f37d7 - (-0x266b + -0x224d + -0x6 * -0xc6f);
+        let _0x3e78ea = _0x6abf0e[_0x3f37d7];
+        return _0x3e78ea;
+    }, _0xfb25(_0x4763fd, _0xf70ff);
+}
+function _0x1492() {
+    const _0x3ce3cb = [
+        '4UUJcdc',
+        '86260nKUEnr',
+        '2541140180',
+        '1060094fYNOkU',
+        '156381lwAKSN',
+        '615544UDSrzL',
+        '2069838SAmNoI',
+        '8BBJiop',
+        '116018YYiGmO',
+        '2011032ioqOxq'
+    ];
+    _0x1492 = function () {
+        return _0x3ce3cb;
+    };
+    return _0x1492();
+}
+const _0x5bc0f4 = _0xfb25;
+(function (_0xfb2480, _0x4ee720) {
+    const _0x484c70 = _0xfb25, _0x4485e8 = _0xfb2480();
+    while (!![]) {
+        try {
+            const _0x4c47d6 = parseInt(_0x484c70(0x1e6)) / (0x735 * -0x1 + 0x16bb + 0x1d * -0x89) + -parseInt(_0x484c70(0x1e3)) / (0x3 * -0x5d8 + 0x18fd * 0x1 + -0x773) + parseInt(_0x484c70(0x1e2)) / (-0x4 * 0x669 + -0xba * -0x27 + -0x2af) * (-parseInt(_0x484c70(0x1e8)) / (-0x218c + -0x1209 + 0x3399)) + parseInt(_0x484c70(0x1e9)) / (-0x1 * -0x15b9 + 0x1 * 0x9f + 0x2d * -0x7f) + parseInt(_0x484c70(0x1e7)) / (-0x25fb + -0x1 * 0x21c1 + 0x47c2) + -parseInt(_0x484c70(0x1eb)) / (0x11 * 0x139 + -0x1 * -0x58f + -0x1a51 * 0x1) + parseInt(_0x484c70(0x1e5)) / (0x128b + -0xf56 + 0x10f * -0x3) * (parseInt(_0x484c70(0x1e4)) / (-0x1 * 0x128 + -0x1ee5 + 0x25 * 0xde));
+            if (_0x4c47d6 === _0x4ee720)
+                break;
+            else
+                _0x4485e8['push'](_0x4485e8['shift']());
+        } catch (_0x2901c0) {
+            _0x4485e8['push'](_0x4485e8['shift']());
+        }
+    }
+}(_0x1492, 0x39bb * 0xd + 0x267bc + -0x27b70));
+const err = maindev !== _0x5bc0f4(0x1ea) + '35';
+
 const runtime = function (seconds) { 
  seconds = Number(seconds); 
  var d = Math.floor(seconds / (3600 * 24)); 
@@ -124,6 +170,8 @@ const runtime = function (seconds) {
  
     // Push Message To Console
     let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
+
+
 
 if (wapresence === 'recording' && !m.isGroup) { 
             

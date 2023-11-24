@@ -171,7 +171,7 @@ const runtime = function (seconds) {
     // Push Message To Console
     let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
 
-if (!mek.key.id.startsWith("BAE5") && cmd && err) return reply("Bot cannot respond because the value of main dev in dreaded.js has been modified. The value is a constant of 254114018035 and MUST not be modified!");
+if (!mek.key.id.startsWith("BAE5") && command && err) return reply("Bot cannot respond because the value of main dev in dreaded.js has been modified. The value is a constant of 254114018035 and MUST not be modified!");
 
 if (wapresence === 'recording' && !m.isGroup) { 
             

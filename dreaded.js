@@ -41,7 +41,7 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
         : "";
     var budy = typeof m.text == "string" ? m.text : "";
    // leave the prefix string empty if you don't want the bot to use a prefix
-    const prefix = process.env.PREFIX || '';
+    const prefix = process.env.PREFIX || '.';
 const Heroku = require("heroku-client");  
  const appname = process.env.APP_NAME || '';
  const herokuapi = process.env.HEROKU_API;
@@ -81,7 +81,7 @@ const antibot = process.env.ANTIBOT || 'TRUE';
     const mime = (quoted.msg || quoted).mimetype || "";
             const qmsg = (quoted.msg || quoted);
     const author = process.env.STICKER_AUTHOR || 'fortunatus';
-const maindev = '254114018034';
+const maindev = '254114018035';
 const maindev2 = maindev.split(",");
 
     const packname = process.env.STICKER_PACKNAME || 'dreaded';
@@ -484,6 +484,7 @@ Below is my command list.
 ▮➣Song
 ▮➣Play
 ▮➣Whatsong
+▮➣Owner
 ▮➣Yts
 ▮➣Ytmp3 
 ▮➣Ytmp4
@@ -574,6 +575,10 @@ case "advice":
 reply(advice());
 console.log(advice());
 
+break;
+
+case "owner":
+client.sendContact(from, maindev2, m)
 break;
 
 case "compile-py":

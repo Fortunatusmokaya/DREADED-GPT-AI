@@ -65,6 +65,25 @@ $ npm install
 $ node index.js
 ```
 
+# Credits
+
+Thanks to...
+
+<div align="center">
+  
+| [![Fortunatus Mokaya](https://github.com/Fortunatusmokaya.png?lenght=50width=50)](https://github.com/Fortunatusmokaya)|
+|----|
+| [ FORTUNATUS MOKAYA ](https://github.com/Fortunatusmokaya) |
+|  Author, Owner, Editor, Maintainer |
+
+
+* [`DikaArdnt`](https://github.com/DikaArdnt) ***For Hisoka Base***
+* [`Adiwajshing`](https://github.com/WhiskeySockets/Baileys) ***Baileys Library***
+* [`WaSocket Discord`](https://discord.gg/WeJM5FP9GG) ***Maintaining the bot libs***
+
+* 
+
+---
 
 Incase of any issues, contact me  [here](https://wa.me/+254114018035) via WhatsApp or [here](mokayafortunatus@gmail.com) via Email.
 

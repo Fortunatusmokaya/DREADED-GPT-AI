@@ -2,6 +2,10 @@
 
 ***This bot is created with the help of NodeJS and uses [Baileys](https://github.com/adiwajshing/Baileys)***
 
+***Disclaimer!!:
+Do not modify, omit or edit the credits given else we can take illegal/legal action! 
+This applies to forks and ctrlCctrlV***
+
 ## FEATURES
 This is a highly customisable simple whatsapp bot with group management features and few media commands and chatgpt courtesy of openai APIs.
 

@@ -73,7 +73,7 @@ Thanks to...
   
 | [![Fortunatus Mokaya](https://github.com/Fortunatusmokaya.png?lenght=50width=50)](https://github.com/Fortunatusmokaya)|
 |----|
-| [ FORTUNATUS MOKAYA ](https://github.com/Fortunatusmokaya) |
+| [ Fortunatus mokaya](https://github.com/Fortunatusmokaya) |
 |  Author, Owner, Editor, Maintainer |
 
 

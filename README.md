@@ -17,7 +17,7 @@
   
 <a href="https://wa.me/254746104266ʜᴇʟʟᴏ+𓅃𝙸𝙰𝙽𝙾 𝙳𝙴 𝚂𝙽𝙸𝙿𝙴𝚁𓅃"><img title="Twitter" src="https://x.com/SniperIano?t=aak4Ce-9-ypmpk_aKdpOCg&s=09?s=09?color=black&style=flat-square"></a>
 <a href="https://github.com/𓅃𝙸𝙰𝙽𝙾 𝙳𝙴 𝚂𝙽𝙸𝙿𝙴𝚁𓅃/Sniper Bot/network/members"><img title="Forks" src="https://img.shields.io/github/fork/De Sniper/SNIPER BOT?color=yellow&style=flat-square"></a>
-<a href="https://github.com/owlai01/SNIPER BOT/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/kimsirm/CROWN-MD?label=Watchers&color=red&style=flat-square"></a>
+<a href="https://github.com/owlai01/SNIPER BOT/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/DE SNIPER/SNIPER BOT-MD?label=Watchers&color=red&style=flat-square"></a>
 <a href="https://github.com/De-Sniper/SNIPER-BOT/"><img title="Size" src="https://img.shields.io/github/repo-size/AlipBot/Api-Alpis?style=flat-square&color=darkred"></a>
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/owlai01/Owl-Ai/%2Fhit-counter&count_bg=%2379C83D&title_bg=%23555555&icon=probot.svg&icon_color=%2304FF00&title=hits&edge_flat=false"/></a>
 <a href="https://github.com/owlai01/SNIPER BOT/graphs/commit-activity"><img height="20" src="https://img.shields.io/badge/Maintained-No-red.svg"></a>&nbsp;&nbsp;

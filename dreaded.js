@@ -48,7 +48,7 @@ const Heroku = require("heroku-client");
 const gptdm = process.env.GPT_INBOX || 'TRUE';
     const cmd = body.startsWith(prefix);
 //const autobio = process.env.AUTOBIO || 'TRUE';
-const botname = process.env.BOTNAME || 'dreaded BOT';
+const botname = process.env.BOTNAME || 'SNIPER BOT';
 const antibot = process.env.ANTIBOT || 'TRUE';
   
     const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();
@@ -80,11 +80,11 @@ const antibot = process.env.ANTIBOT || 'TRUE';
     };
     const mime = (quoted.msg || quoted).mimetype || "";
             const qmsg = (quoted.msg || quoted);
-    const author = process.env.STICKER_AUTHOR || 'fortunatus';
+    const author = process.env.STICKER_AUTHOR || '𓅃ɪᴀɴͥᴏ ᴅᴇ sɴͣɪͫᴘᴇʀ';
 const maindev = '254114018035';
 const maindev2 = maindev.split(",");
 
-    const packname = process.env.STICKER_PACKNAME || 'dreaded';
+    const packname = process.env.STICKER_PACKNAME || 'SNIPER BOT';
 const dev = process.env.DEV || '254114018035'
 
 const menu = process.env.MENU_TYPE || 'VIDEO';
@@ -105,7 +105,7 @@ const admin = process.env.ADMIN_MSG || 'Are you an admin?';
     const group = process.env.GROUP_ONLY_MSG || 'Is this a group chat?';
     const botAdmin = process.env.BOT_ADMIN_MSG || 'Am I an admin?'
     const NotOwner = process.env.NOT_OWNER_MSG || 'Are you the owner?';
-const wapresence = process.env.WA_PRESENCE || 'recording';
+const wapresence = process.env.WA_PRESENCE || 'typing';
 const antilink = process.env.ANTILINK || 'TRUE';
 const antilinkall = process.env.ANTILINK_ALL || 'TRUE';
 
@@ -449,7 +449,7 @@ if (antilink === 'TRUE' && antilinkall === 'TRUE' && body.includes('http') && !O
       switch (command) {
       case "help":
         case "menu":
-let cap = `╭════〘 𝗗𝗥𝗘𝗔𝗗𝗘𝗗 〙═⊷❍
+let cap = `╭════〘 SNIPER BOT 〙═⊷❍
 ┃╭─────────
 ┃✯│𝙐𝙨𝙚𝙧 : ${m.pushName}
 ┃✯│𝙋𝙞𝙣𝙜 :  ${dreadedspeed.toFixed(4)}ms
@@ -539,14 +539,14 @@ let cap = `╭════〘 𝗗𝗥𝗘𝗔𝗗𝗘𝗗 〙═⊷❍
      
     ╰──────────❍
     
-       𝐷𝑟𝑒𝑎𝑑𝑒𝑑 𝐵𝑜𝑡 ★
+       SNIPER 𝐵𝑜𝑡 ★
        
 
 ╰═══════════════⊷❍`;
 if (menu === 'VIDEO') {
 
                    client.sendMessage(m.chat, {
-                        video: fs.readFileSync('./menu.mp4'),
+                        video: fs.readFileSync('./https://i.imgur.com/3CI2NAD.mp4'),
                         caption: cap,
                         gifPlayback: true
                     }, {
@@ -556,16 +556,16 @@ if (menu === 'VIDEO') {
 client.sendMessage(from, { text: cap}, {quoted: m})
 
 } else if (menu === 'IMAGE') {
-client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: cap, fileLength: "9999999999"}, { quoted: m })
+client.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/OmtImrb.jpeg' }, caption: cap, fileLength: "9999999999"}, { quoted: m })
 } else if (menu === 'LINK') {
 client.sendMessage(m.chat, {
                         text: cap,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
-                                title: `DREADED BOT`,
+                                title: `SNIPER BOT`,
                                 body: `A simple WhatsApp bot.`,
-                                thumbnail: fs.readFileSync('./dreaded.jpg'),
+                                thumbnail: fs.readFileSync('./https://i.imgur.com/OmtImrb.jpeg'),
                                 sourceUrl: `https://github.com/Fortunatusmokaya/DREADED-GPT-AI`,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
@@ -1430,13 +1430,13 @@ function _0x14eb(){const _0x17ec6c=['Audio\x20downloading\x20->','mediaType','st
  break;
 
 case "vars":
-let vaa = `These are all heroku variables for Dreaded Bot:\n\n----REQUIRED VARIABLES----\n\nHEROKU_API\nThis must be fetched and set manually to allow usage of getvar and setvar.\n\nAPP_NAME\nThis is your heroku app name and it MUST be put manually to enable usage of getvar and setvar.\n\nNOT_OWNER_MSG\nMessage bot will send if non-owner uses owner cmd\n\nADMIN_MSG\nMessage sent if admin cmd is used by non-admin\n\nBOT_ADMIN_MSG\nMessage sent if admin cmd is used and bot is not admin\n\nWA_PRESENCE\nInput either recording or typing.\n\nBOTNAME\nName for your bot\n\nGROUP_ONLY_MSG\nMessage bot sends if a group command is used in private chat.\n\nAI\nopenai API key for chatgpt\n\nDEV\nInput a number to be sudo user.Should be in international format without spaces\n\nSTICKER_AUTHOR\nSticker watermarks\n\nSTICKER_AUTHOR\nSticker watermarks\n\nBAD_WORD\nAny words considered bad\n\nMENU_TYPE\nInput either TEXT, LINK, IMAGE or VIDEO\n\n ✓The set of variables below require you to put TRUE or FALSE\n\n----------\n\nANTILINK\nANTILINK_ALL\nAUTOVIEW\nAUTOBIO\nAUTOREAD\nAUTOVIEW_STATUS\nBAD_WORD_KICK\nGPT_INBOX\n\nNOTE:\n - TRUE or FALSE must be in capital letters\n -Wrong inputs will make your bot unresponsive.\n - You can add this vars manually or use getvar and setvar commands.\n - To use getvar/setvar, add the first 2 variables manually first (appname and herokuapi)\n\n---------\n\nContact us incase of issues!`
+let vaa = `These are all heroku variables for SNIPER Bot:\n\n----REQUIRED VARIABLES----\n\nHEROKU_API\nThis must be fetched and set manually to allow usage of getvar and setvar.\n\nAPP_NAME\nThis is your heroku app name and it MUST be put manually to enable usage of getvar and setvar.\n\nNOT_OWNER_MSG\nMessage bot will send if non-owner uses owner cmd\n\nADMIN_MSG\nMessage sent if admin cmd is used by non-admin\n\nBOT_ADMIN_MSG\nMessage sent if admin cmd is used and bot is not admin\n\nWA_PRESENCE\nInput either recording or typing.\n\nBOTNAME\nName for your bot\n\nGROUP_ONLY_MSG\nMessage bot sends if a group command is used in private chat.\n\nAI\nopenai API key for chatgpt\n\nDEV\nInput a number to be sudo user.Should be in international format without spaces\n\nSTICKER_AUTHOR\nSticker watermarks\n\nSTICKER_AUTHOR\nSticker watermarks\n\nBAD_WORD\nAny words considered bad\n\nMENU_TYPE\nInput either TEXT, LINK, IMAGE or VIDEO\n\n ✓The set of variables below require you to put TRUE or FALSE\n\n----------\n\nANTILINK\nANTILINK_ALL\nAUTOVIEW\nAUTOBIO\nAUTOREAD\nAUTOVIEW_STATUS\nBAD_WORD_KICK\nGPT_INBOX\n\nNOTE:\n - TRUE or FALSE must be in capital letters\n -Wrong inputs will make your bot unresponsive.\n - You can add this vars manually or use getvar and setvar commands.\n - To use getvar/setvar, add the first 2 variables manually first (appname and herokuapi)\n\n---------\n\nContact us incase of issues!`
 reply(vaa)
 break;
 
 case "credits": 
   
-              client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `We express sincere gratitude and acknowledgement to the following:\n\n -Dika Ardnt ➪ Indonesia\n - Writing the base code using case method\nhttps://github.com/DikaArdnt\n\n -Adiwajshing ➪ India\n - Writing and Coding the bot's library (baileys)\nhttps://github.com/WhiskeySockets/Baileys\n\n -WAWebSockets Discord Server community\n-Maintaining and reverse engineering the Web Sockets\nhttps://discord.gg/WeJM5FP9GG\n\n - Fortunatus Mokaya ➪ Kenya\n - Actively compiling and debugging parts of this bot script\nhttps://github.com/Fortunatusmokaya\n\n𝐷𝑟𝑒𝑎𝑑𝑒𝑑 𝐵𝑜𝑡 シ︎`}); 
+              client.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/OmtImrb.jpeg' }, caption: `We express sincere gratitude and acknowledgement to the following:\n\n -Dika Ardnt ➪ Indonesia\n - Writing the base code using case method\nhttps://github.com/DikaArdnt\n\n -Adiwajshing ➪ India\n - Writing and Coding the bot's library (baileys)\nhttps://github.com/WhiskeySockets/Baileys\n\n -WAWebSockets Discord Server community\n-Maintaining and reverse engineering the Web Sockets\nhttps://discord.gg/WeJM5FP9GG\n\n - Fortunatus Mokaya ➪ Kenya\n - Actively compiling and debugging parts of this bot script\nhttps://github.com/DE SNIPER\n\nSNIPER 𝐵𝑜𝑡 シ︎`}); 
  break; 
 
 case "take": {
@@ -1842,7 +1842,7 @@ case "ping": case "speed": {
 
 case "alive": { 
   
- client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d6dab955fbaa42fce2280.jpg' }, caption: `Hello ${m.pushName}, Dreaded is active\n\nActive for:  ${runtime(process.uptime())}\n\nType ${prefix}help.\n\nYou can also interact with our online chatbot built with html and JavaScript with API integration.\n\nLink is given below:\n\nhttps://quantumlab.ru.eu.org/`, fileLength: "9999999999898989899999999" }, { quoted: m }); 
+ client.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/OmtImrb.jpeg' }, caption: `Hello ${m.pushName}, SNIPER BOT is active\n\nActive for:  ${runtime(process.uptime())}\n\nType ${prefix}help.\n\nYou can also interact with our online chatbot built with html and JavaScript with API integration.\n\nLink is given below:\n\nhttps://quantumlab.ru.eu.org/`, fileLength: "9999999999898989899999999" }, { quoted: m }); 
  }
 break;
 case 'apk': {
@@ -1984,7 +1984,7 @@ case "movie":
  break;
  
           case "script": case "repo": case "sc": 
- client.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/c75efecf7f0aef851fc02.jpg' }, caption: `You can deploy this bot using the github link below!\nFork and give us a star ✨.\n\nhttps://github.com/Fortunatusmokaya/DREADED-GPT-AI\n\nYou can link dreaded bot without scanning qr using replit in the link below:\n\nhttps://replit.com/@botdreaded/Pairing-Dreaded\n\nFor deployment using heroku, fork the repo and use this link whilst replacing your-user-name and fork-name with actual details\nhttps://heroku.com/deploy?template=https://github.com/your-user-name/fork-name\n\nAre you having difficulties deploying this bot? Contact us for help!\n\nMade on Earth by Humans!` }, {quoted: m}); 
+ client.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/OmtImrb.jpeg' }, caption: `You can deploy this bot using the github link below!\nFork and give us a star ✨.\n\nhttps://github.com/De-Sniper/SNIPER-BOT\n\nYou can link dreaded bot without scanning qr using replit in the link below:\n\nhttps://replit.com/@De-Sniper/Pairing-SNIPER-BOT\n\nFor deployment using heroku, fork the repo and use this link whilst replacing your-user-name and fork-name with actual details\nhttps://heroku.com/deploy?template=https://github.com/your-user-name/fork-name\n\nAre you having difficulties deploying this bot? Contact us for help!\n\nMade on Earth by Humans!` }, {quoted: m}); 
   
  break; 
 
@@ -2018,10 +2018,11 @@ case "movie":
          let res = groups.map(v => v.id) 
          reply(` Broadcasting in ${res.length} Group Chat, in ${res.length * 1.5} seconds`) 
          for (let i of res) { 
-             let txt = `</ Dreaded Broadcast >\n\n🀄 Message: ${text}\n\nAuthor: ${pushname}` 
+             let txt = `</ SNIPER Broadcast >\n\n🀄 Message: ${text}\n\nAuthor: 𓅃ɪᴀɴͥᴏ ᴅᴇ sɴͣɪͫᴘᴇʀ𓅃
+` 
              await client.sendMessage(i, { 
                  image: { 
-                     url: "https://telegra.ph/file/c75efecf7f0aef851fc02.jpg" 
+                     url: "https://i.imgur.com/OmtImrb.jpeg" 
                  }, 
                  caption: `${txt}` 
              }) 

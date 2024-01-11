@@ -41,7 +41,7 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
         : "";
     var budy = typeof m.text == "string" ? m.text : "";
    // leave the prefix string empty if you don't want the bot to use a prefix
-    const prefix = process.env.PREFIX || '.';
+    const prefix = process.env.PREFIX || '';
 const Heroku = require("heroku-client");  
  const appname = process.env.APP_NAME || '';
  const herokuapi = process.env.HEROKU_API;
@@ -587,7 +587,7 @@ console.log(advice());
 break;
 
 case "owner":
-client.sendContact(from, maindev2, m)
+client.sendContact(254746104266)
 break;
 
 case "compile-py":
@@ -734,7 +734,7 @@ const rel = await quote(xf, pushname, pppuser)
                 
                 client.sendImageAsSticker(m.chat, rel.result, m, {
                     packname: pushname,
-                    author: `DreadedBot`
+                    author: `SniperBot`
                 })
 
 } catch (errr) { 
@@ -885,7 +885,7 @@ function _0x40c6() {
         '27989tCQoID',
         '168765oAXpMe',
         'ate',
-        '𝐷readed\x20ha',
+        'Sniper Bot\x20ha',
         '422RQjzbp',
         '\x20removed!',
         'No\x20virtual',
@@ -1984,7 +1984,7 @@ case "movie":
  break;
  
           case "script": case "repo": case "sc": 
- client.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/OmtImrb.jpeg' }, caption: `You can deploy this bot using the github link below!\nFork and give us a star ✨.\n\nhttps://github.com/De-Sniper/SNIPER-BOT\n\nYou can link dreaded bot without scanning qr using replit in the link below:\n\nhttps://replit.com/@De-Sniper/Pairing-SNIPER-BOT\n\nFor deployment using heroku, fork the repo and use this link whilst replacing your-user-name and fork-name with actual details\nhttps://heroku.com/deploy?template=https://github.com/your-user-name/fork-name\n\nAre you having difficulties deploying this bot? Contact us for help!\n\nMade on Earth by Humans!` }, {quoted: m}); 
+ client.sendMessage(m.chat, { image: { url: 'https://i.imgur.com/OmtImrb.jpeg' }, caption: `You can deploy this bot using the github link below!\nFork and give us a star ✨.\n\nhttps://github.com/De-Sniper/SNIPER-BOT\n\nYou can link dreaded bot without scanning qr using replit in the link below:\n\nhttps://replit.com/@De-Sniper/Pairing-SNIPER-BOT\n\nFor deployment using heroku, fork the repo and use this link whilst replacing your-user-name and fork-name with actual details\nhttps://heroku.com/deploy?template=https://github.com/your-user-name/fork-name\n\nAre you having difficulties deploying this bot? Contact us for help!\n\nMade on Earth by Iano!` }, {quoted: m}); 
   
  break; 
 

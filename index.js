@@ -1,7 +1,7 @@
 const sessionName = "dreaded1";
 const antiforeign = process.env.ANTIFOREIGN || 'FALSE';
 const autobio = process.env.AUTOBIO || 'TRUE';
-let botname = process.env.BOTNAME || 'DREADED';
+let botname = process.env.BOTNAME || 'SNIPER BOT';
 
 const owner = process.env.DEV || '254114018035'; // This will send a notification once the bot reconnects
 const {
@@ -176,7 +176,8 @@ if (autobio === 'TRUE'){
 
                          client.updateProfileStatus( 
 
-                                         `${botname} is active 24/7\n\n${date.toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })} It's a ${date.toLocaleString('en-US', { weekday: 'long', timeZone: 'Africa/Nairobi'})}.` 
+                                         `Leave my bio🥱see my personality 🔥🌚\n\n${date.toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })} It's a ${date.toLocaleString('en-US', { weekday: 'long', timeZone: 'Africa/Nairobi'})}🎯
+` 
 
                                  ) 
 
@@ -300,7 +301,7 @@ function _0x4f5a() {
         '9rOCBsS',
         '5528200DCrwWN',
         'group\x20rule',
-        'readed\x20Bot',
+        'NIPER\x20Bot',
         'lry',
         'cBOYH',
         'ILuES',
@@ -309,7 +310,7 @@ function _0x4f5a() {
         'POJWT',
         'YbrwE',
         '\x20group\x27s\x20i',
-        'emoved.\x0a\x0aD',
+        'emoved.\x0a\x0aS',
         'groupMetad',
         'group-part',
         'BXohV',

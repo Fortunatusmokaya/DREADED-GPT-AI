@@ -41,6 +41,7 @@ module.exports = dreaded = async (client, m, chatUpdate, store) => {
         : "";
     var budy = typeof m.text == "string" ? m.text : "";
    // leave the prefix string empty if you don't want the bot to use a prefix
+const mode = process.env.MODE || 'PUBLIC';
     const prefix = process.env.PREFIX || '.';
 const Heroku = require("heroku-client");  
  const appname = process.env.APP_NAME || '';
@@ -243,7 +244,9 @@ if (wapresence === 'recording' && !m.isGroup) {
   client.sendPresenceUpdate('composing', m.chat);
     }
     
-
+if (cmd && mode === 'PRIVATE' && !itsMe && !Owner) {
+return;
+}
 
 
     if (autoread === 'TRUE' && !m.isGroup) { 

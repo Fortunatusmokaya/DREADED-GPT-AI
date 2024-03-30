@@ -1,6 +1,6 @@
 
 ## NOTE
-***THIS REPO IS NO LONGER GETTING ANY MAJOR UPDATES, CHECK OUT THE LATEST AND UPDATED VERSION  [HERE](https://www.github.com/Fortunatusmokaya/dreaded-md)***
+***```THIS REPO IS NOT RECEIVING MAJOR UPDATES ANYMORE, CHECK OUT THE LATEST AND UPDATED VERSION  [HERE]```(https://www.github.com/Fortunatusmokaya/dreaded-md)***
 
 
 

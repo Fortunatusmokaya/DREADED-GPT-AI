@@ -1,3 +1,10 @@
+
+## NOTE
+```***THIS REPO IS NO LONGER GETTING ANY MAJOR UPDATES, CHECK OUT THE LATEST AND UPDATED VERSION  [HERE](https://www.github.com/Fortunatusmokaya/dreaded-md)***```
+
+
+
+
 # DREADED-BOT
 
 ***This bot is created with the help of NodeJS and uses [Baileys](https://github.com/adiwajshing/Baileys)***

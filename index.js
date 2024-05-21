@@ -165,6 +165,7 @@ async function startHisoka() {
     logger: pino({ level: "silent" }),
     printQRInTerminal: true,
     browser: ["CHATGPT - DREADED", "Safari", "5.1.7"],
+version: [2, 2413, 1],
     auth: state,
 syncFullHistory: true,
   });

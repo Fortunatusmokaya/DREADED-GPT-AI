@@ -1,5 +1,5 @@
 {
-  "name": "DREADED BOT",
+  "name": "RHODVICK BOT",
   "description": "This is a simple whatsapp bot built with nodejs and baileys with MD support.",
   "keywords": [
     "bot",
@@ -16,11 +16,11 @@
   ],
   "website": "https://github.com/Fortunatusmokaya/DREADED-GPT-AI#readme",
   "repository": "https://github.com/Fortunatusmokaya/DREADED-GPT-AI.git",
-  "logo": "https://telegra.ph/file/d6dab955fbaa42fce2280.jpg",
+  "logo": "https://telegra.ph/file/25b60ba1474cffb21969c.jpg",
   "success_url": "/",
   "env": {
     "PREFIX": {
-      "description": "Prefix of dreaded bot Ex: . , / , # , & etc. Put any symbol",
+      "description": "Prefix  dreaded bot Ex: . , / , # , & etc. Put any symbol",
       "required": true
 
     },
